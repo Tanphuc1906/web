@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập / Đăng Ký | SD'bike</title>
+    <meta name="description" content="Đăng nhập hoặc tạo tài khoản SD'bike để mua sắm xe đạp chính hãng.">
+    <link rel="icon" href="images/logo.png">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ── PAGE LAYOUT ── */
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #0a0e14;
+            font-family: 'VerdanaPrimer', Arial, Helvetica, sans-serif;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* particles layer tái sử dụng từ style.css */
+        .particles { z-index: 0; }
+
+        /* ── BACK LINK ── */
+        .back-link {
+            position: fixed;
+            top: 20px;
+            left: 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+            text-decoration: none;
+            z-index: 10;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: #00f0ff; }
+
+        /* ── AUTH CARD ── */
+        .auth-page-wrap {
+            position: relative;
+            z-index: 5;
+            width: 100%;
+            max-width: 460px;
+            padding: 20px 16px;
+        }
+
+        .auth-card {
+            background: rgba(21, 27, 38, 0.85);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(0, 240, 255, 0.15);
+            border-radius: 20px;
+            padding: 40px 36px 36px;
+            box-shadow:
+                0 0 0 1px rgba(0, 240, 255, 0.05),
+                0 24px 60px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255,255,255,0.05);
+        }
+
+        /* Logo trên card */
+        .auth-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 28px;
+        }
+        .auth-logo i {
+            font-size: 2rem;
+            color: #00f0ff;
+            filter: drop-shadow(0 0 8px rgba(0,240,255,0.6));
+        }
+        .auth-logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 0.03em;
+        }
+        .auth-logo-text span { color: #00f0ff; }
+
+        /* ── TABS ── */
+        .auth-tabs {
+            display: flex;
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            padding: 4px;
+            margin-bottom: 28px;
+            border: 1px solid rgba(0,240,255,0.1);
+        }
+        .auth-tab {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 8px;
+            color: rgba(255,255,255,0.45);
+            transition: all 0.25s;
+            user-select: none;
+            border: none;
+            background: none;
+            font-family: inherit;
+        }
+        .auth-tab.active {
+            background: rgba(0, 240, 255, 0.12);
+            color: #00f0ff;
+            box-shadow: 0 0 12px rgba(0,240,255,0.15);
+        }
+
+        /* ── FORM PANELS ── */
+        .auth-panel { display: none; }
+        .auth-panel.active { display: block; }
+
+        .auth-subtitle-page {
+            color: rgba(255,255,255,0.45);
+            font-size: 0.88rem;
+            margin-bottom: 22px;
+            text-align: center;
+        }
+
+        /* Form group override cho trang này */
+        .auth-card .form-group label {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.82rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+
+        .auth-card .form-group input,
+        .auth-card .form-group select {
+            background: rgba(0,0,0,0.35);
+            border: 1px solid rgba(0,240,255,0.15);
+            color: #f0f6fc;
+            border-radius: 10px;
+            padding: 11px 14px;
+            font-size: 0.95rem;
+            width: 100%;
+            outline: none;
+            font-family: inherit;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .auth-card .form-group input:focus,
+        .auth-card .form-group select:focus {
+            border-color: #00f0ff;
+            box-shadow: 0 0 0 3px rgba(0,240,255,0.12);
+        }
+        .auth-card .form-group input::placeholder { color: rgba(255,255,255,0.25); }
+
+        /* input với icon */
+        .input-icon-wrap {
+            position: relative;
+        }
+        .input-icon-wrap i {
+            position: absolute;
+            left: 13px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(0,240,255,0.5);
+            font-size: 1rem;
+            pointer-events: none;
+        }
+        .input-icon-wrap input { padding-left: 38px !important; }
+
+        /* Toggle password visibility */
+        .input-eye {
+            position: absolute;
+            right: 13px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255,255,255,0.35);
+            cursor: pointer;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+        .input-eye:hover { color: #00f0ff; }
+
+        /* ── SUBMIT BUTTON ── */
+        .btn-auth-submit {
+            width: 100%;
+            padding: 13px;
+            background: linear-gradient(135deg, #00f0ff 0%, #00b8c8 100%);
+            color: #0a0e14;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: inherit;
+            letter-spacing: 0.05em;
+            margin-top: 6px;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .btn-auth-submit:hover {
+            background: linear-gradient(135deg, #33f4ff, #00d8ea);
+            box-shadow: 0 0 20px rgba(0,240,255,0.35);
+            transform: translateY(-1px);
+        }
+        .btn-auth-submit:active { transform: translateY(0); }
+
+        /* ── DIVIDER ── */
+        .divider-or {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 20px 0;
+            color: rgba(255,255,255,0.25);
+            font-size: 0.82rem;
+        }
+        .divider-or::before,
+        .divider-or::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* ── SOCIAL BUTTONS ── */
+        .social-row { display: flex; gap: 10px; }
+        .btn-social {
+            flex: 1;
+            padding: 10px 12px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 10px;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.88rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+        .btn-social:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.25);
+            color: #fff;
+        }
+        .icon-facebook { color: #1877f2; }
+        .icon-google { color: #ea4335; }
+
+        /* ── SWITCH TEXT ── */
+        .switch-text {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.4);
+        }
+        .switch-text a {
+            color: #00f0ff;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .switch-text a:hover { text-decoration: underline; }
+
+        /* ── TOAST ── */
+        .auth-toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: rgba(0,240,255,0.12);
+            border: 1px solid rgba(0,240,255,0.3);
+            color: #00f0ff;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: all 0.35s;
+            pointer-events: none;
+            z-index: 999;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .auth-toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* ── ERROR ── */
+        .field-error {
+            color: #ff5555;
+            font-size: 0.78rem;
+            margin-top: 5px;
+            display: none;
+        }
+        .field-error.show { display: block; }
+
+        /* ── STRENGTH BAR ── */
+        .strength-bar-wrap {
+            margin-top: 6px;
+            display: flex;
+            gap: 4px;
+        }
+        .strength-seg {
+            flex: 1;
+            height: 3px;
+            border-radius: 2px;
+            background: rgba(255,255,255,0.1);
+            transition: background 0.3s;
+        }
+        .strength-label {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.35);
+            margin-top: 4px;
+        }
+
+        /* Grid nền */
+        .cyber-grid {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(0,240,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,240,255,0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        @media (max-width: 500px) {
+            .auth-card { padding: 28px 20px 24px; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Nền lấp lánh -->
+    <div class="particles"></div>
+    <div class="cyber-grid"></div>
+
+    <!-- Nút quay lại -->
+    <a href="trang-chu.html" class="back-link">
+        <i class="ph ph-arrow-left"></i> Quay lại cửa hàng
+    </a>
+
+    <div class="auth-page-wrap">
+        <!-- Logo -->
+        <div class="auth-logo">
+            <i class="ph-fill ph-bicycle"></i>
+            <div class="auth-logo-text">SD<span>'bike</span></div>
+        </div>
+
+        <div class="auth-card">
+            <!-- Tabs -->
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="tabLogin" onclick="switchTab('login')">
+                    <i class="ph ph-sign-in"></i> Đăng Nhập
+                </button>
+                <button class="auth-tab" id="tabRegister" onclick="switchTab('register')">
+                    <i class="ph ph-user-plus"></i> Đăng Ký
+                </button>
+            </div>
+
+            <!-- ── PANEL ĐĂNG NHẬP ── -->
+            <div class="auth-panel active" id="panelLogin">
+                <p class="auth-subtitle-page">Chào mừng bạn trở lại! 👋</p>
+
+                <div class="form-group">
+                    <label>Tên đăng nhập</label>
+                    <div class="input-icon-wrap">
+                        <i class="ph ph-user"></i>
+                        <input type="text" id="loginUser" placeholder="Nhập tên đăng nhập" autocomplete="username">
+                    </div>
+                    <div class="field-error" id="loginUserErr">Vui lòng nhập tên đăng nhập</div>
+                </div>
+
+                <div class="form-group">
+                    <label>Mật khẩu</label>
+                    <div class="input-icon-wrap">
+                        <i class="ph ph-lock"></i>
+                        <input type="password" id="loginPass" placeholder="Nhập mật khẩu" autocomplete="current-password">
+                        <i class="ph ph-eye input-eye" id="toggleLoginPass"></i>
+                    </div>
+                    <div class="field-error" id="loginPassErr">Vui lòng nhập mật khẩu</div>
+                </div>
+
+                <button class="btn-auth-submit" id="btnLogin">
+                    <i class="ph-bold ph-sign-in"></i> ĐĂNG NHẬP
+                </button>
+
+                <div class="divider-or">Hoặc đăng nhập bằng</div>
+
+                <div class="social-row">
+                    <button class="btn-social" id="btnFacebook">
+                        <i class="ph-fill ph-facebook-logo icon-facebook"></i> Facebook
+                    </button>
+                    <button class="btn-social" id="btnGoogle">
+                        <i class="ph-fill ph-google-logo icon-google"></i> Google
+                    </button>
+                </div>
+
+                <p class="switch-text">
+                    Chưa có tài khoản? <a onclick="switchTab('register')">Đăng ký ngay</a>
+                </p>
+            </div>
+
+            <!-- ── PANEL ĐĂNG KÝ ── -->
+            <div class="auth-panel" id="panelRegister">
+                <p class="auth-subtitle-page">Tạo tài khoản miễn phí ngay! 🚴</p>
+
+                <div class="form-group">
+                    <label>Tên đăng nhập</label>
+                    <div class="input-icon-wrap">
+                        <i class="ph ph-user"></i>
+                        <input type="text" id="regUser" placeholder="Tối thiểu 4 ký tự" autocomplete="username">
+                    </div>
+                    <div class="field-error" id="regUserErr"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>Số điện thoại</label>
+                    <div class="input-icon-wrap">
+                        <i class="ph ph-phone"></i>
+                        <input type="tel" id="regPhone" placeholder="Ví dụ: 0901234567">
+                    </div>
+                    <div class="field-error" id="regPhoneErr"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>Mật khẩu</label>
+                    <div class="input-icon-wrap">
+                        <i class="ph ph-lock"></i>
+                        <input type="password" id="regPass" placeholder="Tối thiểu 6 ký tự" autocomplete="new-password">
+                        <i class="ph ph-eye input-eye" id="toggleRegPass"></i>
+                    </div>
+                    <div class="strength-bar-wrap">
+                        <div class="strength-seg" id="seg1"></div>
+                        <div class="strength-seg" id="seg2"></div>
+                        <div class="strength-seg" id="seg3"></div>
+                        <div class="strength-seg" id="seg4"></div>
+                    </div>
+                    <div class="strength-label" id="strengthLabel"></div>
+                    <div class="field-error" id="regPassErr"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>Xác nhận mật khẩu</label>
+                    <div class="input-icon-wrap">
+                        <i class="ph ph-lock-key"></i>
+                        <input type="password" id="regConfirm" placeholder="Nhập lại mật khẩu" autocomplete="new-password">
+                        <i class="ph ph-eye input-eye" id="toggleRegConfirm"></i>
+                    </div>
+                    <div class="field-error" id="regConfirmErr"></div>
+                </div>
+
+                <button class="btn-auth-submit" id="btnRegister">
+                    <i class="ph-bold ph-user-plus"></i> TẠO TÀI KHOẢN
+                </button>
+
+                <p class="switch-text">
+                    Đã có tài khoản? <a onclick="switchTab('login')">Đăng nhập</a>
+                </p>
+            </div>
+        </div><!-- /.auth-card -->
+    </div><!-- /.auth-page-wrap -->
+
+    <!-- Toast -->
+    <div class="auth-toast" id="authToast"></div>
+
+    <script>
+        // ── Helpers ──────────────────────────────────────────────────
+        const $ = id => document.getElementById(id);
+        let usersDb = JSON.parse(localStorage.getItem('sdb_users') || '[]');
+
+        function showToast(msg, isError = false) {
+            const t = $('authToast');
+            t.innerHTML = `<i class="ph-fill ph-${isError ? 'warning-circle' : 'check-circle'}" style="color:${isError ? '#ff5555' : '#00f0ff'}"></i> ${msg}`;
+            t.style.borderColor = isError ? 'rgba(255,85,85,0.35)' : 'rgba(0,240,255,0.3)';
+            t.style.color = isError ? '#ff5555' : '#00f0ff';
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 2800);
+        }
+
+        function setErr(id, msg) {
+            const el = $(id);
+            el.textContent = msg;
+            el.classList.toggle('show', !!msg);
+        }
+
+        // ── Tabs ─────────────────────────────────────────────────────
+        function switchTab(tab) {
+            $('tabLogin').classList.toggle('active', tab === 'login');
+            $('tabRegister').classList.toggle('active', tab === 'register');
+            $('panelLogin').classList.toggle('active', tab === 'login');
+            $('panelRegister').classList.toggle('active', tab === 'register');
+            // clear errors
+            ['loginUserErr','loginPassErr','regUserErr','regPhoneErr','regPassErr','regConfirmErr']
+                .forEach(id => setErr(id, ''));
+        }
+
+        // ── Toggle password visibility ────────────────────────────────
+        function togglePass(inputId, iconId) {
+            const inp = $(inputId), ico = $(iconId);
+            const isPass = inp.type === 'password';
+            inp.type = isPass ? 'text' : 'password';
+            ico.className = `ph ph-eye${isPass ? '-slash' : ''} input-eye`;
+        }
+        $('toggleLoginPass').onclick   = () => togglePass('loginPass', 'toggleLoginPass');
+        $('toggleRegPass').onclick     = () => togglePass('regPass', 'toggleRegPass');
+        $('toggleRegConfirm').onclick  = () => togglePass('regConfirm', 'toggleRegConfirm');
+
+        // ── Password strength ─────────────────────────────────────────
+        $('regPass').addEventListener('input', () => {
+            const v = $('regPass').value;
+            let score = 0;
+            if (v.length >= 6) score++;
+            if (v.length >= 10) score++;
+            if (/[A-Z]/.test(v) || /[0-9]/.test(v)) score++;
+            if (/[^A-Za-z0-9]/.test(v)) score++;
+
+            const colors = ['#ff5555', '#ffaa44', '#00d4aa', '#00f0ff'];
+            const labels = ['Yếu', 'Trung bình', 'Mạnh', 'Rất mạnh'];
+            [1,2,3,4].forEach(i => {
+                $('seg'+i).style.background = i <= score ? colors[score-1] : 'rgba(255,255,255,0.1)';
+            });
+            $('strengthLabel').textContent = v ? labels[score-1] || '' : '';
+            $('strengthLabel').style.color = score > 0 ? colors[score-1] : '';
+        });
+
+        // ── ĐĂNG NHẬP ────────────────────────────────────────────────
+        $('btnLogin').onclick = () => {
+            const u = $('loginUser').value.trim();
+            const p = $('loginPass').value.trim();
+            let ok = true;
+
+            if (!u) { setErr('loginUserErr', 'Vui lòng nhập tên đăng nhập'); ok = false; }
+            else setErr('loginUserErr', '');
+            if (!p) { setErr('loginPassErr', 'Vui lòng nhập mật khẩu'); ok = false; }
+            else setErr('loginPassErr', '');
+            if (!ok) return;
+
+            const found = usersDb.find(x => x.username === u && x.password === p && (!x.provider || x.provider === 'local'));
+            if (found) {
+                localStorage.setItem('sdb_user', JSON.stringify(found));
+                showToast(`Chào mừng ${found.name || found.username}! Đang chuyển hướng...`);
+                setTimeout(() => { window.location.href = 'trang-chu.html'; }, 1400);
+            } else {
+                showToast('Sai tên đăng nhập hoặc mật khẩu!', true);
+            }
+        };
+
+        // ── ĐĂNG KÝ ──────────────────────────────────────────────────
+        $('btnRegister').onclick = () => {
+            const u    = $('regUser').value.trim();
+            const ph   = $('regPhone').value.trim();
+            const p    = $('regPass').value.trim();
+            const cp   = $('regConfirm').value.trim();
+            let ok = true;
+
+            if (u.length < 4) { setErr('regUserErr', 'Tên đăng nhập phải có ít nhất 4 ký tự'); ok = false; }
+            else if (usersDb.find(x => x.username === u && (!x.provider || x.provider === 'local'))) {
+                setErr('regUserErr', 'Tên này đã được sử dụng'); ok = false;
+            } else setErr('regUserErr', '');
+
+            if (!/^(0[3|5|7|8|9])\d{8}$/.test(ph)) { setErr('regPhoneErr', 'Số điện thoại không hợp lệ'); ok = false; }
+            else setErr('regPhoneErr', '');
+
+            if (p.length < 6) { setErr('regPassErr', 'Mật khẩu phải có ít nhất 6 ký tự'); ok = false; }
+            else setErr('regPassErr', '');
+
+            if (cp !== p) { setErr('regConfirmErr', 'Mật khẩu xác nhận không khớp'); ok = false; }
+            else setErr('regConfirmErr', '');
+
+            if (!ok) return;
+
+            const newUser = {
+                id: 'local_' + Date.now(),
+                username: u, password: p,
+                phone: ph, provider: 'local',
+                socialId: null, name: u
+            };
+            usersDb.push(newUser);
+            localStorage.setItem('sdb_users', JSON.stringify(usersDb));
+            localStorage.setItem('sdb_user', JSON.stringify(newUser));
+            showToast(`Tạo tài khoản thành công! Đang chuyển hướng...`);
+            setTimeout(() => { window.location.href = 'trang-chu.html'; }, 1400);
+        };
+
+        // ── ĐĂNG NHẬP SOCIAL ──────────────────────────────────────────
+        function handleSocial(provider) {
+            let found = usersDb.find(x => x.provider === provider);
+            if (!found) {
+                found = {
+                    id: 'social_' + Date.now(),
+                    username: provider + '_' + Math.floor(Math.random()*1000),
+                    password: '', phone: '', provider,
+                    socialId: provider.toUpperCase() + '-' + Math.floor(Math.random()*100000),
+                    name: provider === 'google' ? 'Google User' : 'Facebook User'
+                };
+                usersDb.push(found);
+                localStorage.setItem('sdb_users', JSON.stringify(usersDb));
+            }
+            localStorage.setItem('sdb_user', JSON.stringify(found));
+            showToast(`Đăng nhập ${provider} thành công!`);
+            setTimeout(() => { window.location.href = 'trang-chu.html'; }, 1400);
+        }
+        $('btnFacebook').onclick = () => handleSocial('facebook');
+        $('btnGoogle').onclick   = () => handleSocial('google');
+
+        // ── Enter để submit ────────────────────────────────────────────
+        ['loginUser','loginPass'].forEach(id => {
+            $(id).addEventListener('keydown', e => { if (e.key === 'Enter') $('btnLogin').click(); });
+        });
+        ['regUser','regPhone','regPass','regConfirm'].forEach(id => {
+            $(id).addEventListener('keydown', e => { if (e.key === 'Enter') $('btnRegister').click(); });
+        });
+
+        // ── Tự động redirect nếu đã đăng nhập ─────────────────────────
+        // (bỏ comment nếu muốn bỏ qua trang login khi đã đăng nhập)
+        // if (localStorage.getItem('sdb_user')) window.location.href = 'trang-chu.html';
+    </script>
+</body>
+
+</html>

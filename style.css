@@ -41,6 +41,8 @@ i[class*=" ph"] {
     overflow: hidden;
 }
 
+/* Khối .header chính được đặt bên dưới — không để ở đây tránh trùng */
+
 /* Hai nửa panel trượt từ hai phía */
 .splash-panel {
     position: absolute;
@@ -252,8 +254,19 @@ a {
     border-bottom: 1px solid var(--border);
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1030;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+    transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+    will-change: transform;
+}
+
+/* Khi cuộn: header trở nên mờ trong suốt và nổi lên */
+.header.scrolled {
+    background: rgba(21, 27, 38, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(0, 240, 255, 0.08);
+    border-bottom-color: rgba(0, 240, 255, 0.15);
 }
 
 .header-inner {
@@ -2444,30 +2457,1173 @@ a {
 /* Hiệu ứng Scale-down (Entrance) */
 .scale-down-entrance {
     -webkit-animation: scale-down-entrance 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-            animation: scale-down-entrance 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: scale-down-entrance 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 @-webkit-keyframes scale-down-entrance {
     0% {
         -webkit-transform: scale(1.15);
-                transform: scale(1.15);
+        transform: scale(1.15);
         opacity: 0;
     }
+
     100% {
         -webkit-transform: scale(1);
-                transform: scale(1);
+        transform: scale(1);
         opacity: 1;
     }
 }
+
 @keyframes scale-down-entrance {
     0% {
         -webkit-transform: scale(1.15);
-                transform: scale(1.15);
+        transform: scale(1.15);
         opacity: 0;
     }
+
     100% {
         -webkit-transform: scale(1);
-                transform: scale(1);
+        transform: scale(1);
         opacity: 1;
+    }
+}
+
+/* ==========================================================================
+   EXTRACTED FROM INLINE STYLES – Moved to stylesheet for clean HTML
+   ========================================================================== */
+
+/* ── HEADER INNER ── */
+.header-inner {
+    justify-content: space-between;
+}
+
+/* ── HERO CAROUSEL ABSOLUTE FILL ── */
+.carousel-absolute {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+/* ── HERO OVERLAY Z-INDEX ── */
+.hero-overlay-z2 {
+    z-index: 2;
+}
+
+.hero-inner-z3 {
+    z-index: 3;
+}
+
+/* ── CAROUSEL INDICATORS BOTTOM ── */
+.carousel-indicators-bottom {
+    margin-bottom: 30px;
+    z-index: 5;
+}
+
+/* ── CAROUSEL IMG COVER ── */
+.img-cover {
+    object-fit: cover;
+}
+
+/* ── LOGO ── */
+a.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo-icon {
+    font-size: 2.2rem;
+    color: var(--cyan);
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
+.logo-text-wrap {
+    line-height: 1.2;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-name {
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    color: var(--cyan);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.logo-sub {
+    font-size: 0.55rem;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+/* ── HEADER NAV ── */
+.header-nav {
+    display: flex;
+    gap: 30px;
+}
+
+.header-nav a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.header-nav a.active {
+    color: var(--cyan);
+    font-weight: 600;
+}
+
+/* ── HEADER ACTIONS ── */
+.header-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+/* ── LANG TOGGLE BUTTON ── */
+.lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 4px 8px;
+}
+
+.lang-btn i {
+    font-size: 1.2rem;
+}
+
+.lang-icon {
+    font-size: 0.9rem;
+}
+
+/* ── SEARCH WRAPPER ── */
+.search-wrapper {
+    position: relative;
+}
+
+/* ── SEARCH DROPDOWN ── */
+.search-dropdown {
+    display: none;
+    position: absolute;
+    top: 140%;
+    right: -10px;
+    background: rgba(10, 14, 20, 0.98);
+    border: 1px solid rgba(0, 240, 255, 0.3);
+    border-radius: 8px;
+    width: 340px;
+    padding: 12px;
+    box-shadow: 0 0 25px rgba(0, 240, 255, 0.2);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+.search-dropdown input {
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    padding: 12px 16px;
+    border-radius: 6px;
+    outline: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.95rem;
+    display: block;
+    box-sizing: border-box;
+}
+
+.search-suggestions-list {
+    margin-top: 10px;
+    flex-direction: column;
+    gap: 4px;
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+/* ── FOOTER GRID ── */
+.footer-grid {
+    gap: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 40px;
+    margin-bottom: 20px;
+}
+
+/* ── LOGO CANVAS ── */
+.logo-canvas {
+    margin-bottom: 20px;
+    display: block;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+/* ── FOOTER DESC ── */
+.footer-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    max-width: 400px;
+}
+
+/* ── FOOTER CONTACT ── */
+.footer-contact-new {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+}
+
+.footer-contact-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.footer-contact-icon {
+    color: var(--cyan);
+    font-size: 1.2rem;
+}
+
+.footer-contact-text {
+    color: #fff;
+}
+
+/* ── FOOTER SOCIAL ── */
+.footer-social {
+    display: flex;
+    gap: 16px;
+}
+
+/* ── FOOTER COL TITLES ── */
+.footer-col-title {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-col-title--border {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 12px;
+}
+
+/* ── FOOTER COL LIST ── */
+.footer-col-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.footer-col-list a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+/* ── FOOTER PAYMENTS ── */
+.footer-payments {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.fpay-tag i {
+    color: var(--cyan);
+}
+
+/* ── COPYRIGHT HIGHLIGHT ── */
+.copyright-highlight {
+    color: var(--cyan);
+    font-weight: 700;
+}
+
+/* ── AUTH DIVIDER ── */
+.auth-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.auth-divider-line {
+    flex: 1;
+    border-bottom: 1px solid var(--border);
+}
+
+.auth-divider-text {
+    padding: 0 10px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* ── SOCIAL LOGIN ── */
+.social-login {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.social-btn {
+    flex: 1;
+    justify-content: center;
+}
+
+.icon-facebook {
+    color: #1877F2;
+    font-size: 1.2rem;
+}
+
+.icon-google {
+    color: #DB4437;
+    font-size: 1.2rem;
+}
+
+/* ── INDEX PAGE: Hero z-index wrapper ── */
+.hero-z {
+    z-index: 1;
+}
+
+/* ── INDEX PAGE: Online status dot ── */
+.status-dot {
+    width: 35px;
+    height: 35px;
+    border: 4px solid #0a0e14;
+}
+
+/* ── INDEX PAGE: Hero title ── */
+.hero-title-index {
+    text-shadow: 0 0 30px rgba(0, 240, 255, 0.5);
+    letter-spacing: 2px;
+}
+
+/* ── INDEX PAGE: Hero subtitle ── */
+.hero-subtitle-index {
+    letter-spacing: 1px;
+}
+
+/* ── INDEX PAGE: Scroll down icon ── */
+.scroll-down-icon {
+    font-size: 3rem;
+}
+
+/* ── INDEX PAGE: Main section ── */
+.main-section {
+    z-index: 1;
+    background: rgba(10, 14, 20, 0.75);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(0, 240, 255, 0.1);
+}
+
+/* ── INDEX PAGE: About card body ── */
+.about-body {
+    line-height: 1.8;
+}
+
+/* ── INDEX PAGE: Project desc ── */
+.project-desc {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* ── INDEX PAGE: Section border ── */
+.border-faint {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* ── INDEX PAGE: Contribution list ── */
+.contrib-list {
+    font-size: 1.1rem;
+    line-height: 2;
+}
+
+/* ── INDEX PAGE: Footer ── */
+.index-footer {
+    background: rgba(0, 0, 0, 0.4);
+    border-top: 1px solid rgba(0, 240, 255, 0.1);
+}
+
+/* ── INDEX PAGE: Copyright ── */
+.index-copyright {
+    font-size: 0.95rem;
+}
+
+/* ── DANH MUC PAGE: Page desc ── */
+.page-desc {
+    color: var(--text-muted);
+}
+
+/* ── HO TRO PAGE: Main section ── */
+.hotro-main {
+    min-height: 100vh;
+    padding: 80px 0;
+}
+
+/* ── HO TRO PAGE: Hero carousel ── */
+.hotro-carousel {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+/* ── HO TRO PAGE: Hero overlay ── */
+.hotro-overlay {
+    background: rgba(10, 14, 20, 0.75);
+    z-index: 2;
+}
+
+/* ── HO TRO PAGE: Hero inner ── */
+.hotro-inner {
+    justify-content: center;
+    width: 100%;
+    z-index: 3;
+}
+
+/* ── HO TRO PAGE: Support container wrapper ── */
+.support-wrapper {
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    box-shadow: 0 0 40px rgba(0, 240, 255, 0.15);
+}
+
+/* ── HO TRO PAGE: Submit btn override ── */
+.sup-submit-btn {
+    padding: 14px;
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+
+/* ── CHI TIET PAGE: Inline info box ── */
+.info-box {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border);
+}
+
+/* ── CHI TIET PAGE: Color label letter spacing ── */
+.label-spaced {
+    letter-spacing: 1px;
+}
+
+/* ── CHI TIET PAGE: Size label letter spacing ── */
+.label-size {
+    letter-spacing: 1px;
+}
+
+/* ── CHI TIET PAGE: Tabs border ── */
+.tabs-border {
+    border-bottom: 2px solid var(--border);
+}
+
+/* ── CHI TIET PAGE: Tab content font ── */
+.tab-content-text {
+    font-size: 1.05rem;
+}
+
+/* ── CHI TIET PAGE: Sidebar heading ── */
+.sidebar-heading {
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 15px;
+}
+
+/* ── CHI TIET PAGE: Contact banner btn ── */
+.contact-banner-btn {
+    background-color: var(--cyan);
+    color: #000;
+}
+
+/* ── CHI TIET PAGE: Lower details delay ── */
+.lower-details {
+    animation-delay: 0.2s;
+}
+
+/* ── COLOR INNER SWATCHES ── */
+.swatch-navy {
+    background-color: #0b2545;
+}
+
+.swatch-gray {
+    background-color: #3f4045;
+}
+
+.swatch-red {
+    background-color: #c1121f;
+}
+
+/* ==========================================================================
+   CSS TỪ <style> TRONG CÁC FILE HTML – Đã di chuyển vào đây
+   ========================================================================== */
+
+/* ── DANH MUC: Products grid override ── */
+.products-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+}
+
+@media (max-width: 1024px) {
+    .products-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .products-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+.page-header {
+    padding: 40px 0 20px;
+    text-align: center;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    color: var(--cyan);
+    font-family: 'Parker', sans-serif;
+    letter-spacing: 2px;
+}
+
+/* ── CATEGORY FILTER PILLS ── */
+.cat-filter-bar {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    padding: 28px 0 36px;
+    flex-wrap: wrap;
+}
+
+.cat-filter-pill {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    outline: none;
+    transition: transform 0.25s ease;
+}
+
+.cat-filter-pill:hover {
+    transform: translateY(-4px);
+}
+
+.cat-filter-pill .pill-circle {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    border: 2.5px solid rgba(0, 240, 255, 0.35);
+    background: rgba(0, 240, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.4rem;
+    color: var(--cyan);
+    transition: all 0.3s ease;
+    box-shadow: 0 0 0 0 rgba(0, 240, 255, 0);
+    overflow: hidden;
+    position: relative;
+}
+
+.cat-filter-pill .pill-circle::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, rgba(0, 240, 255, 0.18) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.cat-filter-pill:hover .pill-circle,
+.cat-filter-pill.active .pill-circle {
+    border-color: var(--cyan);
+    background: rgba(0, 240, 255, 0.12);
+    box-shadow: 0 0 24px rgba(0, 240, 255, 0.45),
+        inset 0 0 18px rgba(0, 240, 255, 0.1);
+}
+
+.cat-filter-pill:hover .pill-circle::after,
+.cat-filter-pill.active .pill-circle::after {
+    opacity: 1;
+}
+
+.cat-filter-pill .pill-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    transition: color 0.3s;
+}
+
+.cat-filter-pill:hover .pill-label,
+.cat-filter-pill.active .pill-label {
+    color: var(--cyan);
+}
+
+.cat-filter-pill.active .pill-circle {
+    animation: pillPulse 2s infinite;
+}
+
+@keyframes pillPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(0, 240, 255, 0.45), inset 0 0 18px rgba(0, 240, 255, 0.1);
+    }
+
+    50% {
+        box-shadow: 0 0 36px rgba(0, 240, 255, 0.7), inset 0 0 24px rgba(0, 240, 255, 0.18);
+    }
+}
+
+.cat-filter-pill.active::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 8px var(--cyan);
+}
+
+.category-block {
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.category-block.hidden-cat {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .cat-filter-bar {
+        gap: 16px;
+    }
+
+    .cat-filter-pill .pill-circle {
+        width: 76px;
+        height: 76px;
+        font-size: 1.9rem;
+    }
+
+    .cat-filter-pill .pill-label {
+        font-size: 0.7rem;
+    }
+}
+
+/* ── HO TRO: Support form ── */
+.support-container {
+    max-width: 600px;
+    margin: 60px auto;
+    background: var(--white);
+    padding: 40px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: 0 0 25px rgba(0, 240, 255, 0.05);
+}
+
+.support-title {
+    font-size: 2rem;
+    color: var(--cyan);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.support-desc {
+    color: var(--text-muted);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--cyan);
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-group select option {
+    background: var(--white);
+    color: #fff;
+}
+
+/* ── CHI TIET SAN PHAM ── */
+.product-detail-container {
+    padding: 80px 0 80px;
+    position: relative;
+    z-index: 1;
+    margin-top: 20px;
+}
+
+.product-title,
+.feature-text h3 {
+    font-family: 'MJ-Euro', Arial, sans-serif;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.main-image-wrapper {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    margin-bottom: 16px;
+}
+
+.main-image-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.thumb-list {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+}
+
+.thumb-item {
+    width: 80px;
+    height: 80px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.02);
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.thumb-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.thumb-item.active,
+.thumb-item:hover {
+    border-color: var(--cyan);
+    background: rgba(0, 240, 255, 0.05);
+}
+
+.product-title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: var(--text);
+    line-height: 1.3;
+}
+
+.product-subtitle {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.price-box {
+    margin-bottom: 30px;
+}
+
+.price-current {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--cyan);
+    margin-right: 15px;
+    text-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+}
+
+.price-old {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    text-decoration: line-through;
+}
+
+.color-option {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    padding: 3px;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.color-option .color-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.color-option.active,
+.color-option:hover {
+    border-color: var(--cyan);
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+}
+
+.size-btn {
+    width: 60px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-weight: 600;
+    border-radius: 6px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.size-btn.active,
+.size-btn:hover {
+    background: rgba(0, 240, 255, 0.1);
+    border-color: var(--cyan);
+    color: var(--cyan);
+}
+
+.btn-add-to-cart-lg {
+    background: var(--cyan);
+    color: #000;
+    font-weight: 800;
+    font-size: 1.2rem;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-add-to-cart-lg:hover {
+    background: #fff;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+    color: #000;
+}
+
+.nav-tabs-custom .nav-link {
+    color: var(--text-muted);
+    border: none;
+    border-bottom: 2px solid transparent;
+    font-weight: 600;
+    padding: 12px 20px;
+    background: transparent;
+    font-size: 1.1rem;
+}
+
+.nav-tabs-custom .nav-link.active,
+.nav-tabs-custom .nav-link:hover {
+    color: var(--cyan);
+    border-bottom-color: var(--cyan);
+}
+
+.feature-img-block {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.feature-img-block img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    min-height: 350px;
+}
+
+.feature-text {
+    padding: 40px;
+}
+
+.feature-text h3 {
+    font-weight: 800;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    color: var(--text);
+}
+
+.related-product-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 12px;
+    background: rgba(255, 255, 255, 0.02);
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+.related-product-item:hover {
+    border-color: var(--cyan);
+    background: rgba(0, 240, 255, 0.05);
+    transform: translateX(5px);
+}
+
+.related-img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    padding: 5px;
+}
+
+.contact-banner-gradient {
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.1) 0%, rgba(13, 110, 253, 0.2) 100%);
+    border: 1px solid rgba(0, 240, 255, 0.3);
+    border-radius: var(--radius);
+}
+
+/* ── INDEX PAGE: <style> block ── */
+.hide-before-scroll {
+    opacity: 0 !important;
+    visibility: hidden;
+}
+
+.intro-card-img {
+    background: url('https://images.unsplash.com/photo-1558981806-ec527fa84c39?q=80&w=2070') center/cover;
+    height: 100%;
+    min-height: 300px;
+    position: relative;
+}
+
+.intro-card-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(10, 14, 20, 0.1), rgba(10, 14, 20, 0.9));
+}
+
+@media (max-width: 767.98px) {
+    .intro-card-img::after {
+        background: linear-gradient(to bottom, rgba(10, 14, 20, 0.1), rgba(10, 14, 20, 0.9));
+    }
+}
+
+.intro-card-body {
+    padding: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.form-floating .form-control {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.form-floating .form-control:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #00f0ff;
+    box-shadow: 0 0 0 0.25rem rgba(0, 240, 255, 0.25);
+    color: #fff;
+}
+
+.form-floating label {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.form-floating .form-control:focus~label,
+.form-floating .form-control:not(:placeholder-shown)~label {
+    color: #00f0ff;
+}
+
+.btn-cyber {
+    background: transparent;
+    color: #00f0ff;
+    border: 1px solid #00f0ff;
+    border-radius: 8px;
+    padding: 10px 24px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+}
+
+.btn-cyber:hover {
+    background: #00f0ff;
+    color: #000;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+}
+
+.btn-glow {
+    background: #00f0ff;
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 30px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-glow:hover {
+    background: #fff;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+}
+
+.profile-avatar {
+    width: 280px;
+    height: 280px;
+    min-width: 280px;
+    min-height: 280px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center 10%;
+    border: 5px solid #00f0ff;
+    padding: 6px;
+    background: rgba(0, 240, 255, 0.1);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 50% !important;
+}
+
+.profile-avatar:hover {
+    transform: scale(1.05) rotate(5deg);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(0, 240, 255, 0.2);
+    border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 240, 255, 0.5);
+}
+
+.particles {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.particles::before,
+.particles::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(2px 2px at 150px 150px, rgba(0, 240, 255, 1) 100%, transparent),
+        radial-gradient(1px 1px at 300px 100px, rgba(255, 255, 255, 0.8), transparent),
+        radial-gradient(2px 2px at 500px 400px, rgba(0, 240, 255, 0.7), transparent),
+        radial-gradient(1.5px 1.5px at 700px 250px, rgba(255, 255, 255, 0.9), transparent),
+        radial-gradient(2px 2px at 900px 600px, rgba(0, 240, 255, 0.8), transparent),
+        radial-gradient(1.5px 1.5px at 100px 700px, rgba(255, 255, 255, 0.8), transparent),
+        radial-gradient(2px 2px at 450px 850px, rgba(0, 240, 255, 0.9), transparent),
+        radial-gradient(1px 1px at 850px 900px, rgba(255, 255, 255, 0.6), transparent);
+    background-repeat: repeat;
+    background-size: 1000px 1000px;
+    animation: drift 60s linear infinite, twinkle 4s ease-in-out infinite;
+}
+
+.particles::after {
+    background-image:
+        radial-gradient(1.5px 1.5px at 200px 300px, rgba(0, 240, 255, 0.8), transparent),
+        radial-gradient(2.5px 2.5px at 600px 150px, rgba(255, 255, 255, 0.9), transparent),
+        radial-gradient(1.5px 1.5px at 800px 500px, rgba(0, 240, 255, 0.8), transparent),
+        radial-gradient(2px 2px at 300px 800px, rgba(255, 255, 255, 0.7), transparent);
+    background-size: 700px 700px;
+    animation: drift 45s linear infinite reverse, twinkle 6s ease-in-out infinite 1s;
+}
+
+@keyframes drift {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.9;
+    }
+
+    50% {
+        opacity: 0.2;
     }
 }

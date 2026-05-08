@@ -1,4 +1,4 @@
-﻿/**
+/**
  * script.js – SD'bike Main Script
  *
  * Xử lý toàn bộ tương tác phía client:
@@ -691,7 +691,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                 if (btnCart) {
                     addToCart(p);
                 } else {
-                    window.location.href = `chi-tiet-san-pham.html?id=${p.id}`;
+                    const detailPage = p.categoryId === 'kids-bikes'
+                        ? 'chi-tiet-kid-bike.html'
+                        : 'chi-tiet-san-pham.html';
+                    window.location.href = `${detailPage}?id=${p.id}`;
                 }
             }
         });
@@ -777,10 +780,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('checkoutBtn').onclick = () => {
         if (!currentUser) {
             cartOverlay.classList.remove('active');
-            authModal.classList.add('active');
             alert('Vui lòng đăng nhập để thanh toán!');
+            window.location.href = 'dang-nhap.html';
             return;
         }
+
         if (!shoppingCart.length) { alert('Giỏ hàng đang trống!'); return; }
 
         const total = shoppingCart.reduce((sum, item) => sum + item.price, 0);
@@ -796,179 +800,44 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
     // ============================================================
-    // 4. ĐĂNG NHẬP / ĐĂNG KÝ
+    // 4. ĐĂNG NHẬP / ĐĂNG KÝ (
     // ============================================================
     const loginTrigger = document.getElementById('loginBtnTrigger');
-    const authCloseBtn = document.getElementById('authCloseBtn');
-    const authSubmitBtn = document.getElementById('authSubmitBtn');
-    const authToggleLink = document.getElementById('authToggleLink');
-    const authTitle = document.getElementById('authTitle');
-    const authSubtitle = document.getElementById('authSubtitle');
-    const authToggleText = document.getElementById('authToggleText');
     const loginLabel = document.getElementById('loginLabel');
-    const userInp = document.getElementById('authUsername');
-    const passInp = document.getElementById('authPassword');
-    const phoneGrp = document.getElementById('authPhoneGroup');
-    const phoneInp = document.getElementById('authPhone');
-
-    let isLoginMode = true; // true = đăng nhập, false = đăng ký
 
     /**
-     * Cập nhật thông tin giao diện Header khi trạng thái tài khoản thay đổi:
-     * - Nếu người dùng đang đăng nhập: thay đổi nút trên Header thành tên của người dùng đó (kèm chức năng Đăng xuất).
-     * - Nếu chưa, đưa nút quay về nhãn "Đăng nhập" mặc định trên trình đơn.
+     * Cập nhật icon/title nút header theo trạng thái đăng nhập.
      */
     function updateAuthHeader() {
+        if (!loginTrigger) return;
         if (currentUser) {
+            loginTrigger.title = `${currentUser.username} — Nhấn để đăng xuất`;
             if (loginLabel) loginLabel.textContent = currentUser.username;
-            if (loginTrigger) loginTrigger.title = 'Nhấn để đăng xuất';
         } else {
+            loginTrigger.title = 'Đăng nhập';
             if (loginLabel) loginLabel.textContent = i18nConfig[currentLang]?.login || 'Đăng nhập';
-            if (loginTrigger) loginTrigger.title = '';
         }
     }
 
-    // Nhấn nút header: nếu đã đăng nhập thì xác nhận đăng xuất, ngược lại mở modal
-    loginTrigger.onclick = () => {
-        if (currentUser) {
-            if (confirm(`Đăng xuất khỏi "${currentUser.username}"?`)) {
-                currentUser = null;
-                localStorage.removeItem('sdb_user');
-                updateAuthHeader();
-            }
-        } else {
-            authModal.classList.add('active');
-        }
-    };
-
-    // Đóng modal auth
-    authCloseBtn.onclick = () => authModal.classList.remove('active');
-    authModal.addEventListener('click', e => {
-        if (e.target === authModal) authModal.classList.remove('active');
-    });
-
-    // Chuyển đổi giữa chế độ Đăng nhập ↔ Đăng ký
-    authToggleLink.onclick = e => {
-        e.preventDefault();
-        isLoginMode = !isLoginMode;
-        const d = i18nConfig[currentLang];
-        authTitle.textContent = isLoginMode ? d.auth_title_login : d.auth_title_reg;
-        authSubtitle.textContent = isLoginMode ? d.auth_sub_login : d.auth_sub_reg;
-        authSubmitBtn.textContent = isLoginMode ? d.auth_btn_login : d.auth_btn_reg;
-        authToggleText.textContent = isLoginMode ? d.auth_text_login : d.auth_text_reg;
-        authToggleLink.textContent = isLoginMode ? d.auth_link_login : d.auth_link_reg;
-        if (phoneGrp) phoneGrp.style.display = isLoginMode ? 'none' : 'block';
-    };
-
-    /**
-     * Hàm xử lý khi người dùng ấn nút "Đăng Nhập" hoặc "Đăng Ký".
-     * Tuỳ thuộc vào chế độ (isLoginMode), hệ thống sẽ:
-     * 1. Xác thực mật khẩu và người dùng hiện tại (nếu Đăng nhập)
-     * 2. Hoặc khởi tạo tài khoản mới nếu tài khoản đó không trùng lặp (nếu Đăng ký)
-     * Cuối cùng lưu trữ dữ liệu xác thực.
-     */
-    authSubmitBtn.onclick = () => {
-        const u = userInp.value.trim();
-        const p = passInp.value.trim();
-        if (!u || !p) { alert('Vui lòng điền đầy đủ thông tin.'); return; }
-
-        if (isLoginMode) {
-            // Đăng nhập: tìm user khớp username + password (tài khoản thường)
-            const found = usersDb.find(x => x.username === u && x.password === p && (x.provider === 'local' || !x.provider));
-            if (found) {
-                currentUser = found;
-                localStorage.setItem('sdb_user', JSON.stringify(found));
-                authModal.classList.remove('active');
-                updateAuthHeader();
-                const d = i18nConfig[currentLang];
-                showToast(d.toast_login.replace('{name}', found.name || found.username));
+    // Nếu đã đăng nhập → click icon user = hỏi đăng xuất
+    // Nếu chưa → chuyển sang trang dang-nhap.html
+    if (loginTrigger) {
+        loginTrigger.addEventListener('click', (e) => {
+            e.preventDefault(); // Chặn href của thẻ <a>
+            if (currentUser) {
+                if (confirm(`Đăng xuất khỏi "${currentUser.username}"?`)) {
+                    currentUser = null;
+                    localStorage.removeItem('sdb_user');
+                    updateAuthHeader();
+                }
             } else {
-                alert('Sai tên đăng nhập hoặc mật khẩu.');
+                window.location.href = 'dang-nhap.html';
             }
-        } else {
-            // Đăng ký: kiểm tra tên chưa tồn tại rồi tạo tài khoản mới
-            if (usersDb.find(x => x.username === u && (x.provider === 'local' || !x.provider))) {
-                alert('Tên này đã được dùng, vui lòng chọn tên khác.');
-                return;
-            }
-            const ph = phoneInp ? phoneInp.value.trim() : '';
-            if (!ph) { alert('Vui lòng nhập số điện thoại.'); return; }
-
-            const newUser = {
-                id: 'local_' + Date.now(),
-                username: u,
-                password: p,
-                phone: ph,
-                provider: 'local',
-                socialId: null,
-                name: u
-            };
-            usersDb.push(newUser);
-            localStorage.setItem('sdb_users', JSON.stringify(usersDb));
-            currentUser = newUser;
-            localStorage.setItem('sdb_user', JSON.stringify(newUser));
-            authModal.classList.remove('active');
-            updateAuthHeader();
-            const d = i18nConfig[currentLang];
-            showToast(d.toast_reg.replace('{name}', newUser.name || newUser.username));
-        }
-
-        // Xóa form sau khi xử lý xong
-        userInp.value = '';
-        passInp.value = '';
-        if (phoneInp) phoneInp.value = '';
-    };
-
-    // ============================================================
-    // Đăng nhập Social (Google / Facebook) - Mock Flow
-    // ============================================================
-    const fbBtn = document.getElementById('authFacebookBtn');
-    const googleBtn = document.getElementById('authGoogleBtn');
-
-    /**
-     * Chức năng giả lập luồng Đăng nhập qua mạng xã hội.
-     * Thay vì gọi API bảo mật thật, code sẽ tạo ra một danh tính hoàn toàn mới 
-     * với một hồ sơ rỗng được gắn thông tin nhận biết (Ví dụ tài khoản 'Facebook User').
-     * @param {string} provider - Tên định dạng dịch vụ ('facebook' hoặc 'google')
-     */
-    function handleSocialLogin(provider) {
-        // Tạo thông tin nhận diện tài khoản mạng xã hội ngẫu nhiên
-        const socialId = provider.toUpperCase() + '-' + Math.floor(Math.random() * 100000);
-        const randomName = provider === 'google' ? 'Google User' : 'Facebook User';
-        const displayUsername = provider + '_' + Math.floor(Math.random() * 1000);
-
-        // Trong thực tế, bạn sẽ kiểm tra theo socialId. Cấu trúc mock này mỗi lần bấm sẽ ngẫu nhiên (chưa lưu state đăng nhập thật với api).
-        // Tuy nhiên để mô phỏng cơ sở dữ liệu, ta sẽ coi mỗi lần bấm đăng nhập social là tạo một phiên mới với user ngẫu nhiên
-        // HOẶC giả lập bằng cách chỉ tìm user đầu tiên của mxh đó để ghi nhớ.
-        let foundUser = usersDb.find(x => x.provider === provider);
-
-        if (!foundUser) {
-            foundUser = {
-                id: 'social_' + Date.now(),
-                username: displayUsername,
-                password: '',
-                phone: '',
-                provider: provider,
-                socialId: socialId,
-                name: randomName
-            };
-            usersDb.push(foundUser);
-            localStorage.setItem('sdb_users', JSON.stringify(usersDb));
-        }
-
-        currentUser = foundUser;
-        localStorage.setItem('sdb_user', JSON.stringify(foundUser));
-
-        authModal.classList.remove('active');
-        updateAuthHeader();
-        const d = i18nConfig[currentLang];
-        showToast(d.toast_login.replace('{name}', foundUser.name || foundUser.username));
+        });
     }
 
-    if (fbBtn) fbBtn.onclick = () => handleSocialLogin('facebook');
-    if (googleBtn) googleBtn.onclick = () => handleSocialLogin('google');
 
-    updateAuthHeader(); // Khôi phục trạng thái đăng nhập từ localStorage
+    updateAuthHeader(); // Khôi phục trạng thái từ localStorage
 
     // ============================================================
     // TOAST NOTIFICATION
@@ -1247,7 +1116,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 9. LOGO BACKGROUND REMOVAL (CANVAS)
     // ============================================================
     const logoImg = new Image();
-    logoImg.src = "logo.png";
+    logoImg.src = "images/logo.png";
     logoImg.onload = () => {
         document.querySelectorAll('.logo-canvas').forEach(canvas => {
             const ctx = canvas.getContext('2d', { willReadFrequently: true });

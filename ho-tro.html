@@ -9,7 +9,7 @@
         content="SD'bike – Hệ thống cửa hàng xe đạp chính hãng toàn quốc. Giá tốt, bảo hành 3 năm, miễn phí giao hàng.">
 
     <meta name="theme-color" content="#0a0e14">
-    <link rel="icon" href="logo.png">
+    <link rel="icon" href="images/logo.png">
 
     <!-- Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -27,72 +27,6 @@
     <!-- Language Translation Script -->
     <script src="i18n.js"></script>
     <link rel="stylesheet" href="style.css?v=2026_03_30_v3">
-    <style>
-        .support-container {
-            max-width: 600px;
-            margin: 60px auto;
-            background: var(--white);
-            padding: 40px;
-            border-radius: var(--radius);
-            border: 1px solid var(--border);
-            box-shadow: 0 0 25px rgba(0, 240, 255, 0.05);
-        }
-
-        .support-title {
-            font-size: 2rem;
-            color: var(--cyan);
-            margin-bottom: 10px;
-            text-align: center;
-        }
-
-        .support-desc {
-            color: var(--text-muted);
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #fff;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 16px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 6px;
-            color: #fff;
-            font-family: Arial, Helvetica, sans-serif;
-            outline: none;
-            transition: all 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            border-color: var(--cyan);
-            box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .form-group select option {
-            background: var(--white);
-            color: #fff;
-        }
-    </style>
 </head>
 
 <body>
@@ -100,13 +34,13 @@
     <!-- INTRO SPLASH SCREEN -->
     <div id="splash-screen" role="presentation" aria-hidden="true">
         <div class="splash-panel splash-panel-left" id="splashLeft">
-            <img src="logo.png" alt="" class="splash-logo-half" aria-hidden="true">
+            <img src="images/logo.png" alt="" class="splash-logo-half" aria-hidden="true">
         </div>
         <div class="splash-panel splash-panel-right" id="splashRight">
-            <img src="logo.png" alt="" class="splash-logo-half" aria-hidden="true">
+            <img src="images/logo.png" alt="" class="splash-logo-half" aria-hidden="true">
         </div>
         <div class="splash-glow" id="splashGlow"></div>
-        <img src="logo.png" alt="SD'bike" class="splash-logo-full" id="splashLogoFull">
+        <img src="images/logo.png" alt="SD'bike" class="splash-logo-full" id="splashLogoFull">
         <p class="splash-tagline" id="splashTagline" data-i18n="tagline">SD'bike · Xe Đạp Chính Hãng · Giá Tốt Nhất</p>
         <div class="splash-bar" id="splashBar">
             <div class="splash-bar-fill" id="splashBarFill"></div>
@@ -117,98 +51,120 @@
     <div class="top-bar">
         <div class="container top-bar-inner">
             <div class="top-bar-right">
-                <!-- Đã xóa khuyến mãi theo yêu cầu -->
             </div>
         </div>
     </div>
 
     <!-- HEADER -->
     <header class="header">
-        <div class="container header-inner" style="justify-content: space-between;">
-            <a href="/" class="logo" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
-                <i class="ph-fill ph-bicycle"
-                    style="font-size: 2.2rem; color: var(--cyan); text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);"></i>
-                <div style="line-height:1.2; display: flex; flex-direction: column;">
-                    <div
-                        style="font-size:1.5rem;font-weight:900;letter-spacing:0.5px;color:var(--cyan);font-family: Arial, Helvetica, sans-serif;">
-                        SD'bike</div>
-                    <div style="font-size:0.55rem;color:var(--text-muted);letter-spacing:2px;font-weight:700;">BICYCLE
-                        SHOP</div>
-                </div>
-            </a>
+        <nav class="navbar navbar-expand-lg w-100" data-bs-theme="dark">
+            <div class="container-fluid header-inner">
+                <!-- Mobile Logo -->
+                <a class="navbar-brand logo m-0 d-lg-none" href="trang-chu.html">
+                    <i class="ph-fill ph-bicycle logo-icon"></i>
+                    <div class="logo-text-wrap">
+                        <div class="logo-name">SD'bike</div>
+                        <div class="logo-sub">BICYCLE SHOP</div>
+                    </div>
+                </a>
 
-            <nav class="header-nav" style="display:flex;gap:30px;">
-                <a href="trang-chu.html" style="display:flex;align-items:center;gap:6px;color:var(--text);"
-                    data-i18n="nav_home"><i class="ph ph-house"></i> Trang Chủ</a>
-                <a href="danh-muc.html" style="display:flex;align-items:center;gap:6px;color:var(--text);"
-                    data-i18n="nav_cat"><i class="ph ph-list"></i> Danh Mục</a>
-                <a href="ho-tro.html" style="display:flex;align-items:center;gap:6px;color:var(--cyan);font-weight:600;"
-                    data-i18n="nav_support"><i class="ph ph-headset"></i> Hỗ Trợ</a>
-            </nav>
-
-            <div class="header-actions" style="display:flex;gap:15px;align-items:center;">
-                <button id="langToggleBtn" class="btn-ghost"
-                    style="display:flex; align-items:center; gap:4px; font-weight:bold; border-radius: 8px; padding: 4px 8px;">
-                    <i class="ph-fill ph-translate" style="font-size:1.2rem;"></i>
-                    <span id="langIcon" style="font-size:0.9rem;">EN</span>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="search-wrapper" style="position:relative;">
-                    <button class="btn-ghost" id="searchBtnTrigger" aria-label="Search"
-                        onclick="event.stopPropagation(); var dd=document.getElementById('searchDropdown'); if(dd.style.display==='block') { dd.style.display='none'; } else { dd.style.display='block'; var si=document.getElementById('searchInput'); if(si) setTimeout(function(){si.focus()},50); }"><i
-                            class="ph ph-magnifying-glass"></i></button>
 
-                    <div id="searchDropdown" class="search-wrapper-dropdown"
-                        style="display:none; position:absolute; top:140%; right:-10px; background:rgba(10,14,20,0.98); border:1px solid rgba(0,240,255,0.3); border-radius:8px; width:340px; padding:12px; box-shadow:0 0 25px rgba(0,240,255,0.2); backdrop-filter:blur(10px); z-index:1000;">
-                        <input type="text" id="searchInput" placeholder="Tìm kiếm xe đạp..." data-i18n-ph="search_ph"
-                            style="width:100%; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.05); color:#fff; padding:12px 16px; border-radius:6px; outline:none; font-family:Arial, Helvetica, sans-serif; font-size:0.95rem; display:block; box-sizing:border-box;">
-                        <div id="searchSuggestions" class="search-suggestions"
-                            style="margin-top:10px; flex-direction:column; gap:4px; max-height:350px; overflow-y:auto;">
-                        </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="d-flex flex-column flex-lg-row align-items-lg-center mx-auto">
+                        <!-- Desktop Logo -->
+                        <a class="navbar-brand logo m-0 d-none d-lg-flex me-4" href="trang-chu.html">
+                            <i class="ph-fill ph-bicycle logo-icon"></i>
+                            <div class="logo-text-wrap">
+                                <div class="logo-name">SD'bike</div>
+                                <div class="logo-sub">BICYCLE SHOP</div>
+                            </div>
+                        </a>
+                        
+                        <ul class="navbar-nav mb-2 mb-lg-0 fw-medium">
+                            <li class="nav-item">
+                                <a class="nav-link" href="trang-chu.html" data-i18n="nav_home"><i class="ph ph-house"></i> Trang Chủ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="danh-muc.html" data-i18n="nav_cat"><i class="ph ph-list"></i> Danh Mục</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle active" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-i18n="nav_support">
+                                    <i class="ph ph-headset"></i> Hỗ Trợ
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Khuyến Mãi</a></li>
+                                    <li><a class="dropdown-item" href="#">Tin Tức</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="#">Về Chúng Tôi</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+
+                    <div class="header-actions ms-lg-3 mt-3 mt-lg-0">
+                        <button id="langToggleBtn" class="btn-ghost lang-btn">
+                            <i class="ph-fill ph-translate"></i>
+                            <span id="langIcon" class="lang-icon">EN</span>
+                        </button>
+                        <a id="loginBtnTrigger" class="btn-ghost" href="dang-nhap.html">
+                            <i class="ph ph-user"></i>
+                        </a>
+                        <button class="btn-ghost position-relative" id="cartBtnHeader">
+                            <i class="ph ph-shopping-cart"></i>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </button>
+                        <a class="btn-primary cyber-contact-btn" data-i18n="nav_contact" href="index.html">Contact Us</a>
                     </div>
                 </div>
-                <button id="loginBtnTrigger" class="btn-ghost">
-                    <i class="ph ph-user"></i>
-                </button>
-                <button class="btn-ghost position-relative" id="cartBtnHeader">
-                    <i class="ph ph-shopping-cart"></i>
-                    <span class="cart-count" id="cartCount">0</span>
-                </button>
-                <button class="btn-primary cyber-contact-btn" data-i18n="nav_contact">Liên Hệ</button>
             </div>
-        </div>
+        </nav>
     </header>
 
 
 
     <!-- MAIN CONTENT -->
-    <main class="hero-banner position-relative" style="min-height: 100vh; padding: 80px 0;">
-        <div id="heroCarousel" class="carousel slide carousel-fade h-100" data-bs-ride="carousel" style="position: absolute; inset:0; z-index: 1;">
+    <main class="hero-banner position-relative hotro-main">
+        <div id="heroCarousel" class="carousel slide carousel-fade h-100 hotro-carousel" data-bs-ride="carousel">
             <div class="carousel-inner h-100">
                 <div class="carousel-item active h-100" data-bs-interval="3000">
-                    <img src="images/hero_slide_1.png" alt="Xe đạp leo núi" class="d-block w-100 h-100" style="object-fit: cover;" fetchpriority="high">
+                    <img src="images/hero_slide_1.png" alt="Xe đạp leo núi" class="d-block w-100 h-100"
+                        style="object-fit: cover;" fetchpriority="high">
                 </div>
                 <div class="carousel-item h-100" data-bs-interval="3000">
-                    <img src="images/hero_slide_2.png" alt="Xe đạp thể thao" class="d-block w-100 h-100" style="object-fit: cover;">
+                    <img src="images/hero_slide_2.png" alt="Xe đạp thể thao" class="d-block w-100 h-100"
+                        style="object-fit: cover;">
                 </div>
                 <div class="carousel-item h-100" data-bs-interval="3000">
-                    <img src="https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?w=1600&q=80" alt="Xe đạp địa hình" class="d-block w-100 h-100" style="object-fit: cover;" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?w=1600&q=80"
+                        alt="Xe đạp địa hình" class="d-block w-100 h-100" style="object-fit: cover;" loading="lazy">
                 </div>
                 <div class="carousel-item h-100" data-bs-interval="3000">
-                    <img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=1600&q=80" alt="Xe đạp đua" class="d-block w-100 h-100" style="object-fit: cover;" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=1600&q=80" alt="Xe đạp đua"
+                        class="d-block w-100 h-100" style="object-fit: cover;" loading="lazy">
                 </div>
             </div>
             <!-- Indicator Dots -->
             <div class="carousel-indicators" style="margin-bottom: 30px; z-index: 5;">
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active bg-info"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0"
+                    class="active bg-info"></button>
                 <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" class="bg-info"></button>
                 <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" class="bg-info"></button>
                 <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3" class="bg-info"></button>
             </div>
         </div>
-        <div class="hero-banner-overlay" style="background: rgba(10, 14, 20, 0.75); z-index: 2;"></div>
-        <div class="container hero-inner" style="justify-content: center; width: 100%; z-index: 3;">
-            <div class="support-container"
-                style="margin: 0 auto; position: relative; z-index: 10; width: 100%; box-shadow: 0 0 40px rgba(0, 240, 255, 0.15);">
+        <div class="hero-banner-overlay hotro-overlay"></div>
+        <div class="container hero-inner hotro-inner">
+            <div class="support-container support-wrapper">
                 <h1 class="support-title" data-i18n="page_sup_title"><i class="ph-fill ph-headset"></i> Yêu Cầu Hỗ Trợ
                 </h1>
                 <p class="support-desc" data-i18n="page_sup_desc">Vui lòng điền thông tin bên dưới, chúng tôi sẽ phản
@@ -239,8 +195,7 @@
                             required></textarea>
                     </div>
 
-                    <button type="submit" class="btn-primary w-full"
-                        style="padding: 14px; font-size: 1.1rem; margin-top: 10px;" data-i18n="sup_btn"><i
+                    <button type="submit" class="btn-primary w-full sup-submit-btn" data-i18n="sup_btn"><i
                             class="ph-bold ph-paper-plane-right"></i> Gửi Yêu Cầu</button>
                 </form>
             </div>
@@ -266,36 +221,29 @@
     <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid"
-                style="gap: 40px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 40px; margin-bottom: 20px;">
-                <!-- CỘT TRÁI (Thương hiệu & Hỗ trợ) -->
-                <!-- CỘT TRÁI (Thương hiệu & Hỗ trợ) -->
+            <div class="footer-grid">
                 <div class="footer-brand-col">
-                    <canvas class="logo-canvas" width="160" height="60"
-                        style="margin-bottom:20px; display:block; object-fit: contain; cursor: pointer;"
-                        aria-label="SD'bike"></canvas>
-                    <p class="footer-desc"
-                        style="color:var(--text-muted);font-size:0.95rem;line-height:1.6;margin-bottom:24px;max-width:400px;"
-                        data-i18n="f_desc">Hệ thống bán lẻ xe đạp chính hãng toàn quốc. Chất lượng – Uy tín – Giá
+                    <canvas class="logo-canvas" width="160" height="60" aria-label="SD'bike"></canvas>
+                    <p class="footer-desc" data-i18n="f_desc">Hệ thống bán lẻ xe đạp chính hãng toàn quốc. Chất lượng –
+                        Uy tín – Giá
                         tốt nhất.</p>
 
-                    <div class="footer-contact-new"
-                        style="display:flex;flex-direction:column;gap:12px;color:var(--text-muted);font-size:0.95rem;margin-bottom:24px;">
-                        <div style="display:flex;gap:12px;align-items:center;">
-                            <i class="ph-fill ph-phone" style="color:var(--cyan);font-size:1.2rem;"></i>
-                            <span style="color:#fff;">...</span> (Miễn phí)
+                    <div class="footer-contact-new">
+                        <div class="footer-contact-row">
+                            <i class="ph-fill ph-phone footer-contact-icon"></i>
+                            <span class="footer-contact-text">...</span> (Miễn phí)
                         </div>
-                        <div style="display:flex;gap:12px;align-items:center;">
-                            <i class="ph-fill ph-envelope" style="color:var(--cyan);font-size:1.2rem;"></i>
-                            <span style="color:#fff;">support@sdbike.vn</span>
+                        <div class="footer-contact-row">
+                            <i class="ph-fill ph-envelope footer-contact-icon"></i>
+                            <span class="footer-contact-text">support@sdbike.vn</span>
                         </div>
-                        <div style="display:flex;gap:12px;align-items:center;">
-                            <i class="ph-fill ph-map-pin" style="color:var(--cyan);font-size:1.2rem;"></i>
-                            <span style="color:#fff;">...</span>
+                        <div class="footer-contact-row">
+                            <i class="ph-fill ph-map-pin footer-contact-icon"></i>
+                            <span class="footer-contact-text">...</span>
                         </div>
                     </div>
 
-                    <div class="footer-social" style="display:flex;gap:16px;">
+                    <div class="footer-social">
                         <a href="#" title="Facebook"><i class="ph-fill ph-facebook-logo"></i></a>
                         <a href="#" title="Zalo"><i class="ph-fill ph-chats"></i></a>
                         <a href="#" title="YouTube"><i class="ph-fill ph-youtube-logo"></i></a>
@@ -304,67 +252,45 @@
                 </div>
 
                 <div>
-                    <h5 style="color:#fff;font-size:1.1rem;font-weight:700;margin-bottom:20px;text-transform:uppercase;letter-spacing:1px;"
-                        data-i18n="f_col3_title">HỖ TRỢ KHÁCH HÀNG</h5>
-                    <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:16px;">
-                        <li><a href="#" style="color:var(--text-muted);text-decoration:none;font-size:0.95rem;"
-                                data-i18n="fc3_1">Hướng dẫn mua hàng</a></li>
-                        <li><a href="#" style="color:var(--text-muted);text-decoration:none;font-size:0.95rem;"
-                                data-i18n="fc3_2">Hướng dẫn giao nhận</a></li>
-                        <li><a href="#" style="color:var(--text-muted);text-decoration:none;font-size:0.95rem;"
-                                data-i18n="fc3_3">Chính sách đổi trả</a></li>
-                        <li><a href="#" style="color:var(--text-muted);text-decoration:none;font-size:0.95rem;"
-                                data-i18n="fc3_4">Chính sách bảo hành</a></li>
-                        <li><a href="#" style="color:var(--text-muted);text-decoration:none;font-size:0.95rem;"
-                                data-i18n="fc3_5">Chính sách vận chuyển</a></li>
-                        <li><a href="#" style="color:var(--text-muted);text-decoration:none;font-size:0.95rem;"
-                                data-i18n="fc3_6">Tra cứu đơn hàng</a></li>
-                    </ul>
-                </div>
-                <!-- removed closing div -->
-
-                <!-- CỘT PHẢI (Sản phẩm & Thanh toán) -->
-                <!-- CỘT PHẢI (Sản phẩm & Thanh toán) -->
-                <div>
-                    <h5 style="color:#fff;font-size:1.1rem;font-weight:700;margin-bottom:20px;text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:12px;"
-                        data-i18n="f_col2_title">DANH MỤC SẢN PHẨM</h5>
-                    <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:16px;">
-                        <li><a href="#" style="color:var(--text-muted);text-decoration:none;font-size:0.95rem;"
-                                data-i18n="fc2_1">Xe đạp thể thao</a></li>
-                        <li><a href="#" style="color:var(--text-muted);text-decoration:none;font-size:0.95rem;"
-                                data-i18n="fc2_2">Xe đạp trẻ em</a></li>
-                        <li><a href="#" style="color:var(--text-muted);text-decoration:none;font-size:0.95rem;"
-                                data-i18n="fc2_3">Xe đạp địa hình MTB</a></li>
-                        <li><a href="#" style="color:var(--text-muted);text-decoration:none;font-size:0.95rem;"
-                                data-i18n="fc2_4">Xe đạp đường phố</a></li>
-                        <li><a href="#" style="color:var(--text-muted);text-decoration:none;font-size:0.95rem;"
-                                data-i18n="fc2_5">Xe đạp gấp</a></li>
-                        <li><a href="#" style="color:var(--text-muted);text-decoration:none;font-size:0.95rem;"
-                                data-i18n="fc2_6">Phụ kiện xe đạp</a></li>
+                    <h5 class="footer-col-title" data-i18n="f_col3_title">HỖ TRỢ KHÁCH HÀNG</h5>
+                    <ul class="footer-col-list">
+                        <li><a href="#" data-i18n="fc3_1">Hướng dẫn mua hàng</a></li>
+                        <li><a href="#" data-i18n="fc3_2">Hướng dẫn giao nhận</a></li>
+                        <li><a href="#" data-i18n="fc3_3">Chính sách đổi trả</a></li>
+                        <li><a href="#" data-i18n="fc3_4">Chính sách bảo hành</a></li>
+                        <li><a href="#" data-i18n="fc3_5">Chính sách vận chuyển</a></li>
+                        <li><a href="#" data-i18n="fc3_6">Tra cứu đơn hàng</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h5 style="color:#fff;font-size:1.1rem;font-weight:700;margin-bottom:20px;text-transform:uppercase;letter-spacing:1px;"
-                        data-i18n="f_col4_title">THANH TOÁN</h5>
-                    <div class="footer-payments" style="display:flex;flex-wrap:wrap;gap:12px;">
-                        <div class="fpay-tag" title="Thẻ ATM / Thẻ tín dụng">
-                            <i class="ph-fill ph-credit-card" style="color:var(--cyan);"></i>
+                    <h5 class="footer-col-title footer-col-title--border" data-i18n="f_col2_title">DANH MỤC SẢN PHẨM
+                    </h5>
+                    <ul class="footer-col-list">
+                        <li><a href="#" data-i18n="fc2_1">Xe đạp thể thao</a></li>
+                        <li><a href="#" data-i18n="fc2_2">Xe đạp trẻ em</a></li>
+                        <li><a href="#" data-i18n="fc2_3">Xe đạp địa hình MTB</a></li>
+                        <li><a href="#" data-i18n="fc2_4">Xe đạp đường phố</a></li>
+                        <li><a href="#" data-i18n="fc2_5">Xe đạp gấp</a></li>
+                        <li><a href="#" data-i18n="fc2_6">Phụ kiện xe đạp</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="footer-col-title" data-i18n="f_col4_title">THANH TOÁN</h5>
+                    <div class="footer-payments">
+                        <div class="fpay-tag" title="Thẻ ATM / Thẻ tín dụng"><i class="ph-fill ph-credit-card"></i>
                         </div>
-                        <div class="fpay-tag" title="Visa / MasterCard">
-                            <i class="ph-fill ph-currency-circle-dollar" style="color:var(--cyan);"></i>
-                        </div>
-                        <div class="fpay-tag" title="Chuyển khoản ngân hàng">
-                            <i class="ph-fill ph-bank" style="color:var(--cyan);"></i>
-                        </div>
+                        <div class="fpay-tag" title="Visa / MasterCard"><i
+                                class="ph-fill ph-currency-circle-dollar"></i></div>
+                        <div class="fpay-tag" title="Chuyển khoản ngân hàng"><i class="ph-fill ph-bank"></i></div>
                     </div>
                 </div>
-                <!-- removed closing div -->
             </div>
 
             <div class="footer-bottom">
-                <div class="copyright" data-i18n="copy_right">© 2026 SD'bike. <span
-                        style="color:var(--cyan);font-weight:700;">Đại lý chính hãng toàn quốc!</span></div>
+                <div class="copyright" data-i18n="copy_right">© 2026 SD'bike. <span class="copyright-highlight">Đại lý
+                        chính hãng toàn quốc!</span></div>
                 <div class="footer-legal">
                     <a href="#">Chính Sách Bảo Mật</a>
                     <a href="#">Điều Khoản</a>
@@ -392,50 +318,7 @@
         </div>
     </div>
 
-    <!-- AUTH MODAL -->
-    <div class="modal-overlay" id="authModal">
-        <div class="modal-card">
-            <button class="modal-close" id="authCloseBtn"><i class="ph ph-x"></i></button>
-            <h2 id="authTitle" data-i18n="auth_title_login">Đăng Nhập</h2>
-            <p id="authSubtitle" class="auth-subtitle" data-i18n="auth_sub_login">Chào mừng bạn trở lại!</p>
-            <div class="form-group">
-                <label data-i18n="auth_user">Tên đăng nhập</label>
-                <input type="text" id="authUsername" placeholder="Nhập tên đăng nhập" data-i18n-ph="auth_user_ph">
-            </div>
-            <div class="form-group" id="authPhoneGroup" style="display: none;">
-                <label data-i18n="auth_phone">Số điện thoại</label>
-                <input type="tel" id="authPhone" placeholder="Nhập số điện thoại" data-i18n-ph="auth_phone_ph">
-            </div>
-            <div class="form-group">
-                <label data-i18n="auth_pass">Mật khẩu</label>
-                <input type="password" id="authPassword" placeholder="Nhập mật khẩu" data-i18n-ph="auth_pass_ph">
-            </div>
-            <button id="authSubmitBtn" class="btn-primary w-full" data-i18n="auth_btn_login">ĐĂNG NHẬP</button>
 
-            <div class="auth-divider" style="display: flex; align-items: center; text-align: center; margin: 15px 0;">
-                <span style="flex: 1; border-bottom: 1px solid var(--border);"></span>
-                <span class="auth-divider-text" style="padding: 0 10px; color: var(--text-muted); font-size: 0.85rem;"
-                    data-i18n="auth_or">Hoặc đăng nhập bằng</span>
-                <span style="flex: 1; border-bottom: 1px solid var(--border);"></span>
-            </div>
-            <div class="social-login" style="display: flex; gap: 10px; margin-bottom: 15px;">
-                <button class="btn-ghost w-full" style="flex: 1; justify-content: center;" id="authFacebookBtn">
-                    <i class="ph-fill ph-facebook-logo" style="color: #1877F2; font-size: 1.2rem;"></i> <span
-                        data-i18n="auth_facebook">Facebook</span>
-                </button>
-                <button class="btn-ghost w-full" style="flex: 1; justify-content: center;" id="authGoogleBtn">
-                    <i class="ph-fill ph-google-logo" style="color: #DB4437; font-size: 1.2rem;"></i> <span
-                        data-i18n="auth_google">Google</span>
-                </button>
-            </div>
-
-            <p class="auth-toggle">
-                <span id="authToggleText" data-i18n="auth_text_login">Chưa có tài khoản?</span>
-                <a href="#" id="authToggleLink" data-i18n="auth_link_login">Đăng ký ngay</a>
-            </p>
-        </div>
-    </div>
-    </div>
 
     <!-- CHAT WIDGET -->
     <button class="floating-help-btn" aria-label="Chat hỗ trợ"
