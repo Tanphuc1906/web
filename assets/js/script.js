@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "new-products",
                     "name": "Xe đạp 2026 Mẫu 1",
                     "price": 5100000,
-                    "image": "images/ảnh xe mới nhất/Vintage.webp",
+                    "image": "../assets/images/xe-moi-nhat/Vintage.webp",
                     "sold": 158,
                     "features": [
                         "Khung xe chắc chắn",
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "new-products",
                     "name": "Xe đạp 2026 Mẫu 2",
                     "price": 3100000,
-                    "image": "images/ảnh xe mới nhất/Vintage.webp",
+                    "image": "../assets/images/xe-moi-nhat/Vintage.webp",
                     "sold": 64,
                     "features": [
                         "Khung xe chắc chắn",
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "new-products",
                     "name": "Xe đạp 2026 Mẫu 3",
                     "price": 2900000,
-                    "image": "images/ảnh xe mới nhất/city Classic.webp",
+                    "image": "../assets/images/xe-moi-nhat/city-Classic.webp",
                     "sold": 51,
                     "features": [
                         "Khung xe chắc chắn",
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "new-products",
                     "name": "Xe đạp 2026 Mẫu 4",
                     "price": 6800000,
-                    "image": "images/ảnh xe mới nhất/city Classic.webp",
+                    "image": "../assets/images/xe-moi-nhat/city-Classic.webp",
                     "sold": 120,
                     "features": [
                         "Khung xe chắc chắn",
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "new-products",
                     "name": "Xe đạp 2026 Mẫu 5",
                     "price": 5300000,
-                    "image": "images/ảnh xe mới nhất/city Classic.webp",
+                    "image": "../assets/images/xe-moi-nhat/city-Classic.webp",
                     "sold": 53,
                     "features": [
                         "Khung xe chắc chắn",
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "new-products",
                     "name": "Xe đạp 2026 Mẫu 6",
                     "price": 2900000,
-                    "image": "images/ảnh xe mới nhất/touring T500.webp",
+                    "image": "../assets/images/xe-moi-nhat/touring-T500.webp",
                     "sold": 74,
                     "features": [
                         "Khung xe chắc chắn",
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "new-products",
                     "name": "Xe đạp 2026 Mẫu 7",
                     "price": 6700000,
-                    "image": "images/ảnh xe mới nhất/touring T500.webp",
+                    "image": "../assets/images/xe-moi-nhat/touring-T500.webp",
                     "sold": 135,
                     "features": [
                         "Khung xe chắc chắn",
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "new-products",
                     "name": "Xe đạp 2026 Mẫu 8",
                     "price": 3200000,
-                    "image": "images/ảnh xe mới nhất/city Classic.webp",
+                    "image": "../assets/images/xe-moi-nhat/city-Classic.webp",
                     "sold": 109,
                     "features": [
                         "Khung xe chắc chắn",
@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "new-products",
                     "name": "Xe đạp 2026 Mẫu 9",
                     "price": 5300000,
-                    "image": "images/ảnh xe mới nhất/city Classic.webp",
+                    "image": "../assets/images/xe-moi-nhat/city-Classic.webp",
                     "sold": 33,
                     "features": [
                         "Khung xe chắc chắn",
@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "new-products",
                     "name": "Xe đạp 2026 Mẫu 10",
                     "price": 3400000,
-                    "image": "images/ảnh xe mới nhất/touring T500.webp",
+                    "image": "../assets/images/xe-moi-nhat/touring-T500.webp",
                     "sold": 107,
                     "features": [
                         "Khung xe chắc chắn",
@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "kids-bikes",
                     "name": "Xe đạp trẻ em KidBike Mẫu 1",
                     "price": 4300000,
-                    "image": "images/ảnh xe trẻ con/Kid Bike K1.webp",
+                    "image": "../assets/images/xe-tre-con/Kid-Bike-K1.webp",
                     "sold": 161,
                     "features": [
                         "Khung xe chắc chắn",
@@ -201,7 +201,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "kids-bikes",
                     "name": "Xe đạp trẻ em KidBike Mẫu 2",
                     "price": 3000000,
-                    "image": "images/ảnh xe trẻ con/Kid Bike K2.webp",
+                    "image": "../assets/images/xe-tre-con/Kid-Bike-K2.webp",
                     "sold": 169,
                     "features": [
                         "Khung xe chắc chắn",
@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "kids-bikes",
                     "name": "Xe đạp trẻ em KidBike Mẫu 3",
                     "price": 6200000,
-                    "image": "images/ảnh xe trẻ con/Kid Bike K4.webp",
+                    "image": "../assets/images/xe-tre-con/Kid-Bike-K4.webp",
                     "sold": 125,
                     "features": [
                         "Khung xe chắc chắn",
@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "kids-bikes",
                     "name": "Xe đạp trẻ em KidBike Mẫu 4",
                     "price": 3100000,
-                    "image": "images/ảnh xe trẻ con/Kid Bike K2.webp",
+                    "image": "../assets/images/xe-tre-con/Kid-Bike-K2.webp",
                     "sold": 182,
                     "features": [
                         "Khung xe chắc chắn",
@@ -237,7 +237,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "kids-bikes",
                     "name": "Xe đạp trẻ em KidBike Mẫu 5",
                     "price": 3700000,
-                    "image": "images/ảnh xe trẻ con/Sporty Mini.webp",
+                    "image": "../assets/images/xe-tre-con/Sporty-Mini.webp",
                     "sold": 46,
                     "features": [
                         "Khung xe chắc chắn",
@@ -249,7 +249,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "kids-bikes",
                     "name": "Xe đạp trẻ em KidBike Mẫu 6",
                     "price": 4100000,
-                    "image": "images/ảnh xe trẻ con/Princess.webp",
+                    "image": "../assets/images/xe-tre-con/Princess.webp",
                     "sold": 47,
                     "features": [
                         "Khung xe chắc chắn",
@@ -261,7 +261,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "kids-bikes",
                     "name": "Xe đạp trẻ em KidBike Mẫu 7",
                     "price": 2300000,
-                    "image": "images/ảnh xe trẻ con/hero.webp",
+                    "image": "../assets/images/xe-tre-con/hero.webp",
                     "sold": 116,
                     "features": [
                         "Khung xe chắc chắn",
@@ -273,7 +273,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "kids-bikes",
                     "name": "Xe đạp trẻ em KidBike Mẫu 8",
                     "price": 5300000,
-                    "image": "images/ảnh xe trẻ con/Balance Bike.webp",
+                    "image": "../assets/images/xe-tre-con/Balance-Bike.webp",
                     "sold": 181,
                     "features": [
                         "Khung xe chắc chắn",
@@ -285,7 +285,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "kids-bikes",
                     "name": "Xe đạp trẻ em KidBike Mẫu 9",
                     "price": 2600000,
-                    "image": "images/ảnh xe trẻ con/Princess.webp",
+                    "image": "../assets/images/xe-tre-con/Princess.webp",
                     "sold": 23,
                     "features": [
                         "Khung xe chắc chắn",
@@ -297,7 +297,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "kids-bikes",
                     "name": "Xe đạp trẻ em KidBike Mẫu 10",
                     "price": 6000000,
-                    "image": "images/ảnh xe trẻ con/Princess.webp",
+                    "image": "../assets/images/xe-tre-con/Princess.webp",
                     "sold": 14,
                     "features": [
                         "Khung xe chắc chắn",
@@ -309,7 +309,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "sports-bikes",
                     "name": "Xe đạp thể thao RoadBike Mẫu 1",
                     "price": 6100000,
-                    "image": "images/ảnh xe thể thao/Speed S100.webp",
+                    "image": "../assets/images/xe-the-thao/Speed-S100.webp",
                     "sold": 80,
                     "features": [
                         "Khung xe chắc chắn",
@@ -321,7 +321,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "sports-bikes",
                     "name": "Xe đạp thể thao RoadBike Mẫu 2",
                     "price": 6200000,
-                    "image": "images/ảnh xe thể thao/Fixed Urban.webp",
+                    "image": "../assets/images/xe-the-thao/Fixed-Urban.webp",
                     "sold": 44,
                     "features": [
                         "Khung xe chắc chắn",
@@ -333,7 +333,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "sports-bikes",
                     "name": "Xe đạp thể thao RoadBike Mẫu 3",
                     "price": 2100000,
-                    "image": "images/ảnh xe thể thao/touring Adventure.webp",
+                    "image": "../assets/images/xe-the-thao/touring-Adventure.webp",
                     "sold": 205,
                     "features": [
                         "Khung xe chắc chắn",
@@ -345,7 +345,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "sports-bikes",
                     "name": "Xe đạp thể thao RoadBike Mẫu 4",
                     "price": 4600000,
-                    "image": "images/ảnh xe thể thao/MTB Trail.webp",
+                    "image": "../assets/images/xe-the-thao/MTB-Trail.webp",
                     "sold": 42,
                     "features": [
                         "Khung xe chắc chắn",
@@ -357,7 +357,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "sports-bikes",
                     "name": "Xe đạp thể thao RoadBike Mẫu 5",
                     "price": 3000000,
-                    "image": "images/ảnh xe thể thao/Folding Bike F1.webp",
+                    "image": "../assets/images/xe-the-thao/Folding-Bike-F1.webp",
                     "sold": 24,
                     "features": [
                         "Khung xe chắc chắn",
@@ -369,7 +369,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "sports-bikes",
                     "name": "Xe đạp thể thao RoadBike Mẫu 6",
                     "price": 6400000,
-                    "image": "images/ảnh xe thể thao/MTB Thunder.webp",
+                    "image": "../assets/images/xe-the-thao/MTB-Thunder.webp",
                     "sold": 161,
                     "features": [
                         "Khung xe chắc chắn",
@@ -381,7 +381,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "sports-bikes",
                     "name": "Xe đạp thể thao RoadBike Mẫu 7",
                     "price": 3800000,
-                    "image": "images/ảnh xe thể thao/touring Adventure.webp",
+                    "image": "../assets/images/xe-the-thao/touring-Adventure.webp",
                     "sold": 105,
                     "features": [
                         "Khung xe chắc chắn",
@@ -393,7 +393,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "sports-bikes",
                     "name": "Xe đạp thể thao RoadBike Mẫu 8",
                     "price": 6300000,
-                    "image": "images/ảnh xe thể thao/BMX Junior.webp",
+                    "image": "../assets/images/xe-the-thao/BMX-Junior.webp",
                     "sold": 74,
                     "features": [
                         "Khung xe chắc chắn",
@@ -405,7 +405,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "sports-bikes",
                     "name": "Xe đạp thể thao RoadBike Mẫu 9",
                     "price": 6400000,
-                    "image": "images/ảnh xe thể thao/E-Bike 100.webp",
+                    "image": "../assets/images/xe-the-thao/E-Bike-100.webp",
                     "sold": 97,
                     "features": [
                         "Khung xe chắc chắn",
@@ -417,7 +417,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "sports-bikes",
                     "name": "Xe đạp thể thao RoadBike Mẫu 10",
                     "price": 3100000,
-                    "image": "images/ảnh xe thể thao/MTB Thunder.webp",
+                    "image": "../assets/images/xe-the-thao/MTB-Thunder.webp",
                     "sold": 116,
                     "features": [
                         "Khung xe chắc chắn",
@@ -429,7 +429,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "mountain-bikes",
                     "name": "Xe đạp địa hình MTB Mẫu 1",
                     "price": 3300000,
-                    "image": "images/ảnh xe thể thao/MTB Hunter.webp",
+                    "image": "../assets/images/xe-the-thao/MTB-Hunter.webp",
                     "sold": 69,
                     "features": [
                         "Khung xe chắc chắn",
@@ -441,7 +441,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "mountain-bikes",
                     "name": "Xe đạp địa hình MTB Mẫu 2",
                     "price": 4400000,
-                    "image": "images/ảnh xe thể thao/MTB Trail.webp",
+                    "image": "../assets/images/xe-the-thao/MTB-Trail.webp",
                     "sold": 115,
                     "features": [
                         "Khung xe chắc chắn",
@@ -453,7 +453,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "mountain-bikes",
                     "name": "Xe đạp địa hình MTB Mẫu 3",
                     "price": 2400000,
-                    "image": "images/ảnh xe thể thao/MTB Trail.webp",
+                    "image": "../assets/images/xe-the-thao/MTB-Trail.webp",
                     "sold": 192,
                     "features": [
                         "Khung xe chắc chắn",
@@ -465,7 +465,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "mountain-bikes",
                     "name": "Xe đạp địa hình MTB Mẫu 4",
                     "price": 3300000,
-                    "image": "images/ảnh xe thể thao/MTB Thunder.webp",
+                    "image": "../assets/images/xe-the-thao/MTB-Thunder.webp",
                     "sold": 57,
                     "features": [
                         "Khung xe chắc chắn",
@@ -477,7 +477,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "mountain-bikes",
                     "name": "Xe đạp địa hình MTB Mẫu 5",
                     "price": 3800000,
-                    "image": "images/ảnh xe thể thao/MTB Hunter.webp",
+                    "image": "../assets/images/xe-the-thao/MTB-Hunter.webp",
                     "sold": 33,
                     "features": [
                         "Khung xe chắc chắn",
@@ -489,7 +489,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "mountain-bikes",
                     "name": "Xe đạp địa hình MTB Mẫu 6",
                     "price": 6800000,
-                    "image": "images/ảnh xe thể thao/MTB Thunder.webp",
+                    "image": "../assets/images/xe-the-thao/MTB-Thunder.webp",
                     "sold": 169,
                     "features": [
                         "Khung xe chắc chắn",
@@ -501,7 +501,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "mountain-bikes",
                     "name": "Xe đạp địa hình MTB Mẫu 7",
                     "price": 4600000,
-                    "image": "images/ảnh xe thể thao/MTB Hunter.webp",
+                    "image": "../assets/images/xe-the-thao/MTB-Hunter.webp",
                     "sold": 54,
                     "features": [
                         "Khung xe chắc chắn",
@@ -513,7 +513,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "mountain-bikes",
                     "name": "Xe đạp địa hình MTB Mẫu 8",
                     "price": 2900000,
-                    "image": "images/ảnh xe thể thao/MTB Trail.webp",
+                    "image": "../assets/images/xe-the-thao/MTB-Trail.webp",
                     "sold": 116,
                     "features": [
                         "Khung xe chắc chắn",
@@ -525,7 +525,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "mountain-bikes",
                     "name": "Xe đạp địa hình MTB Mẫu 9",
                     "price": 4600000,
-                    "image": "images/ảnh xe thể thao/MTB Trail.webp",
+                    "image": "../assets/images/xe-the-thao/MTB-Trail.webp",
                     "sold": 206,
                     "features": [
                         "Khung xe chắc chắn",
@@ -537,7 +537,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     "categoryId": "mountain-bikes",
                     "name": "Xe đạp địa hình MTB Mẫu 10",
                     "price": 6700000,
-                    "image": "images/ảnh xe thể thao/MTB Hunter.webp",
+                    "image": "../assets/images/xe-the-thao/MTB-Hunter.webp",
                     "sold": 82,
                     "features": [
                         "Khung xe chắc chắn",
@@ -587,7 +587,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             section.id = cat.id;
             section.innerHTML = `
                 <div class="section-header" style="margin-top: 40px; margin-bottom: 30px;">
-                    <h2 style="font-size: 2rem !important; color: #fff; text-transform: uppercase;">${window.t_cat ? window.t_cat(cat.name) : cat.name}</h2>
+                    <h2 style="font-size: 2rem !important; color: var(--text); text-transform: uppercase;">${window.t_cat ? window.t_cat(cat.name) : cat.name}</h2>
                     <p style="color: var(--cyan); margin-top: 5px;">${window.t_feat ? window.t_feat('Những mẫu xe nổi bật nhất chuyên mục') : 'Những mẫu xe nổi bật nhất chuyên mục'}</p>
                 </div>
                 <div class="products-grid">
@@ -692,8 +692,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                     addToCart(p);
                 } else {
                     const detailPage = p.categoryId === 'kids-bikes'
-                        ? 'chi-tiet-kid-bike.html'
-                        : 'chi-tiet-san-pham.html';
+                        ? 'chi-tiet/chi-tiet-kid-bike.html'
+                        : 'chi-tiet/chi-tiet-san-pham.html';
                     window.location.href = `${detailPage}?id=${p.id}`;
                 }
             }
@@ -1116,7 +1116,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 9. LOGO BACKGROUND REMOVAL (CANVAS)
     // ============================================================
     const logoImg = new Image();
-    logoImg.src = "images/logo.png";
+    logoImg.src = "../assets/images/logo.png";
     logoImg.onload = () => {
         document.querySelectorAll('.logo-canvas').forEach(canvas => {
             const ctx = canvas.getContext('2d', { willReadFrequently: true });

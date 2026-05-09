@@ -6,7 +6,7 @@
 /* ======== CUSTOM FONTS ======== */
 @font-face {
     font-family: 'MJ-Euro';
-    src: url('fonts/MJ-EurostileExtendedBlack.ttf') format('truetype');
+    src: url('../fonts/MJ-EurostileExtendedBlack.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -14,7 +14,7 @@
 
 @font-face {
     font-family: 'VerdanaPrimer';
-    src: url('fonts/VerdanaPrimer.ttf') format('truetype');
+    src: url('../fonts/VerdanaPrimer.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -225,6 +225,130 @@ i[class*=" ph"] {
     --pink: #ff003c;
     --neon-cyan: 0 0 10px rgba(0, 240, 255, 0.5);
     --neon-pink: 0 0 10px rgba(255, 0, 60, 0.5);
+    --theme-transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ======== LIGHT MODE THEME ======== */
+body.light-mode {
+    --bg: #f0f4f8;
+    --white: #ffffff;
+    --text: #1a1e2e;
+    --text-muted: #5a6375;
+    --border: #d1d9e0;
+    --cyan: #0097a7;
+    --red: #0097a7;
+    --red-hover: #00838f;
+    --neon-cyan: 0 0 10px rgba(0, 151, 167, 0.25);
+    --neon-pink: 0 0 10px rgba(200, 0, 40, 0.25);
+}
+
+body.light-mode .header {
+    background: #ffffff;
+}
+
+body.light-mode .header.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 200, 220, 0.10);
+}
+
+/* Fix navbar text color in light mode */
+body.light-mode .navbar-nav .nav-link {
+    color: var(--text) !important;
+}
+
+body.light-mode .navbar-nav .nav-link:hover,
+body.light-mode .navbar-nav .nav-link.active {
+    color: var(--cyan) !important;
+}
+
+body.light-mode .logo-name {
+    color: var(--cyan) !important;
+}
+
+body.light-mode .logo-sub {
+    color: var(--text-muted) !important;
+}
+
+/* Ensure sticky works by preventing overflow-x from breaking it */
+html, body {
+    overflow-x: clip;
+}
+
+body.light-mode .cat-tag {
+    border-color: rgba(0, 151, 167, 0.5);
+}
+
+body.light-mode .product-features li {
+    color: var(--text-muted);
+}
+
+body.light-mode .search-box {
+    background: #e8edf3;
+    border-color: #c5cdd6;
+}
+
+body.light-mode .search-box input {
+    color: var(--text);
+}
+
+body.light-mode .search-suggestions {
+    background: #ffffff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+}
+
+body.light-mode .product-card {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+}
+
+body.light-mode .product-img-wrapper {
+    background: #e8edf3;
+}
+
+body.light-mode .cart-sidebar {
+    background: #f8fafc;
+}
+
+body.light-mode .dropdown-menu {
+    background: #ffffff;
+    border-color: var(--border);
+}
+
+body.light-mode .dropdown-item {
+    color: var(--text);
+}
+
+body.light-mode .dropdown-item:hover {
+    background: #f0f4f8;
+}
+
+/* ======== THEME TOGGLE BUTTON ======== */
+#theme-toggle {
+    background: none;
+    border: 1.5px solid var(--border);
+    color: var(--text);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    flex-shrink: 0;
+    transition: background 0.2s, border-color 0.2s, transform 0.35s cubic-bezier(0.34,1.56,0.64,1), color 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+#theme-toggle:hover {
+    background: var(--bg);
+    border-color: var(--cyan);
+    color: var(--cyan);
+    transform: rotate(22deg) scale(1.1);
+}
+
+#theme-toggle:active {
+    transform: scale(0.92);
 }
 
 
