@@ -321,6 +321,42 @@ body.light-mode .dropdown-item:hover {
     background: #f0f4f8;
 }
 
+/* Fix footer in light mode */
+body.light-mode .footer {
+    background: #f8f9fa;
+    color: var(--text);
+    border-top: 1px solid var(--border);
+}
+body.light-mode .footer-grid {
+    border-bottom-color: var(--border);
+}
+body.light-mode .footer-desc,
+body.light-mode .footer-col ul li a {
+    color: var(--text-muted);
+}
+body.light-mode .footer-col h5,
+body.light-mode .footer-contact strong {
+    color: var(--text);
+    border-bottom-color: var(--border);
+}
+body.light-mode .footer-contact i {
+    color: var(--cyan);
+}
+body.light-mode .footer-copy {
+    background: #e9ecef;
+    color: var(--text-muted);
+}
+body.light-mode .footer-copy strong {
+    color: var(--text);
+}
+body.light-mode .footer-social a,
+body.light-mode .fpay-tag,
+body.light-mode .cert-badge {
+    background: #ffffff;
+    border-color: var(--border);
+    color: var(--text);
+}
+
 /* ======== THEME TOGGLE BUTTON ======== */
 #theme-toggle {
     background: none;
@@ -3785,4 +3821,43 @@ a.logo {
     50% {
         opacity: 0.2;
     }
+}
+
+/* ======== THÊM HIỆU ỨNG ANIMATION (HOVER) ======== */
+.hover-scale-effect {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+.hover-scale-effect:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(0, 240, 255, 0.2), 0 0 20px rgba(0, 240, 255, 0.1) inset;
+    border: 1px solid rgba(0, 240, 255, 0.4);
+}
+
+.group-hover-fly {
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+.group:hover .group-hover-fly {
+    transform: translateY(-4px) translateX(4px) scale(1.1);
+}
+
+.hover-bounce {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s, text-shadow 0.3s;
+}
+.hover-bounce:hover {
+    transform: scale(1.3) translateY(-6px);
+    color: var(--cyan) !important;
+    text-shadow: 0 0 15px var(--cyan);
+}
+
+/* Hiệu ứng trôi nổi */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0px); }
+}
+
+.floating-element {
+    animation: float 5s ease-in-out infinite;
 }

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 
 <head>
@@ -338,6 +338,23 @@
         @media (max-width: 500px) {
             .auth-card { padding: 28px 20px 24px; }
         }
+
+        /* THEME TOGGLE BUTTON HOVER */
+        #theme-toggle:hover {
+            background: rgba(0,240,255,0.2);
+            box-shadow: 0 0 12px rgba(0,240,255,0.2);
+        }
+        
+        body.light-mode #theme-toggle {
+            background: rgba(0,151,167,0.1);
+            color: #0097a7;
+            border-color: rgba(0,151,167,0.3);
+        }
+        
+        body.light-mode #theme-toggle:hover {
+            background: rgba(0,151,167,0.2);
+            box-shadow: 0 0 12px rgba(0,151,167,0.2);
+        }
     </style>
 </head>
 
@@ -350,6 +367,29 @@
     <a href="trang-chu.html" class="back-link">
         <i class="ph ph-arrow-left"></i> Quay lại cửa hàng
     </a>
+
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" title="Đổi giao diện sáng/tối" aria-label="Toggle theme" style="
+        position: fixed;
+        top: 20px;
+        right: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(0,240,255,0.1);
+        border: 1px solid rgba(0,240,255,0.3);
+        border-radius: 50%;
+        color: #00f0ff;
+        cursor: pointer;
+        font-size: 1.2rem;
+        transition: all 0.2s;
+        z-index: 10;
+        padding: 0;
+    ">
+        <i class="ph ph-sun" id="theme-icon"></i>
+    </button>
 
     <div class="auth-page-wrap">
         <!-- Logo -->
@@ -626,6 +666,43 @@
         // ── Tự động redirect nếu đã đăng nhập ─────────────────────────
         // (bỏ comment nếu muốn bỏ qua trang login khi đã đăng nhập)
         // if (localStorage.getItem('sdb_user')) window.location.href = 'trang-chu.html';
+    </script>
+
+    <!-- THEME TOGGLE SCRIPT -->
+    <script>
+        (function () {
+            var btn  = document.getElementById('theme-toggle');
+            var icon = document.getElementById('theme-icon');
+
+            function getSaved() {
+                return localStorage.getItem('sdbike-theme') || 'dark';
+            }
+
+            function applyTheme(theme) {
+                const nav = document.querySelector('.navbar');
+                if (theme === 'light') {
+                    document.body.classList.add('light-mode');
+                    document.documentElement.setAttribute('data-bs-theme', 'light');
+                    if (nav) nav.setAttribute('data-bs-theme', 'light');
+                    if (icon) icon.className = 'ph ph-moon';
+                } else {
+                    document.body.classList.remove('light-mode');
+                    document.documentElement.setAttribute('data-bs-theme', 'dark');
+                    if (nav) nav.setAttribute('data-bs-theme', 'dark');
+                    if (icon) icon.className = 'ph ph-sun';
+                }
+                localStorage.setItem('sdbike-theme', theme);
+            }
+
+            // Áp dụng ngay khi load (tránh flash)
+            applyTheme(getSaved());
+
+            if (btn) {
+                btn.addEventListener('click', function () {
+                    applyTheme(getSaved() === 'dark' ? 'light' : 'dark');
+                });
+            }
+        })();
     </script>
 </body>
 

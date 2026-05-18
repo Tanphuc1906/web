@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 
 <head>
@@ -84,6 +84,9 @@
                     </form>
 
                     <div class="header-actions ms-lg-3 mt-3 mt-lg-0">
+                        <button id="theme-toggle" title="Đổi giao diện sáng/tối" aria-label="Toggle theme">
+                            <i class="ph ph-sun" id="theme-icon"></i>
+                        </button>
                         <button id="langToggleBtn" class="btn-ghost lang-btn">
                             <i class="ph-fill ph-translate"></i>
                             <span id="langIcon" class="lang-icon">EN</span>
@@ -115,24 +118,24 @@
             <!-- Left Column: Gallery -->
             <div class="col-lg-7">
                 <div class="main-image-wrapper">
-                    <img src="../../assets/images/xe-tre-con/Kid-Bike-K1.webp" alt="Kid-Bike-K1" id="mainImage">
+                    <img src="../../assets/images/kid_bike_detail.png" alt="Kid-Bike-K1" id="mainImage">
                 </div>
                 <div class="thumb-list">
                     <div class="thumb-item active"
                         onclick="document.getElementById('mainImage').src='images/xe-tre-con/Kid-Bike-K1.webp'; updateThumbs(this)">
-                        <img src="../../assets/images/xe-tre-con/Kid-Bike-K1.webp" alt="Thumb 1">
+                        <img src="../../assets/images/kid_bike_detail.png" alt="Thumb 1">
                     </div>
                     <div class="thumb-item"
                         onclick="document.getElementById('mainImage').src='images/xe-tre-con/Kid-Bike-K2.webp'; updateThumbs(this)">
-                        <img src="../../assets/images/xe-tre-con/Kid-Bike-K2.webp" alt="Thumb 2">
+                        <img src="../../assets/images/kid_bike_detail.png" alt="Thumb 2">
                     </div>
                     <div class="thumb-item"
                         onclick="document.getElementById('mainImage').src='images/xe-tre-con/Princess.webp'; updateThumbs(this)">
-                        <img src="../../assets/images/xe-tre-con/Princess.webp" alt="Thumb 3">
+                        <img src="../../assets/images/kid_bike_detail.png" alt="Thumb 3">
                     </div>
                     <div class="thumb-item"
                         onclick="document.getElementById('mainImage').src='images/xe-tre-con/Sporty-Mini.webp'; updateThumbs(this)">
-                        <img src="../../assets/images/xe-tre-con/Sporty-Mini.webp" alt="Thumb 4">
+                        <img src="../../assets/images/kid_bike_detail.png" alt="Thumb 4">
                     </div>
                 </div>
             </div>
@@ -161,7 +164,7 @@
 
                 <div class="mb-4">
                     <label class="d-block fw-bold mb-2 text-uppercase text-muted label-spaced">Màu Sắc: <span
-                            class="text-white" id="colorName">Hồng Phấn</span></label>
+                            class="text-body" id="colorName">Hồng Phấn</span></label>
                     <div class="d-flex gap-2">
                         <button class="color-option active" title="Hồng Phấn"
                             onclick="document.getElementById('colorName').innerText='Hồng Phấn'; updateColors(this)">
@@ -200,14 +203,14 @@
                     <div class="d-flex align-items-center mb-2">
                         <i class="ph-fill ph-truck text-cyan fs-4 me-3"></i>
                         <div>
-                            <div class="fw-bold text-white">Giao hàng miễn phí toàn quốc</div>
+                            <div class="fw-bold text-body">Giao hàng miễn phí toàn quốc</div>
                             <small class="text-muted">Nhận hàng trong 3-5 ngày làm việc</small>
                         </div>
                     </div>
                     <div class="d-flex align-items-center mt-3">
                         <i class="ph-fill ph-seal-check text-cyan fs-4 me-3"></i>
                         <div>
-                            <div class="fw-bold text-white">Bảo hành 3 năm trọn vẹn</div>
+                            <div class="fw-bold text-body">Bảo hành 3 năm trọn vẹn</div>
                             <small class="text-muted">Bảo dưỡng định kỳ miễn phí tại hệ thống SD'bike</small>
                         </div>
                     </div>
@@ -224,11 +227,11 @@
                     <li class="nav-item flex-grow-1 text-center"><a class="nav-link" href="#">CHÍNH SÁCH</a></li>
                 </ul>
 
-                <div class="text-white-50 lh-lg mb-5 tab-content-text">
+                <div class="text-body-secondary lh-lg mb-5 tab-content-text">
                     <p class="mb-4">Chiếc xe đạp <strong>Kid-Bike-K1</strong> là người bạn đồng hành lý tưởng cho các bé từ 4–8 tuổi. Với thiết kế an toàn, màu sắc tươi sáng và khung thép hợp kim nhẹ, bé yêu sẽ tự tin khám phá thế giới trên từng vòng bánh.</p>
 
                     <div class="feature-img-block row g-0 mb-4 align-items-center">
-                        <div class="col-md-6 order-md-2"><img src="../../assets/images/xe-tre-con/Kid-Bike-K1.webp" alt="An toàn tuyệt đối"></div>
+                        <div class="col-md-6 order-md-2"><img src="../../assets/images/kid_bike_detail.png" alt="An toàn tuyệt đối"></div>
                         <div class="col-md-6 order-md-1 feature-text">
                             <h3>AN TOÀN TUYỆT ĐỐI</h3>
                             <p>Trang bị bánh phụ hỗ trợ tập đi, tay lái bọc nhựa êm ái và phanh tay nhạy bén, đảm bảo an toàn tối đa cho bé.</p>
@@ -236,7 +239,7 @@
                     </div>
 
                     <div class="feature-img-block row g-0 mb-4 align-items-center bg-transparent">
-                        <div class="col-md-6"><img src="../../assets/images/xe-tre-con/Kid-Bike-K2.webp" alt="Thiết kế đáng yêu"></div>
+                        <div class="col-md-6"><img src="../../assets/images/kid_bike_detail.png" alt="Thiết kế đáng yêu"></div>
                         <div class="col-md-6 feature-text">
                             <h3 class="text-cyan">THIẾT KẾ ĐÁNG YÊU</h3>
                             <p>Màu sắc rực rỡ, hình dán hoạt hình ngộ nghĩnh giúp bé thêm yêu thích việc đạp xe và vận động ngoài trời.</p>
@@ -244,7 +247,7 @@
                     </div>
 
                     <div class="feature-img-block row g-0 mb-4 align-items-center">
-                        <div class="col-md-6 order-md-2"><img src="../../assets/images/xe-tre-con/Sporty-Mini.webp" alt="Khung xe bền bỉ"></div>
+                        <div class="col-md-6 order-md-2"><img src="../../assets/images/kid_bike_detail.png" alt="Khung xe bền bỉ"></div>
                         <div class="col-md-6 order-md-1 feature-text">
                             <h3>KHUNG XE BỀN BỈ</h3>
                             <p>Khung thép hợp kim chịu lực tốt, sơn tĩnh điện chống gỉ, bền màu dù đi trong mọi điều kiện thời tiết.</p>
@@ -255,30 +258,30 @@
 
             <!-- Sidebar / Related -->
             <div class="col-lg-4">
-                <h4 class="fw-bold mb-4 text-white text-uppercase sidebar-heading">Khách Hàng Cũng Xem</h4>
+                <h4 class="fw-bold mb-4 text-body text-uppercase sidebar-heading">Khách Hàng Cũng Xem</h4>
 
                 <a href="chi-tiet-kid-bike.html" class="related-product-item">
-                    <img src="../../assets/images/xe-tre-con/Kid-Bike-K2.webp" class="related-img" alt="Kid-Bike-K2">
+                    <img src="../../assets/images/kid_bike_detail.png" class="related-img" alt="Kid-Bike-K2">
                     <div>
-                        <div class="text-white fw-bold mb-1">Xe đạp trẻ em Kid-Bike-K2</div>
+                        <div class="text-body fw-bold mb-1">Xe đạp trẻ em Kid-Bike-K2</div>
                         <div class="text-cyan fw-bold">3.000.000₫</div>
                         <div class="text-warning small"><i class="ph-fill ph-star"></i> 4.7</div>
                     </div>
                 </a>
 
                 <a href="chi-tiet-kid-bike.html" class="related-product-item">
-                    <img src="../../assets/images/xe-tre-con/Princess.webp" class="related-img" alt="Princess">
+                    <img src="../../assets/images/kid_bike_detail.png" class="related-img" alt="Princess">
                     <div>
-                        <div class="text-white fw-bold mb-1">Xe đạp Princess - Bé Gái</div>
+                        <div class="text-body fw-bold mb-1">Xe đạp Princess - Bé Gái</div>
                         <div class="text-cyan fw-bold">4.100.000₫</div>
                         <div class="text-warning small"><i class="ph-fill ph-star"></i> 4.9</div>
                     </div>
                 </a>
 
                 <a href="chi-tiet-kid-bike.html" class="related-product-item">
-                    <img src="../../assets/images/xe-tre-con/Balance-Bike.webp" class="related-img" alt="Balance-Bike">
+                    <img src="../../assets/images/kid_bike_detail.png" class="related-img" alt="Balance-Bike">
                     <div>
-                        <div class="text-white fw-bold mb-1">Xe thăng bằng Balance-Bike</div>
+                        <div class="text-body fw-bold mb-1">Xe thăng bằng Balance-Bike</div>
                         <div class="text-cyan fw-bold">5.300.000₫</div>
                         <div class="text-warning small"><i class="ph-fill ph-star"></i> 4.8</div>
                     </div>
@@ -286,8 +289,8 @@
 
                 <div class="contact-banner-gradient mt-5 p-4 text-center">
                     <i class="ph-duotone ph-headset text-cyan mb-3" style="font-size: 3rem;"></i>
-                    <h5 class="text-white fw-bold">BẠN CẦN TƯ VẤN THÊM?</h5>
-                    <p class="text-white-50 small mb-4">Đội ngũ kỹ thuật viên của SD'bike luôn sẵn sàng giải đáp kỹ
+                    <h5 class="text-body fw-bold">BẠN CẦN TƯ VẤN THÊM?</h5>
+                    <p class="text-body-secondary small mb-4">Đội ngũ kỹ thuật viên của SD'bike luôn sẵn sàng giải đáp kỹ
                         thuật.</p>
                     <button class="btn btn-primary w-100 fw-bold border-0 contact-banner-btn">NHẮN TIN NGAY / BOOK A
                         CALL</button>
@@ -452,6 +455,43 @@
                 alert("Đang tải dữ liệu, vui lòng thử lại sau!");
             }
         });
+    </script>
+
+    <!-- THEME TOGGLE SCRIPT -->
+    <script>
+        (function () {
+            var btn  = document.getElementById('theme-toggle');
+            var icon = document.getElementById('theme-icon');
+
+            function getSaved() {
+                return localStorage.getItem('sdbike-theme') || 'dark';
+            }
+
+            function applyTheme(theme) {
+                const nav = document.querySelector('.navbar');
+                if (theme === 'light') {
+                    document.body.classList.add('light-mode');
+                    document.documentElement.setAttribute('data-bs-theme', 'light');
+                    if (nav) nav.setAttribute('data-bs-theme', 'light');
+                    if (icon) icon.className = 'ph ph-moon';
+                } else {
+                    document.body.classList.remove('light-mode');
+                    document.documentElement.setAttribute('data-bs-theme', 'dark');
+                    if (nav) nav.setAttribute('data-bs-theme', 'dark');
+                    if (icon) icon.className = 'ph ph-sun';
+                }
+                localStorage.setItem('sdbike-theme', theme);
+            }
+
+            // Áp dụng ngay khi load (tránh flash)
+            applyTheme(getSaved());
+
+            if (btn) {
+                btn.addEventListener('click', function () {
+                    applyTheme(getSaved() === 'dark' ? 'light' : 'dark');
+                });
+            }
+        })();
     </script>
 </body>
 

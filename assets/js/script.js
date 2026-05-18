@@ -67,9 +67,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "1",
                     "categoryId": "new-products",
-                    "name": "Xe đạp 2026 Mẫu 1",
+                    "name": "Xe đạp Califa CX6",
                     "price": 5100000,
-                    "image": "../assets/images/xe-moi-nhat/Vintage.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/xe-dap-califa-cx6.jpg?v=1762739559113",
                     "sold": 158,
                     "features": [
                         "Khung xe chắc chắn",
@@ -79,9 +79,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "2",
                     "categoryId": "new-products",
-                    "name": "Xe đạp 2026 Mẫu 2",
+                    "name": "Xe đạp Thống Nhất GN 2.0 700C",
                     "price": 3100000,
-                    "image": "../assets/images/xe-moi-nhat/Vintage.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/xe-dap-thong-nhat-gn-2-0-700c-be.jpg?v=1764325682703",
                     "sold": 64,
                     "features": [
                         "Khung xe chắc chắn",
@@ -91,9 +91,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "3",
                     "categoryId": "new-products",
-                    "name": "Xe đạp 2026 Mẫu 3",
+                    "name": "Xe đạp Papylus PZ6M",
                     "price": 2900000,
-                    "image": "../assets/images/xe-moi-nhat/city-Classic.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/xe-dap-papylus-pz6m.jpg?v=1760596953140",
                     "sold": 51,
                     "features": [
                         "Khung xe chắc chắn",
@@ -103,9 +103,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "4",
                     "categoryId": "new-products",
-                    "name": "Xe đạp 2026 Mẫu 4",
+                    "name": "Xe đạp thể thao TrinX GT24 NEW",
                     "price": 6800000,
-                    "image": "../assets/images/xe-moi-nhat/city-Classic.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/trinx-gt24-den-do.jpg?v=1693567958100",
                     "sold": 120,
                     "features": [
                         "Khung xe chắc chắn",
@@ -115,9 +115,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "5",
                     "categoryId": "new-products",
-                    "name": "Xe đạp 2026 Mẫu 5",
+                    "name": "Xe đạp đua LIFE RX20",
                     "price": 5300000,
-                    "image": "../assets/images/xe-moi-nhat/city-Classic.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/xe-dap-dua-life-rx20.jpg?v=1764664785457",
                     "sold": 53,
                     "features": [
                         "Khung xe chắc chắn",
@@ -127,9 +127,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "6",
                     "categoryId": "new-products",
-                    "name": "Xe đạp 2026 Mẫu 6",
+                    "name": "Xe đạp QT 690",
                     "price": 2900000,
-                    "image": "../assets/images/xe-moi-nhat/touring-T500.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/xe-dap-qt-680-phanh-dau-26-inch-9fd606f0-30bf-4f14-aeb5-1da4b0e6c085.jpg?v=1763432133743",
                     "sold": 74,
                     "features": [
                         "Khung xe chắc chắn",
@@ -139,9 +139,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "7",
                     "categoryId": "new-products",
-                    "name": "Xe đạp 2026 Mẫu 7",
+                    "name": "Xe đạp Calli H2000",
                     "price": 6700000,
-                    "image": "../assets/images/xe-moi-nhat/touring-T500.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/xe-dap-calli-h2000.jpg?v=1762739496707",
                     "sold": 135,
                     "features": [
                         "Khung xe chắc chắn",
@@ -151,9 +151,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "8",
                     "categoryId": "new-products",
-                    "name": "Xe đạp 2026 Mẫu 8",
+                    "name": "Xe đạp đua Life RX150",
                     "price": 3200000,
-                    "image": "../assets/images/xe-moi-nhat/city-Classic.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/xe-dap-dua-life-rx150.jpg?v=1764835283150",
                     "sold": 109,
                     "features": [
                         "Khung xe chắc chắn",
@@ -163,9 +163,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "9",
                     "categoryId": "new-products",
-                    "name": "Xe đạp 2026 Mẫu 9",
+                    "name": "Xe đạp thể thao TrinX GT26 NEW",
                     "price": 5300000,
-                    "image": "../assets/images/xe-moi-nhat/city-Classic.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/trinx-gt26-new.jpg?v=1742798240247",
                     "sold": 33,
                     "features": [
                         "Khung xe chắc chắn",
@@ -175,9 +175,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "10",
                     "categoryId": "new-products",
-                    "name": "Xe đạp 2026 Mẫu 10",
+                    "name": "Xe đạp trẻ em Royalbaby Little Swan",
                     "price": 3400000,
-                    "image": "../assets/images/xe-moi-nhat/touring-T500.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/little-swan-12-inch.jpg?v=1728028856690",
                     "sold": 107,
                     "features": [
                         "Khung xe chắc chắn",
@@ -187,9 +187,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "11",
                     "categoryId": "kids-bikes",
-                    "name": "Xe đạp trẻ em KidBike Mẫu 1",
+                    "name": "Xe đạp trẻ em Thống Nhất Bunny",
                     "price": 4300000,
-                    "image": "../assets/images/xe-tre-con/Kid-Bike-K1.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/xe-dap-tre-em-thong-nhat-bunny.png?v=1743583167557",
                     "sold": 161,
                     "features": [
                         "Khung xe chắc chắn",
@@ -199,9 +199,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "12",
                     "categoryId": "kids-bikes",
-                    "name": "Xe đạp trẻ em KidBike Mẫu 2",
+                    "name": "Xe đạp trẻ em Royalbaby Jenny công chúa",
                     "price": 3000000,
-                    "image": "../assets/images/xe-tre-con/Kid-Bike-K2.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/royaljenny-12-inch.jpg?v=1728035513967",
                     "sold": 169,
                     "features": [
                         "Khung xe chắc chắn",
@@ -211,9 +211,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "13",
                     "categoryId": "kids-bikes",
-                    "name": "Xe đạp trẻ em KidBike Mẫu 3",
+                    "name": "Xe đạp trẻ em Topright Color Age",
                     "price": 6200000,
-                    "image": "../assets/images/xe-tre-con/Kid-Bike-K4.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/topright-color-age.jpg?v=1742968142997",
                     "sold": 125,
                     "features": [
                         "Khung xe chắc chắn",
@@ -223,9 +223,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "14",
                     "categoryId": "kids-bikes",
-                    "name": "Xe đạp trẻ em KidBike Mẫu 4",
+                    "name": "Xe đạp trẻ em Thống Nhất Superman",
                     "price": 3100000,
-                    "image": "../assets/images/xe-tre-con/Kid-Bike-K2.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/thong-nhat-superman-16.jpg?v=1743583220217",
                     "sold": 182,
                     "features": [
                         "Khung xe chắc chắn",
@@ -235,9 +235,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "15",
                     "categoryId": "kids-bikes",
-                    "name": "Xe đạp trẻ em KidBike Mẫu 5",
+                    "name": "Xe đạp Thống Nhất We Bare Bears 16 IN",
                     "price": 3700000,
-                    "image": "../assets/images/xe-tre-con/Sporty-Mini.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/xe-dap-thong-nhat-we-bare-bears-16-in.jpg?v=1752649679410",
                     "sold": 46,
                     "features": [
                         "Khung xe chắc chắn",
@@ -247,9 +247,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "16",
                     "categoryId": "kids-bikes",
-                    "name": "Xe đạp trẻ em KidBike Mẫu 6",
+                    "name": "Xe đạp trẻ em Thống Nhất Robot",
                     "price": 4100000,
-                    "image": "../assets/images/xe-tre-con/Princess.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/thong-nhat-robot-2.jpg?v=1743583118273",
                     "sold": 47,
                     "features": [
                         "Khung xe chắc chắn",
@@ -259,9 +259,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "17",
                     "categoryId": "kids-bikes",
-                    "name": "Xe đạp trẻ em KidBike Mẫu 7",
+                    "name": "Xe đạp trẻ em Trinx GT20",
                     "price": 2300000,
-                    "image": "../assets/images/xe-tre-con/hero.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/gt20-xanh.jpg?v=1699515434497",
                     "sold": 116,
                     "features": [
                         "Khung xe chắc chắn",
@@ -271,9 +271,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "18",
                     "categoryId": "kids-bikes",
-                    "name": "Xe đạp trẻ em KidBike Mẫu 8",
+                    "name": "Xe đạp trẻ em CICI Vintage",
                     "price": 5300000,
-                    "image": "../assets/images/xe-tre-con/Balance-Bike.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/topright-vintage-style-girl-mint-green.jpg?v=1691639503293",
                     "sold": 181,
                     "features": [
                         "Khung xe chắc chắn",
@@ -283,9 +283,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "19",
                     "categoryId": "kids-bikes",
-                    "name": "Xe đạp trẻ em KidBike Mẫu 9",
+                    "name": "Xe đạp trẻ em Thống Nhất PUPPY",
                     "price": 2600000,
-                    "image": "../assets/images/xe-tre-con/Princess.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/thong-nhat-puppy.jpg?v=1743583263107",
                     "sold": 23,
                     "features": [
                         "Khung xe chắc chắn",
@@ -295,9 +295,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "20",
                     "categoryId": "kids-bikes",
-                    "name": "Xe đạp trẻ em KidBike Mẫu 10",
-                    "price": 6000000,
-                    "image": "../assets/images/xe-tre-con/Princess.webp",
+                    "name": "Xe đạp trẻ em Xaming",
+                    "price": 1800000,
+                    "image": "../assets/images/xe-tre-con/xe-tre-con-9.jpg",
                     "sold": 14,
                     "features": [
                         "Khung xe chắc chắn",
@@ -307,9 +307,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "21",
                     "categoryId": "sports-bikes",
-                    "name": "Xe đạp thể thao RoadBike Mẫu 1",
+                    "name": "Xe đạp địa hình Life VIC 5",
                     "price": 6100000,
-                    "image": "../assets/images/xe-the-thao/Speed-S100.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/vic-5-9f30268d-d9eb-41b2-bc45-f373c12bafb0.jpg?v=1726823460350",
                     "sold": 80,
                     "features": [
                         "Khung xe chắc chắn",
@@ -319,9 +319,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "22",
                     "categoryId": "sports-bikes",
-                    "name": "Xe đạp thể thao RoadBike Mẫu 2",
+                    "name": "Xe đạp Touring Califa CT300",
                     "price": 6200000,
-                    "image": "../assets/images/xe-the-thao/Fixed-Urban.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/xe-dap-touring-califa-ct300.jpg?v=1762575774813",
                     "sold": 44,
                     "features": [
                         "Khung xe chắc chắn",
@@ -331,9 +331,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "23",
                     "categoryId": "sports-bikes",
-                    "name": "Xe đạp thể thao RoadBike Mẫu 3",
+                    "name": "Xe đạp đua Califa CR9",
                     "price": 2100000,
-                    "image": "../assets/images/xe-the-thao/touring-Adventure.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/z5307826964014-70874906e522cc8911d517b59714e1b2.jpg?v=1712109529410",
                     "sold": 205,
                     "features": [
                         "Khung xe chắc chắn",
@@ -343,9 +343,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "24",
                     "categoryId": "sports-bikes",
-                    "name": "Xe đạp thể thao RoadBike Mẫu 4",
+                    "name": "Xe đạp đường phố Touring Calli S3000",
                     "price": 4600000,
-                    "image": "../assets/images/xe-the-thao/MTB-Trail.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/den-do-3000.jpg?v=1696574601660",
                     "sold": 42,
                     "features": [
                         "Khung xe chắc chắn",
@@ -355,9 +355,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "25",
                     "categoryId": "sports-bikes",
-                    "name": "Xe đạp thể thao RoadBike Mẫu 5",
+                    "name": "Xe đạp đua Road bike Papylus PR700s",
                     "price": 3000000,
-                    "image": "../assets/images/xe-the-thao/Folding-Bike-F1.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/z4750698488653-202de68eccbc81ae8ca0cababb8ef733.jpg?v=1696499255657",
                     "sold": 24,
                     "features": [
                         "Khung xe chắc chắn",
@@ -367,9 +367,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "26",
                     "categoryId": "sports-bikes",
-                    "name": "Xe đạp thể thao RoadBike Mẫu 6",
+                    "name": "Xe đạp địa hình Califa A340 24 inch",
                     "price": 6400000,
-                    "image": "../assets/images/xe-the-thao/MTB-Thunder.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/z5916254414846-f90819b11a014cb4f71cdded3156d086-a68de62d-b199-4fed-bc46-aa4319f7447e.jpg?v=1728554912633",
                     "sold": 161,
                     "features": [
                         "Khung xe chắc chắn",
@@ -379,9 +379,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "27",
                     "categoryId": "sports-bikes",
-                    "name": "Xe đạp thể thao RoadBike Mẫu 7",
+                    "name": "Xe đạp đua papylus PR760",
                     "price": 3800000,
-                    "image": "../assets/images/xe-the-thao/touring-Adventure.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/xe-dap-dua-papylus-pr760.jpg?v=1760597017357",
                     "sold": 105,
                     "features": [
                         "Khung xe chắc chắn",
@@ -391,9 +391,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "28",
                     "categoryId": "sports-bikes",
-                    "name": "Xe đạp thể thao RoadBike Mẫu 8",
+                    "name": "Xe đạp đua LIFE RX30",
                     "price": 6300000,
-                    "image": "../assets/images/xe-the-thao/BMX-Junior.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/xe-dap-dua-life-rx30-6f0426c5-9b0b-4812-8316-3c4e5817369c.jpg?v=1765443648370",
                     "sold": 74,
                     "features": [
                         "Khung xe chắc chắn",
@@ -403,9 +403,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "29",
                     "categoryId": "sports-bikes",
-                    "name": "Xe đạp thể thao RoadBike Mẫu 9",
+                    "name": "Xe đạp đua Calli Top 1D",
                     "price": 6400000,
-                    "image": "../assets/images/xe-the-thao/E-Bike-100.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/z5857961746692-5dfe621fe3e076a52ceb721c5abc2f49.jpg?v=1727058702440",
                     "sold": 97,
                     "features": [
                         "Khung xe chắc chắn",
@@ -415,9 +415,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "30",
                     "categoryId": "sports-bikes",
-                    "name": "Xe đạp thể thao RoadBike Mẫu 10",
+                    "name": "Xe đạp CALLI PREMIUM X",
                     "price": 3100000,
-                    "image": "../assets/images/xe-the-thao/MTB-Thunder.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/premium-x.jpg?v=1760597105380",
                     "sold": 116,
                     "features": [
                         "Khung xe chắc chắn",
@@ -427,9 +427,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "31",
                     "categoryId": "mountain-bikes",
-                    "name": "Xe đạp địa hình MTB Mẫu 1",
+                    "name": "Xe đạp đua road bike Calli R2.5",
                     "price": 3300000,
-                    "image": "../assets/images/xe-the-thao/MTB-Hunter.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/xe-dap-calli-r2-5-xanh.jpg?v=1697600579933",
                     "sold": 69,
                     "features": [
                         "Khung xe chắc chắn",
@@ -439,9 +439,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "32",
                     "categoryId": "mountain-bikes",
-                    "name": "Xe đạp địa hình MTB Mẫu 2",
+                    "name": "Xe đạp đua Life RX50",
                     "price": 4400000,
-                    "image": "../assets/images/xe-the-thao/MTB-Trail.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/rx50-a12bb500-fb30-427f-aeb1-37cf1c63d1f2.jpg?v=1726018681717",
                     "sold": 115,
                     "features": [
                         "Khung xe chắc chắn",
@@ -451,9 +451,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "33",
                     "categoryId": "mountain-bikes",
-                    "name": "Xe đạp địa hình MTB Mẫu 3",
+                    "name": "Xe đạp mini Thống Nhất NEW 26",
                     "price": 2400000,
-                    "image": "../assets/images/xe-the-thao/MTB-Trail.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/z5857856744752-2b2188473e8dcdd8f9587022b22d379a.jpg?v=1727058414200",
                     "sold": 192,
                     "features": [
                         "Khung xe chắc chắn",
@@ -463,9 +463,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "34",
                     "categoryId": "mountain-bikes",
-                    "name": "Xe đạp địa hình MTB Mẫu 4",
+                    "name": "Xe đạp Thống Nhất LD City 26",
                     "price": 3300000,
-                    "image": "../assets/images/xe-the-thao/MTB-Thunder.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/kem-scaled.jpg?v=1747296230210",
                     "sold": 57,
                     "features": [
                         "Khung xe chắc chắn",
@@ -475,9 +475,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "35",
                     "categoryId": "mountain-bikes",
-                    "name": "Xe đạp địa hình MTB Mẫu 5",
+                    "name": "Xe đạp Mini Life Lucy",
                     "price": 3800000,
-                    "image": "../assets/images/xe-the-thao/MTB-Hunter.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/life-lucy-tr-dc91fe67-e4b7-4b0d-847b-116907d2fb9c.jpg?v=1662535983750",
                     "sold": 33,
                     "features": [
                         "Khung xe chắc chắn",
@@ -487,9 +487,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "36",
                     "categoryId": "mountain-bikes",
-                    "name": "Xe đạp địa hình MTB Mẫu 6",
+                    "name": "Xe đạp Thống Nhất LD 26 We Bare Bears",
                     "price": 6800000,
-                    "image": "../assets/images/xe-the-thao/MTB-Thunder.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/xe-dap-thong-nhat-ld-26-we-bare-bears-kem.jpg?v=1754893737617",
                     "sold": 169,
                     "features": [
                         "Khung xe chắc chắn",
@@ -499,9 +499,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "37",
                     "categoryId": "mountain-bikes",
-                    "name": "Xe đạp địa hình MTB Mẫu 7",
+                    "name": "Xe đạp mini Thống Nhất NEW 24",
                     "price": 4600000,
-                    "image": "../assets/images/xe-the-thao/MTB-Hunter.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/z5858002452953-6f73f8462d5fa1a9f450ef850c915fa3.jpg?v=1727058964403",
                     "sold": 54,
                     "features": [
                         "Khung xe chắc chắn",
@@ -511,9 +511,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "38",
                     "categoryId": "mountain-bikes",
-                    "name": "Xe đạp địa hình MTB Mẫu 8",
+                    "name": "Xe đạp Mini Life Beauty",
                     "price": 2900000,
-                    "image": "../assets/images/xe-the-thao/MTB-Trail.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/xe-dap-mini-city-bike-life-beauty-2.jpg?v=1681104819670",
                     "sold": 116,
                     "features": [
                         "Khung xe chắc chắn",
@@ -523,9 +523,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "39",
                     "categoryId": "mountain-bikes",
-                    "name": "Xe đạp địa hình MTB Mẫu 9",
+                    "name": "Xe đạp Momentum 2026 iNeed Latte 26 Inch",
                     "price": 4600000,
-                    "image": "../assets/images/xe-the-thao/MTB-Trail.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/xe-dap-momentum-2026-ineed-latte-bac-ha-99218d62-8797-425a-ac80-6b35a7961d45.jpg?v=1751598877847",
                     "sold": 206,
                     "features": [
                         "Khung xe chắc chắn",
@@ -535,9 +535,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                     "id": "40",
                     "categoryId": "mountain-bikes",
-                    "name": "Xe đạp địa hình MTB Mẫu 10",
+                    "name": "Xe đạp mini Thống Nhất URBAN CITY 24",
                     "price": 6700000,
-                    "image": "../assets/images/xe-the-thao/MTB-Hunter.webp",
+                    "image": "https://bizweb.dktcdn.net/100/412/747/products/ld-2401-kem.jpg?v=1747296276850",
                     "sold": 82,
                     "features": [
                         "Khung xe chắc chắn",
