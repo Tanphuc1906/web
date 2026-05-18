@@ -331,15 +331,16 @@ body.light-mode .footer-grid {
     border-bottom-color: var(--border);
 }
 body.light-mode .footer-desc,
-body.light-mode .footer-col ul li a {
+body.light-mode .footer-col-list li a,
+body.light-mode .footer-contact-new {
     color: var(--text-muted);
 }
-body.light-mode .footer-col h5,
-body.light-mode .footer-contact strong {
+body.light-mode .footer-col-title,
+body.light-mode .footer-contact-text {
     color: var(--text);
     border-bottom-color: var(--border);
 }
-body.light-mode .footer-contact i {
+body.light-mode .footer-contact-icon {
     color: var(--cyan);
 }
 body.light-mode .footer-copy {
