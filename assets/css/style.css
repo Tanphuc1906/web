@@ -421,11 +421,9 @@ a {
     will-change: transform;
 }
 
-/* Khi cuộn: header trở nên mờ trong suốt và nổi lên */
+/* Khi cuộn: header nổi lên */
 .header.scrolled {
-    background: rgba(21, 27, 38, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: var(--bg); /* Dùng màu nền đặc để tránh trùng lấp ảnh */
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(0, 240, 255, 0.08);
     border-bottom-color: rgba(0, 240, 255, 0.15);
 }
@@ -1862,12 +1860,6 @@ a {
 }
 
 /* ======== CYBERBIKE GAMING EDITION STYLES ======== */
-.header {
-    background: transparent;
-    border-bottom: 1px solid rgba(0, 240, 255, 0.2);
-    position: absolute;
-    width: 100%;
-}
 
 .logo {
     transition: all 0.2s;
