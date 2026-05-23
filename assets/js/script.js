@@ -720,7 +720,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!cartItemsList) return;
 
         if (n === 0) {
-            cartItemsList.innerHTML = `<div class="empty-cart">${i18nConfig[currentLang]?.cart_empty || '🛒 Giỏ hàng đang trống'}</div>`;
+            cartItemsList.innerHTML = `<div class="empty-cart"><i class="ph-bold ph-shopping-cart"></i> <span>${i18nConfig[currentLang]?.cart_empty || '🛒 Giỏ hàng đang trống'}</span></div>`;
             cartTotalEl.textContent = '0 ₫';
             return;
         }
@@ -730,12 +730,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         cartItemsList.innerHTML = shoppingCart.map((item, i) => {
             total += item.price;
             return `
-                <div class="cart-item">
+                <div class="cart-item" style="animation-delay: ${i * 0.1}s">
                     <img src="${item.image}" alt="${item.name}" loading="lazy">
                     <div class="cart-item-info">
                         <div class="cart-item-name">${window.t_name ? window.t_name(item.name) : item.name}</div>
                         <div class="cart-item-price">${fmt(item.price)}</div>
-                        <button class="cart-item-remove" onclick="window.removeFromCart(${i})">${i18nConfig[currentLang]?.remove || 'Xóa'}</button>
+                        <button class="cart-item-remove" onclick="window.removeFromCart(${i})"><i class="ph-bold ph-trash"></i> ${i18nConfig[currentLang]?.remove || 'Xóa'}</button>
                     </div>
                 </div>`;
         }).join('');
@@ -1147,5 +1147,28 @@ document.addEventListener('DOMContentLoaded', async () => {
             ctx.putImageData(imageData, 0, 0);
         });
     };
+
+    // ============================================================
+    // 10. SCROLL ANIMATION
+    // ============================================================
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    });
+
+    // We delay the query selector to ensure elements are rendered
+    setTimeout(() => {
+        document.querySelectorAll('.category-block, .cat-card, .product-card, .hero-inner, .trust-item').forEach(el => {
+            el.classList.add('fade-up-element');
+            observer.observe(el);
+        });
+    }, 300);
 
 }); // end DOMContentLoaded

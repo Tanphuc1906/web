@@ -50,8 +50,12 @@
 
     <!-- TOP INFO BAR -->
     <div class="top-bar">
-        <div class="container top-bar-inner">
-            <div class="top-bar-right">
+        <div class="marquee-container">
+            <div class="marquee-content">
+                <span>🔥 SIÊU KHUYẾN MÃI: GIẢM GIÁ LÊN ĐẾN 50% - MIỄN PHÍ VẬN CHUYỂN TOÀN QUỐC - BẢO HÀNH 1 ĐỔI 1 TRONG 30 NGÀY! 🔥</span>
+                <span>🔥 SIÊU KHUYẾN MÃI: GIẢM GIÁ LÊN ĐẾN 50% - MIỄN PHÍ VẬN CHUYỂN TOÀN QUỐC - BẢO HÀNH 1 ĐỔI 1 TRONG 30 NGÀY! 🔥</span>
+                <span>🔥 SIÊU KHUYẾN MÃI: GIẢM GIÁ LÊN ĐẾN 50% - MIỄN PHÍ VẬN CHUYỂN TOÀN QUỐC - BẢO HÀNH 1 ĐỔI 1 TRONG 30 NGÀY! 🔥</span>
+                <span>🔥 SIÊU KHUYẾN MÃI: GIẢM GIÁ LÊN ĐẾN 50% - MIỄN PHÍ VẬN CHUYỂN TOÀN QUỐC - BẢO HÀNH 1 ĐỔI 1 TRONG 30 NGÀY! 🔥</span>
             </div>
         </div>
     </div>
@@ -101,7 +105,7 @@
                                     <li><a class="dropdown-item" href="#">Khuyến Mãi</a></li>
                                     <li><a class="dropdown-item" href="#">Tin Tức</a></li>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Về Chúng Tôi</a></li>
+                                    <li><a class="dropdown-item" href="../index.html">Về Chúng Tôi</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -174,34 +178,44 @@
                 <p class="support-desc" data-i18n="page_sup_desc">Vui lòng điền thông tin bên dưới, chúng tôi sẽ phản
                     hồi trong thời gian sớm nhất.</p>
 
-                <form action="#" method="POST" id="supportForm">
-                    <div class="form-group">
-                        <label for="customerEmail" data-i18n="sup_lbl_email">Email của bạn</label>
-                        <input type="email" id="customerEmail" name="customerEmail"
-                            placeholder="Ví dụ: example@email.com" data-i18n-ph="sup_ph_email" required>
+                <div class="position-relative">
+                    <!-- Overlay lock -->
+                    <div id="authLockOverlay" class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column align-items-center justify-content-center rounded" style="background: rgba(10, 14, 20, 0.9); backdrop-filter: blur(8px); z-index: 10; border: 1px solid #ff007f;">
+                        <i class="ph-fill ph-lock-key mb-3 animate__animated animate__pulse animate__infinite" style="font-size: 4rem; color: #ff007f; text-shadow: 0 0 20px #ff007f;"></i>
+                        <h3 class="text-white text-center fw-bold" style="font-family: 'Orbitron', sans-serif;">SYSTEM LOCKED</h3>
+                        <p class="text-muted text-center px-3 small">Bạn cần đăng nhập hệ thống để truy cập Terminal Hỗ Trợ.</p>
+                        <a href="dang-nhap.html" class="btn-primary mt-3 text-decoration-none" style="background: linear-gradient(90deg, #ff007f, #b30059); border-color: #ff007f; box-shadow: 0 0 15px rgba(255,0,127,0.5);">ĐĂNG NHẬP NGAY</a>
                     </div>
 
-                    <div class="form-group">
-                        <label for="bikeType" data-i18n="sup_lbl_type">Loại xe cần hỗ trợ</label>
-                        <select id="bikeType" name="bikeType" required>
-                            <option value="">-- Chọn loại xe --</option>
-                            <option value="SẢN PHẨM MỚI 2026">Sản phẩm mới 2026</option>
-                            <option value="XE ĐẠP TRẺ EM">Xe đạp trẻ em</option>
-                            <option value="XE ĐẠP THỂ THAO">Xe đạp thể thao</option>
-                            <option value="KHÁC">Khác</option>
-                        </select>
-                    </div>
+                    <form action="#" method="POST" id="supportForm">
+                        <div class="form-group">
+                            <label for="customerEmail" data-i18n="sup_lbl_email">Email của bạn</label>
+                            <input type="email" id="customerEmail" name="customerEmail"
+                                placeholder="Ví dụ: example@email.com" data-i18n-ph="sup_ph_email" required>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="supportContent" data-i18n="sup_lbl_content">Nội dung cần hỗ trợ</label>
-                        <textarea id="supportContent" name="supportContent"
-                            placeholder="Mô tả chi tiết vấn đề bạn đang gặp phải..." data-i18n-ph="sup_ph_content"
-                            required></textarea>
-                    </div>
+                        <div class="form-group">
+                            <label for="bikeType" data-i18n="sup_lbl_type">Loại xe cần hỗ trợ</label>
+                            <select id="bikeType" name="bikeType" required>
+                                <option value="">-- Chọn loại xe --</option>
+                                <option value="SẢN PHẨM MỚI 2026">Sản phẩm mới 2026</option>
+                                <option value="XE ĐẠP TRẺ EM">Xe đạp trẻ em</option>
+                                <option value="XE ĐẠP THỂ THAO">Xe đạp thể thao</option>
+                                <option value="KHÁC">Khác</option>
+                            </select>
+                        </div>
 
-                    <button type="submit" class="btn-primary w-full sup-submit-btn" data-i18n="sup_btn"><i
-                            class="ph-bold ph-paper-plane-right"></i> Gửi Yêu Cầu</button>
-                </form>
+                        <div class="form-group">
+                            <label for="supportContent" data-i18n="sup_lbl_content">Nội dung cần hỗ trợ</label>
+                            <textarea id="supportContent" name="supportContent"
+                                placeholder="Mô tả chi tiết vấn đề bạn đang gặp phải..." data-i18n-ph="sup_ph_content"
+                                required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-primary w-full sup-submit-btn" data-i18n="sup_btn"><i
+                                class="ph-bold ph-paper-plane-right"></i> Gửi Yêu Cầu</button>
+                    </form>
+                </div>
             </div>
         </div>
         <div id="product-catalog-container" style="display: none;"></div>
@@ -209,10 +223,25 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            var form = document.getElementById('supportForm');
+            // Kiểm tra đăng nhập
+            const isUserLoggedIn = localStorage.getItem('sdb_user') !== null;
+            const authLock = document.getElementById('authLockOverlay');
+            const form = document.getElementById('supportForm');
+            
+            if (isUserLoggedIn) {
+                if (authLock) authLock.style.display = 'none';
+            } else {
+                if (form) {
+                    const inputs = form.querySelectorAll('input, select, textarea, button');
+                    inputs.forEach(input => input.disabled = true);
+                }
+            }
+
             if (form) {
                 form.addEventListener('submit', function (e) {
                     e.preventDefault();
+                    if (!isUserLoggedIn) return; // Bảo mật vòng 2
+                    
                     if (document.getElementById('customerEmail').value && document.getElementById('bikeType').value && document.getElementById('supportContent').value) {
                         alert('Cảm ơn bạn! Yêu cầu hỗ trợ đã được gửi thành công. Chúng tôi sẽ liên hệ qua email sớm nhất.');
                         this.reset();
