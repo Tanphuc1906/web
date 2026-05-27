@@ -24,8 +24,28 @@
             position: relative;
         }
 
+        /* ── MATRIX & CRT EFFECTS ── */
+        .matrix-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            z-index: -2;
+            opacity: 0.35;
+        }
+
+        .scanlines {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.2));
+            background-size: 100% 4px;
+            z-index: 9999;
+            pointer-events: none;
+            opacity: 0.4;
+        }
+
         /* particles layer tái sử dụng từ style.css */
-        .particles { z-index: 0; }
+        .particles { z-index: -1; }
 
         /* ── BACK LINK ── */
         .back-link {
@@ -39,9 +59,9 @@
             font-size: 0.9rem;
             text-decoration: none;
             z-index: 10;
-            transition: color 0.2s;
+            transition: color 0.2s, text-shadow 0.2s;
         }
-        .back-link:hover { color: #00f0ff; }
+        .back-link:hover { color: #00f0ff; text-shadow: 0 0 8px rgba(0,240,255,0.6); }
 
         /* ── AUTH CARD ── */
         .auth-page-wrap {
@@ -53,16 +73,34 @@
         }
 
         .auth-card {
-            background: rgba(21, 27, 38, 0.85);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            border: 1px solid rgba(0, 240, 255, 0.15);
-            border-radius: 20px;
+            background: rgba(10, 15, 20, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 12px;
             padding: 40px 36px 36px;
             box-shadow:
-                0 0 0 1px rgba(0, 240, 255, 0.05),
-                0 24px 60px rgba(0, 0, 0, 0.5),
-                inset 0 1px 0 rgba(255,255,255,0.05);
+                0 0 20px rgba(0, 240, 255, 0.1),
+                inset 0 0 15px rgba(0, 240, 255, 0.05);
+            position: relative;
+        }
+
+        .auth-card::before, .auth-card::after {
+            content: '';
+            position: absolute;
+            width: 30px; height: 30px;
+            border: 2px solid #00f0ff;
+            transition: all 0.4s ease;
+            pointer-events: none;
+        }
+        .auth-card::before { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+        .auth-card::after { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+        
+        .auth-card:hover::before, .auth-card:hover::after {
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            opacity: 0.5;
+            box-shadow: 0 0 10px rgba(0,240,255,0.5);
         }
 
         /* Logo trên card */
@@ -77,7 +115,14 @@
             font-size: 2rem;
             color: #00f0ff;
             filter: drop-shadow(0 0 8px rgba(0,240,255,0.6));
+            animation: pulse-neon 2s infinite alternate;
         }
+        
+        @keyframes pulse-neon {
+            from { filter: drop-shadow(0 0 5px rgba(0,240,255,0.4)); }
+            to { filter: drop-shadow(0 0 15px rgba(0,240,255,0.9)); }
+        }
+
         .auth-logo-text {
             font-size: 1.5rem;
             font-weight: 700;
@@ -89,11 +134,13 @@
         /* ── TABS ── */
         .auth-tabs {
             display: flex;
-            background: rgba(0,0,0,0.3);
-            border-radius: 10px;
+            background: rgba(0,0,0,0.5);
+            border-radius: 8px;
             padding: 4px;
             margin-bottom: 28px;
-            border: 1px solid rgba(0,240,255,0.1);
+            border: 1px solid rgba(0,240,255,0.15);
+            position: relative;
+            overflow: hidden;
         }
         .auth-tab {
             flex: 1;
@@ -102,74 +149,86 @@
             font-size: 0.9rem;
             font-weight: 600;
             cursor: pointer;
-            border-radius: 8px;
+            border-radius: 6px;
             color: rgba(255,255,255,0.45);
             transition: all 0.25s;
             user-select: none;
             border: none;
             background: none;
             font-family: inherit;
+            position: relative;
+            z-index: 1;
         }
         .auth-tab.active {
-            background: rgba(0, 240, 255, 0.12);
+            background: rgba(0, 240, 255, 0.15);
             color: #00f0ff;
-            box-shadow: 0 0 12px rgba(0,240,255,0.15);
+            text-shadow: 0 0 5px rgba(0,240,255,0.5);
+            box-shadow: inset 0 0 10px rgba(0,240,255,0.2);
         }
 
         /* ── FORM PANELS ── */
         .auth-panel { display: none; }
-        .auth-panel.active { display: block; }
+        .auth-panel.active { display: block; animation: fadeInScan 0.4s ease-out; }
+        
+        @keyframes fadeInScan {
+            0% { opacity: 0; transform: translateY(10px); clip-path: inset(100% 0 0 0); }
+            100% { opacity: 1; transform: translateY(0); clip-path: inset(0 0 0 0); }
+        }
 
         .auth-subtitle-page {
-            color: rgba(255,255,255,0.45);
+            color: rgba(255,255,255,0.5);
             font-size: 0.88rem;
             margin-bottom: 22px;
             text-align: center;
+            letter-spacing: 0.05em;
         }
 
         /* Form group override cho trang này */
         .auth-card .form-group label {
-            color: rgba(255,255,255,0.7);
-            font-size: 0.82rem;
-            font-weight: 500;
-            letter-spacing: 0.03em;
+            color: #00f0ff;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
+            margin-bottom: 6px;
+            display: block;
         }
 
         .auth-card .form-group input,
         .auth-card .form-group select {
-            background: rgba(0,0,0,0.35);
-            border: 1px solid rgba(0,240,255,0.15);
-            color: #f0f6fc;
-            border-radius: 10px;
+            background: rgba(0,0,0,0.6);
+            border: 1px solid rgba(0,240,255,0.2);
+            color: #00f0ff;
+            border-radius: 6px;
             padding: 11px 14px;
             font-size: 0.95rem;
             width: 100%;
             outline: none;
-            font-family: inherit;
-            transition: border-color 0.2s, box-shadow 0.2s;
+            font-family: 'Courier New', Courier, monospace;
+            transition: all 0.3s;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
         }
         .auth-card .form-group input:focus,
         .auth-card .form-group select:focus {
             border-color: #00f0ff;
-            box-shadow: 0 0 0 3px rgba(0,240,255,0.12);
+            background: rgba(0,20,30,0.8);
+            box-shadow: 0 0 10px rgba(0,240,255,0.2), inset 0 0 8px rgba(0,240,255,0.2);
         }
-        .auth-card .form-group input::placeholder { color: rgba(255,255,255,0.25); }
+        .auth-card .form-group input::placeholder { color: rgba(0,240,255,0.3); font-family: inherit; }
 
         /* input với icon */
-        .input-icon-wrap {
-            position: relative;
-        }
+        .input-icon-wrap { position: relative; }
         .input-icon-wrap i {
             position: absolute;
             left: 13px;
             top: 50%;
             transform: translateY(-50%);
-            color: rgba(0,240,255,0.5);
-            font-size: 1rem;
+            color: #00f0ff;
+            font-size: 1.1rem;
             pointer-events: none;
+            opacity: 0.7;
         }
-        .input-icon-wrap input { padding-left: 38px !important; }
+        .input-icon-wrap input { padding-left: 40px !important; }
 
         /* Toggle password visibility */
         .input-eye {
@@ -177,28 +236,27 @@
             right: 13px;
             top: 50%;
             transform: translateY(-50%);
-            color: rgba(255,255,255,0.35);
+            color: rgba(0,240,255,0.4);
             cursor: pointer;
-            font-size: 1rem;
-            transition: color 0.2s;
+            font-size: 1.1rem;
+            transition: color 0.2s, text-shadow 0.2s;
         }
-        .input-eye:hover { color: #00f0ff; }
+        .input-eye:hover { color: #00f0ff; text-shadow: 0 0 8px rgba(0,240,255,0.8); }
 
         /* ── SUBMIT BUTTON ── */
         .btn-auth-submit {
             width: 100%;
-            padding: 13px;
-            background: linear-gradient(90deg, #00f0ff, #0055ff, #00f0ff);
-            background-size: 200% auto;
-            color: #0a0e14;
+            padding: 14px;
+            background: transparent;
+            color: #00f0ff;
             border: 1px solid #00f0ff;
-            border-radius: 10px;
+            border-radius: 6px;
             font-size: 1rem;
             font-weight: 800;
             cursor: pointer;
             font-family: inherit;
-            letter-spacing: 0.1em;
-            margin-top: 6px;
+            letter-spacing: 0.15em;
+            margin-top: 10px;
             transition: all 0.3s;
             display: flex;
             align-items: center;
@@ -206,28 +264,29 @@
             gap: 8px;
             position: relative;
             overflow: hidden;
-            animation: btnGradientShift 3s linear infinite;
             text-transform: uppercase;
+            box-shadow: inset 0 0 10px rgba(0,240,255,0.1);
         }
         
-        .btn-auth-submit::after {
+        .btn-auth-submit::before {
             content: '';
             position: absolute;
             top: 0; left: -100%;
-            width: 50%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transform: skewX(-20deg);
-            animation: btnSweepCart 3s infinite;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0,240,255,0.4), transparent);
+            transition: left 0.5s ease;
         }
-
+        
         .btn-auth-submit:hover {
-            box-shadow: 0 0 25px rgba(0,240,255,0.6), inset 0 0 10px rgba(0,240,255,0.4);
-            transform: translateY(-2px);
-            color: #fff;
+            background: rgba(0,240,255,0.15);
+            box-shadow: 0 0 20px rgba(0,240,255,0.4), inset 0 0 15px rgba(0,240,255,0.3);
+            text-shadow: 0 0 5px rgba(0,240,255,0.8);
         }
-        .btn-auth-submit:active { transform: translateY(0); }
-        @keyframes btnGradientShift { 0% { background-position: 0% center; } 100% { background-position: 200% center; } }
-        @keyframes btnSweepCart { 0% { left: -100%; } 20%, 100% { left: 200%; } }
+        
+        .btn-auth-submit:hover::before {
+            left: 100%;
+        }
+        .btn-auth-submit:active { transform: scale(0.98); }
         
         .glitch-wrapper { position: relative; }
         .glitch-text { position: relative; display: inline-block; }
@@ -249,15 +308,18 @@
             align-items: center;
             gap: 12px;
             margin: 20px 0;
-            color: rgba(255,255,255,0.25);
+            color: rgba(0,240,255,0.5);
             font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
         }
         .divider-or::before,
         .divider-or::after {
             content: '';
             flex: 1;
             height: 1px;
-            background: rgba(255,255,255,0.1);
+            background: linear-gradient(90deg, transparent, rgba(0,240,255,0.3), transparent);
         }
 
         /* ── SOCIAL BUTTONS ── */
@@ -265,9 +327,9 @@
         .btn-social {
             flex: 1;
             padding: 10px 12px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.12);
-            border-radius: 10px;
+            background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(0,240,255,0.2);
+            border-radius: 6px;
             color: rgba(255,255,255,0.7);
             font-size: 0.88rem;
             font-weight: 500;
@@ -277,12 +339,13 @@
             justify-content: center;
             gap: 8px;
             font-family: inherit;
-            transition: all 0.2s;
+            transition: all 0.3s;
         }
         .btn-social:hover {
-            background: rgba(255,255,255,0.1);
-            border-color: rgba(255,255,255,0.25);
+            background: rgba(0,240,255,0.1);
+            border-color: #00f0ff;
             color: #fff;
+            box-shadow: 0 0 10px rgba(0,240,255,0.2);
         }
         .icon-facebook { color: #1877f2; }
         .icon-google { color: #ea4335; }
@@ -290,17 +353,23 @@
         /* ── SWITCH TEXT ── */
         .switch-text {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 24px;
             font-size: 0.85rem;
-            color: rgba(255,255,255,0.4);
+            color: rgba(255,255,255,0.5);
         }
         .switch-text a {
             color: #00f0ff;
             font-weight: 600;
             cursor: pointer;
             text-decoration: none;
+            transition: all 0.2s;
+            border-bottom: 1px dashed #00f0ff;
         }
-        .switch-text a:hover { text-decoration: underline; }
+        .switch-text a:hover { 
+            color: #fff; 
+            text-shadow: 0 0 5px #00f0ff;
+            border-bottom-style: solid;
+        }
 
         /* ── TOAST ── */
         .auth-toast {
@@ -308,20 +377,23 @@
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%) translateY(20px);
-            background: rgba(0,240,255,0.12);
-            border: 1px solid rgba(0,240,255,0.3);
+            background: rgba(10,15,20,0.9);
+            border: 1px solid #00f0ff;
             color: #00f0ff;
             padding: 12px 24px;
-            border-radius: 50px;
+            border-radius: 4px;
             font-size: 0.9rem;
             opacity: 0;
             transition: all 0.35s;
             pointer-events: none;
-            z-index: 999;
+            z-index: 9999;
             white-space: nowrap;
             display: flex;
             align-items: center;
             gap: 8px;
+            box-shadow: 0 0 15px rgba(0,240,255,0.3);
+            font-family: 'Courier New', Courier, monospace;
+            text-transform: uppercase;
         }
         .auth-toast.show {
             opacity: 1;
@@ -330,42 +402,56 @@
 
         /* ── ERROR ── */
         .field-error {
-            color: #ff5555;
-            font-size: 0.78rem;
-            margin-top: 5px;
+            color: #ff003c;
+            font-size: 0.75rem;
+            margin-top: 6px;
             display: none;
+            text-shadow: 0 0 5px rgba(255,0,60,0.5);
         }
-        .field-error.show { display: block; }
+        .field-error.show { display: block; animation: flashError 0.3s ease; }
+        
+        @keyframes flashError {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
 
         /* ── STRENGTH BAR ── */
         .strength-bar-wrap {
-            margin-top: 6px;
+            margin-top: 8px;
             display: flex;
             gap: 4px;
         }
         .strength-seg {
             flex: 1;
-            height: 3px;
+            height: 4px;
             border-radius: 2px;
-            background: rgba(255,255,255,0.1);
-            transition: background 0.3s;
+            background: rgba(0,240,255,0.1);
+            transition: background 0.3s, box-shadow 0.3s;
         }
         .strength-label {
             font-size: 0.75rem;
-            color: rgba(255,255,255,0.35);
-            margin-top: 4px;
+            color: rgba(255,255,255,0.4);
+            margin-top: 6px;
+            font-weight: 600;
         }
 
         /* Grid nền */
         .cyber-grid {
             position: fixed;
             inset: 0;
-            z-index: 0;
+            z-index: -3;
             pointer-events: none;
             background-image:
-                linear-gradient(rgba(0,240,255,0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,240,255,0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
+                linear-gradient(rgba(0,240,255,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,240,255,0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
+            animation: gridMove 10s linear infinite;
+        }
+        
+        @keyframes gridMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 40px; }
         }
 
         @media (max-width: 500px) {
@@ -375,23 +461,153 @@
         /* THEME TOGGLE BUTTON HOVER */
         #theme-toggle:hover {
             background: rgba(0,240,255,0.2);
-            box-shadow: 0 0 12px rgba(0,240,255,0.2);
+            box-shadow: 0 0 15px rgba(0,240,255,0.4);
         }
+
+        /* ========================================================
+           LIGHT MODE OVERRIDES - FULL SUPPORT FOR LOGIN PAGE
+           ======================================================== */
+        body.light-mode {
+            background: #f0f4f8;
+            color: #1a1e2e;
+        }
+        body.light-mode .cyber-grid {
+            background-image:
+                linear-gradient(rgba(0,151,167,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,151,167,0.1) 1px, transparent 1px);
+        }
+        body.light-mode .matrix-canvas {
+            opacity: 0.15;
+            filter: invert(1) hue-rotate(180deg);
+        }
+        body.light-mode .scanlines {
+            background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.05));
+        }
+        body.light-mode .auth-card {
+            background: rgba(255, 255, 255, 0.85);
+            border-color: rgba(0, 151, 167, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), inset 0 0 10px rgba(0,151,167,0.05);
+        }
+        body.light-mode .auth-card::before, body.light-mode .auth-card::after {
+            border-color: #0097a7;
+        }
+        body.light-mode .auth-card:hover::before, body.light-mode .auth-card:hover::after {
+            box-shadow: 0 0 10px rgba(0,151,167,0.3);
+        }
+        body.light-mode .auth-logo i, body.light-mode .auth-logo-text span {
+            color: #0097a7;
+            filter: drop-shadow(0 0 5px rgba(0,151,167,0.4));
+        }
+        body.light-mode .auth-logo-text { color: #1a1e2e; }
+        body.light-mode .auth-tabs { background: rgba(0,0,0,0.05); border-color: rgba(0,151,167,0.2); }
+        body.light-mode .auth-tab { color: rgba(26,30,46,0.6); }
+        body.light-mode .auth-tab.active {
+            background: rgba(0,151,167,0.15);
+            color: #0097a7;
+            text-shadow: none;
+            box-shadow: none;
+        }
+        body.light-mode .auth-subtitle-page { color: rgba(26,30,46,0.6); }
+        body.light-mode .auth-card .form-group label { color: #0097a7; }
+        body.light-mode .auth-card .form-group input,
+        body.light-mode .auth-card .form-group select {
+            background: #fff;
+            border-color: rgba(0,151,167,0.3);
+            color: #1a1e2e;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+        }
+        body.light-mode .auth-card .form-group input:focus,
+        body.light-mode .auth-card .form-group select:focus {
+            border-color: #0097a7;
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(0,151,167,0.15);
+        }
+        body.light-mode .auth-card .form-group input::placeholder { color: rgba(26,30,46,0.4); }
+        body.light-mode .input-icon-wrap i { color: #0097a7; }
+        body.light-mode .input-eye { color: rgba(26,30,46,0.5); }
+        body.light-mode .input-eye:hover { color: #0097a7; text-shadow: none; }
+        body.light-mode .btn-auth-submit {
+            color: #0097a7;
+            border-color: #0097a7;
+            box-shadow: none;
+        }
+        body.light-mode .btn-auth-submit::before {
+            background: linear-gradient(90deg, transparent, rgba(0,151,167,0.2), transparent);
+        }
+        body.light-mode .btn-auth-submit:hover {
+            background: #0097a7;
+            color: #fff;
+            box-shadow: 0 5px 15px rgba(0,151,167,0.3);
+            text-shadow: none;
+        }
+        body.light-mode .divider-or { color: rgba(26,30,46,0.5); }
+        body.light-mode .divider-or::before, body.light-mode .divider-or::after {
+            background: linear-gradient(90deg, transparent, rgba(0,0,0,0.15), transparent);
+        }
+        body.light-mode .btn-social {
+            background: #fff;
+            border-color: rgba(0,0,0,0.1);
+            color: rgba(26,30,46,0.8);
+        }
+        body.light-mode .btn-social:hover {
+            background: #f8fafc;
+            border-color: #0097a7;
+            color: #0097a7;
+            box-shadow: 0 2px 8px rgba(0,151,167,0.15);
+        }
+        body.light-mode .switch-text { color: rgba(26,30,46,0.6); }
+        body.light-mode .switch-text a { color: #0097a7; border-bottom-color: #0097a7; }
+        body.light-mode .switch-text a:hover { color: #00838f; text-shadow: none; }
+        body.light-mode .back-link { color: rgba(26,30,46,0.7); text-shadow: none; }
+        body.light-mode .back-link:hover { color: #0097a7; text-shadow: none; }
         
         body.light-mode #theme-toggle {
             background: rgba(0,151,167,0.1);
             color: #0097a7;
             border-color: rgba(0,151,167,0.3);
         }
-        
         body.light-mode #theme-toggle:hover {
             background: rgba(0,151,167,0.2);
             box-shadow: 0 0 12px rgba(0,151,167,0.2);
+        }
+
+        /* ── HACKER TERMINAL LOGS ── */
+        .hacker-terminal {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 320px;
+            height: 200px;
+            background: rgba(0, 0, 0, 0.75);
+            border: 1px solid #00f0ff;
+            border-left: 4px solid #00f0ff;
+            color: #00f0ff;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.8rem;
+            padding: 10px;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+            pointer-events: none;
+            backdrop-filter: blur(5px);
+            text-shadow: 0 0 5px #00f0ff;
+        }
+        body.light-mode .hacker-terminal {
+            background: rgba(255, 255, 255, 0.85);
+            border-color: #0097a7;
+            color: #0097a7;
+            text-shadow: none;
         }
     </style>
 </head>
 
 <body>
+    <!-- Hacker Matrix Canvas -->
+    <canvas id="matrixCanvas" class="matrix-canvas"></canvas>
+    
+    <!-- CRT Scanline Overlay -->
+    <div class="scanlines"></div>
+
     <!-- Nền lấp lánh -->
     <div class="particles"></div>
     <div class="cyber-grid"></div>
@@ -552,12 +768,22 @@
         // ── Helpers ──────────────────────────────────────────────────
         const $ = id => document.getElementById(id);
         let usersDb = JSON.parse(localStorage.getItem('sdb_users') || '[]');
+        
+        // --- CLEANUP FAKE ACCOUNTS ---
+        usersDb = usersDb.filter(u => !(u.socialId && (u.socialId.startsWith('FACEBOOK-') || u.socialId.startsWith('GOOGLE-'))));
+        localStorage.setItem('sdb_users', JSON.stringify(usersDb));
+        
+        let sdbUser = JSON.parse(localStorage.getItem('sdb_user') || 'null');
+        if (sdbUser && sdbUser.socialId && (sdbUser.socialId.startsWith('FACEBOOK-') || sdbUser.socialId.startsWith('GOOGLE-'))) {
+            localStorage.removeItem('sdb_user');
+        }
+        // -----------------------------
 
         function showToast(msg, isError = false) {
             const t = $('authToast');
-            t.innerHTML = `<i class="ph-fill ph-${isError ? 'warning-circle' : 'check-circle'}" style="color:${isError ? '#ff5555' : '#00f0ff'}"></i> ${msg}`;
-            t.style.borderColor = isError ? 'rgba(255,85,85,0.35)' : 'rgba(0,240,255,0.3)';
-            t.style.color = isError ? '#ff5555' : '#00f0ff';
+            t.innerHTML = `<i class="ph-fill ph-${isError ? 'warning-circle' : 'check-circle'}" style="color:${isError ? '#ff003c' : '#00f0ff'}"></i> ${msg}`;
+            t.style.borderColor = isError ? 'rgba(255,0,60,0.5)' : 'rgba(0,240,255,0.5)';
+            t.style.color = isError ? '#ff003c' : '#00f0ff';
             t.classList.add('show');
             setTimeout(() => t.classList.remove('show'), 2800);
         }
@@ -599,10 +825,12 @@
             if (/[A-Z]/.test(v) || /[0-9]/.test(v)) score++;
             if (/[^A-Za-z0-9]/.test(v)) score++;
 
-            const colors = ['#ff5555', '#ffaa44', '#00d4aa', '#00f0ff'];
+            const colors = ['#ff003c', '#ffaa44', '#00d4aa', '#00f0ff'];
             const labels = ['Yếu', 'Trung bình', 'Mạnh', 'Rất mạnh'];
             [1,2,3,4].forEach(i => {
-                $('seg'+i).style.background = i <= score ? colors[score-1] : 'rgba(255,255,255,0.1)';
+                $('seg'+i).style.background = i <= score ? colors[score-1] : 'rgba(0,240,255,0.1)';
+                if(i <= score) $('seg'+i).style.boxShadow = `0 0 5px ${colors[score-1]}`;
+                else $('seg'+i).style.boxShadow = 'none';
             });
             $('strengthLabel').textContent = v ? labels[score-1] || '' : '';
             $('strengthLabel').style.color = score > 0 ? colors[score-1] : '';
@@ -623,10 +851,10 @@
             const found = usersDb.find(x => x.username === u && x.password === p && (!x.provider || x.provider === 'local'));
             if (found) {
                 localStorage.setItem('sdb_user', JSON.stringify(found));
-                showToast(`Chào mừng ${found.name || found.username}! Đang chuyển hướng...`);
-                setTimeout(() => { window.location.href = 'trang-chu.html'; }, 1400);
+                showToast(`ĐĂNG NHẬP THÀNH CÔNG. SYSTEM ACCESS GRANTED.`);
+                setTimeout(() => { window.location.href = 'trang-chu.html'; }, 1500);
             } else {
-                showToast('Sai tên đăng nhập hoặc mật khẩu!', true);
+                showToast('ACCESS DENIED: Sai tên đăng nhập hoặc mật khẩu!', true);
             }
         };
 
@@ -663,12 +891,13 @@
             usersDb.push(newUser);
             localStorage.setItem('sdb_users', JSON.stringify(usersDb));
             localStorage.setItem('sdb_user', JSON.stringify(newUser));
-            showToast(`Tạo tài khoản thành công! Đang chuyển hướng...`);
-            setTimeout(() => { window.location.href = 'trang-chu.html'; }, 1400);
+            showToast(`NEW USER CREATED. WELCOME.`);
+            setTimeout(() => { window.location.href = 'trang-chu.html'; }, 1500);
         };
 
         // ── ĐĂNG NHẬP SOCIAL ──────────────────────────────────────────
         function handleSocial(provider) {
+            // Google fallback to mock for now
             let found = usersDb.find(x => x.provider === provider);
             if (!found) {
                 found = {
@@ -676,17 +905,49 @@
                     username: provider + '_' + Math.floor(Math.random()*1000),
                     password: '', phone: '', provider,
                     socialId: provider.toUpperCase() + '-' + Math.floor(Math.random()*100000),
-                    name: provider === 'google' ? 'Google User' : 'Facebook User'
+                    name: provider === 'google' ? 'Google User' : 'Social User'
                 };
                 usersDb.push(found);
                 localStorage.setItem('sdb_users', JSON.stringify(usersDb));
             }
             localStorage.setItem('sdb_user', JSON.stringify(found));
-            showToast(`Đăng nhập ${provider} thành công!`);
-            setTimeout(() => { window.location.href = 'trang-chu.html'; }, 1400);
+            showToast(`${provider.toUpperCase()} LOGIN SUCCESS.`);
+            setTimeout(() => { window.location.href = 'trang-chu.html'; }, 1500);
         }
-        $('btnFacebook').onclick = () => handleSocial('facebook');
+        
         $('btnGoogle').onclick   = () => handleSocial('google');
+
+        // Facebook Real Login
+        $('btnFacebook').onclick = () => {
+            if (typeof FB === 'undefined') {
+                showToast('Facebook SDK chưa tải xong, vui lòng thử lại', true);
+                return;
+            }
+            FB.login(function(response) {
+                if (response.status === 'connected') {
+                    // Lấy thông tin user (Tên, ID)
+                    FB.api('/me', {fields: 'name,id'}, function(fbUser) {
+                        let found = usersDb.find(x => x.provider === 'facebook' && x.socialId === fbUser.id);
+                        if (!found) {
+                            found = {
+                                id: 'social_' + Date.now(),
+                                username: 'fb_' + fbUser.id.substring(0, 8),
+                                password: '', phone: '', provider: 'facebook',
+                                socialId: fbUser.id,
+                                name: fbUser.name
+                            };
+                            usersDb.push(found);
+                            localStorage.setItem('sdb_users', JSON.stringify(usersDb));
+                        }
+                        localStorage.setItem('sdb_user', JSON.stringify(found));
+                        showToast(`CHÀO MỪNG ${fbUser.name.toUpperCase()}!`);
+                        setTimeout(() => { window.location.href = 'trang-chu.html'; }, 1500);
+                    });
+                } else {
+                    showToast('Đăng nhập Facebook bị hủy hoặc thất bại', true);
+                }
+            }, {scope: 'public_profile'});
+        };
 
         // ── Enter để submit ────────────────────────────────────────────
         ['loginUser','loginPass'].forEach(id => {
@@ -697,7 +958,6 @@
         });
 
         // ── Tự động redirect nếu đã đăng nhập ─────────────────────────
-        // (bỏ comment nếu muốn bỏ qua trang login khi đã đăng nhập)
         // if (localStorage.getItem('sdb_user')) window.location.href = 'trang-chu.html';
     </script>
 
@@ -727,7 +987,7 @@
                 localStorage.setItem('sdbike-theme', theme);
             }
 
-            // Áp dụng ngay khi load (tránh flash)
+            // Áp dụng ngay khi load
             applyTheme(getSaved());
 
             if (btn) {
@@ -736,6 +996,114 @@
                 });
             }
         })();
+    </script>
+
+    <!-- MATRIX RAIN SCRIPT -->
+    <script>
+        const canvas = document.getElementById('matrixCanvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレゲゼデベペオォコソトノホモヨョロゴゾドボポヴッン';
+        const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const nums = '0123456789';
+        const alphabet = katakana + latin + nums;
+
+        const fontSize = 16;
+        let columns = canvas.width / fontSize;
+        let drops = Array.from({ length: Math.ceil(columns) }).fill(1);
+
+        function draw() {
+            const isLight = document.body.classList.contains('light-mode');
+            ctx.fillStyle = isLight ? 'rgba(240, 244, 248, 0.15)' : 'rgba(10, 14, 20, 0.15)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = isLight ? '#0097a7' : '#00f0ff';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(draw, 33);
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            columns = canvas.width / fontSize;
+            drops = Array.from({ length: Math.ceil(columns) }).fill(1);
+        });
+
+        // ── HACKER TERMINAL LOGS EFFECT ──
+        const terminalLogs = [
+            "CONNECTING TO SECURE SERVER...",
+            "ESTABLISHING ENCRYPTED CHANNEL...",
+            "BYPASSING FIREWALL [OK]",
+            "DECRYPTING DATABASES...",
+            "LOADING USER ASSETS...",
+            "INITIALIZING PROTOCOL 77...",
+            "SYSTEM READY."
+        ];
+        const terminalEl = document.createElement('div');
+        terminalEl.className = 'hacker-terminal';
+        document.body.appendChild(terminalEl);
+        
+        let logIndex = 0;
+        function addLog() {
+            if (logIndex >= terminalLogs.length) {
+                // Loop or add random hex
+                const hex = Array.from({length: 8}, () => Math.floor(Math.random()*16).toString(16)).join('').toUpperCase();
+                const mem = "0x" + Array.from({length: 4}, () => Math.floor(Math.random()*16).toString(16)).join('').toUpperCase();
+                terminalEl.innerHTML += `<br>> SCANNING... ${mem} : ${hex}`;
+            } else {
+                terminalEl.innerHTML += (logIndex > 0 ? '<br>' : '') + '> ' + terminalLogs[logIndex];
+                logIndex++;
+            }
+            if (terminalEl.scrollHeight > terminalEl.clientHeight) {
+                const lines = terminalEl.innerHTML.split('<br>');
+                lines.shift();
+                terminalEl.innerHTML = lines.join('<br>');
+            }
+            setTimeout(addLog, Math.random() * 800 + 400);
+        }
+        setTimeout(addLog, 1000);
+    </script>
+
+    <!-- FACEBOOK SDK DYNAMIC INIT -->
+    <script>
+      fetch('http://localhost:3000/api/config').then(res => res.json()).then(config => {
+          if (!config.facebookAppId) {
+              console.warn('Thiếu cấu hình FACEBOOK_APP_ID trong backend.');
+              return;
+          }
+          
+          window.fbAsyncInit = function() {
+            FB.init({
+              appId      : config.facebookAppId, // Lấy động từ Server
+              cookie     : true,
+              xfbml      : true,
+              version    : 'v19.0'
+            });
+            FB.AppEvents.logPageView();   
+          };
+
+          (function(d, s, id){
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement(s); js.id = id;
+             js.src = "https://connect.facebook.net/vi_VN/sdk.js";
+             fjs.parentNode.insertBefore(js, fjs);
+           }(document, 'script', 'facebook-jssdk'));
+      }).catch(err => console.error("Failed to load config", err));
     </script>
 </body>
 

@@ -26,6 +26,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     let currentUser = JSON.parse(localStorage.getItem('sdb_user')) || null;
     let usersDb = JSON.parse(localStorage.getItem('sdb_users')) || [];
 
+    // --- CLEANUP FAKE ACCOUNTS ---
+    usersDb = usersDb.filter(u => !(u.socialId && (u.socialId.startsWith('FACEBOOK-') || u.socialId.startsWith('GOOGLE-'))));
+    localStorage.setItem('sdb_users', JSON.stringify(usersDb));
+    
+    if (currentUser && currentUser.socialId && (currentUser.socialId.startsWith('FACEBOOK-') || currentUser.socialId.startsWith('GOOGLE-'))) {
+        localStorage.removeItem('sdb_user');
+        currentUser = null;
+    }
+    // -----------------------------
+
     // Danh sách sản phẩm được cache sau lần tải đầu, dùng lại cho search
     let allProducts = [];
 

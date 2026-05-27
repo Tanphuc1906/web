@@ -154,9 +154,12 @@
                         </ul>
                     </div>
 
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    <form class="d-flex" role="search" onsubmit="event.preventDefault();">
+                        <div class="position-relative w-100 me-2">
+                            <input id="searchInput" class="form-control w-100" type="search" placeholder="Tìm kiếm xe đạp..." aria-label="Search" autocomplete="off" />
+                            <div id="searchSuggestions" class="search-suggestions-dropdown"></div>
+                        </div>
+                        <button class="btn btn-outline-success" type="submit" style="flex-shrink: 0;"><i class="ph-bold ph-magnifying-glass"></i></button>
                     </form>
 
                     <div class="header-actions ms-lg-3 mt-3 mt-lg-0">
@@ -352,7 +355,7 @@
         </div>
     </div>
 
-    <script src="../assets/js/script.js?v=2026_03_30_v3" defer></script>
+    <script src="../assets/js/script.js?v=1779697700067" defer></script>
 
     <!-- THEME TOGGLE SCRIPT -->
     <script>
