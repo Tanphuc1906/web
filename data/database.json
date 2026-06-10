@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "id": "local_1710000000000",
+      "username": "admin",
+      "password": "123",
+      "phone": "0123456789",
+      "provider": "local",
+      "socialId": null,
+      "name": "admin"
+    }
+  ]
+}

@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xe Đạp Trẻ Em | SD'bike</title>
+    <meta name="description" content="Chi tiết xe đạp trẻ em tại SD'bike. An toàn, bền đẹp, giá tốt, bảo hành 3 năm.">
+    <meta name="theme-color" content="#0a0e14">
+    <link rel="icon" href="../../assets/images/logo.png">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../../assets/js/i18n.js"></script>
+    <link rel="stylesheet" href="../../assets/css/style.css?v=2026_03_30_v3">
+    <link rel="stylesheet" href="../../assets/css/mobile.css">
+</head>
+
+<body>
+    <div class="particles"></div>
+
+    <!-- TOP INFO BAR -->
+    <div class="top-bar">
+        <div class="marquee-container">
+            <div class="marquee-content">
+                <span>🔥 SIÊU KHUYẾN MÃI: GIẢM GIÁ LÊN ĐẾN 50% - MIỄN PHÍ VẬN CHUYỂN TOÀN QUỐC - BẢO HÀNH 1 ĐỔI 1 TRONG 30 NGÀY! 🔥</span>
+                <span>🔥 SIÊU KHUYẾN MÃI: GIẢM GIÁ LÊN ĐẾN 50% - MIỄN PHÍ VẬN CHUYỂN TOÀN QUỐC - BẢO HÀNH 1 ĐỔI 1 TRONG 30 NGÀY! 🔥</span>
+                <span>🔥 SIÊU KHUYẾN MÃI: GIẢM GIÁ LÊN ĐẾN 50% - MIỄN PHÍ VẬN CHUYỂN TOÀN QUỐC - BẢO HÀNH 1 ĐỔI 1 TRONG 30 NGÀY! 🔥</span>
+                <span>🔥 SIÊU KHUYẾN MÃI: GIẢM GIÁ LÊN ĐẾN 50% - MIỄN PHÍ VẬN CHUYỂN TOÀN QUỐC - BẢO HÀNH 1 ĐỔI 1 TRONG 30 NGÀY! 🔥</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg w-100" data-bs-theme="dark">
+            <div class="container-fluid header-inner">
+                <!-- Mobile Logo -->
+                <a class="navbar-brand logo m-0 d-lg-none" href="../trang-chu.html">
+                    <i class="ph-fill ph-bicycle logo-icon"></i>
+                    <div class="logo-text-wrap">
+                        <div class="logo-name">SD'bike</div>
+                        <div class="logo-sub">BICYCLE SHOP</div>
+                    </div>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="d-flex flex-column flex-lg-row align-items-lg-center mx-auto">
+                        <!-- Desktop Logo -->
+                        <a class="navbar-brand logo m-0 d-none d-lg-flex me-4" href="../trang-chu.html">
+                            <i class="ph-fill ph-bicycle logo-icon"></i>
+                            <div class="logo-text-wrap">
+                                <div class="logo-name">SD'bike</div>
+                                <div class="logo-sub">BICYCLE SHOP</div>
+                            </div>
+                        </a>
+                        
+                        <ul class="navbar-nav mb-2 mb-lg-0 fw-medium">
+                            <li class="nav-item">
+                                <a class="nav-link" href="../trang-chu.html" data-i18n="nav_home"><i class="ph ph-house"></i> Trang Chủ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../danh-muc.html" data-i18n="nav_cat"><i class="ph ph-list"></i> Danh Mục</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../ho-tro.html" data-i18n="nav_support"><i class="ph ph-headset"></i> Hỗ Trợ</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Khác
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Khuyến Mãi</a></li>
+                                    <li><a class="dropdown-item" href="#">Tin Tức</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="../../index.html">Về Chúng Tôi</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <form class="d-flex" role="search" onsubmit="event.preventDefault();">
+                        <div class="position-relative w-100 me-2">
+                            <input id="searchInput" class="form-control w-100" type="search" placeholder="Tìm kiếm xe đạp..." aria-label="Search" autocomplete="off" />
+                            <div id="searchSuggestions" class="search-suggestions-dropdown"></div>
+                        </div>
+                        <button class="btn btn-outline-success" type="submit" style="flex-shrink: 0;"><i class="ph-bold ph-magnifying-glass"></i></button>
+                    </form>
+
+                    <div class="header-actions ms-lg-3 mt-3 mt-lg-0">
+                        <button id="theme-toggle" title="Đổi giao diện sáng/tối" aria-label="Toggle theme">
+                            <i class="ph ph-sun" id="theme-icon"></i>
+                        </button>
+                        <button id="langToggleBtn" class="btn-ghost lang-btn">
+                            <i class="ph-fill ph-translate"></i>
+                            <span id="langIcon" class="lang-icon">EN</span>
+                        </button>
+                        <a id="loginBtnTrigger" class="btn-ghost" href="../dang-nhap.html"><i class="ph ph-user"></i></a>
+                        <button class="btn-ghost position-relative" id="cartBtnHeader">
+                            <i class="ph ph-shopping-cart"></i>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </button>
+                        <a class="btn-primary cyber-contact-btn" href="../../index.html">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN PRODUCT DETAIL -->
+    <main class="container product-detail-container reveal-on-scroll hide-before-scroll">
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../trang-chu.html" class="text-cyan text-decoration-none" data-i18n="bc_home"><i
+                            class="ph-fill ph-house"></i> Trang Chủ</a></li>
+                <li class="breadcrumb-item"><a href="../danh-muc.html" class="text-cyan text-decoration-none" data-i18n="bc_kid_bike">Xe Đạp Trẻ Em</a></li>
+                <li class="breadcrumb-item active text-secondary" aria-current="page">Kid-Bike-K1</li>
+            </ol>
+        </nav>
+
+        <div class="row g-5">
+            <!-- Left Column: Gallery -->
+            <div class="col-lg-7">
+                <div class="main-image-wrapper">
+                    <img src="../../assets/images/ảnh kid bike/Kid-Bike-K1.webp" alt="Main Image" id="mainImage">
+                </div>
+                <div class="thumb-list">
+                    <div class="thumb-item active"
+                        onclick="document.getElementById('mainImage').src='../../assets/images/ảnh kid bike/Kid-Bike-K1.webp'; updateThumbs(this)">
+                        <img src="../../assets/images/ảnh kid bike/Kid-Bike-K1.webp" alt="Thumb 1">
+                    </div>
+                    <div class="thumb-item"
+                        onclick="document.getElementById('mainImage').src='../../assets/images/ảnh kid bike/Kid-Bike-K2.webp'; updateThumbs(this)">
+                        <img src="../../assets/images/ảnh kid bike/Kid-Bike-K2.webp" alt="Thumb 2">
+                    </div>
+                    <div class="thumb-item"
+                        onclick="document.getElementById('mainImage').src='../../assets/images/ảnh kid bike/Kid-Bike-K3.webp'; updateThumbs(this)">
+                        <img src="../../assets/images/ảnh kid bike/Kid-Bike-K3.webp" alt="Thumb 3">
+                    </div>
+                    <div class="thumb-item"
+                        onclick="document.getElementById('mainImage').src='../../assets/images/ảnh kid bike/Kid-Bike-K4.webp'; updateThumbs(this)">
+                        <img src="../../assets/images/ảnh kid bike/Kid-Bike-K4.webp" alt="Thumb 4">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Info -->
+            <div class="col-lg-5">
+                <div class="d-inline-block bg-info bg-opacity-10 text-cyan px-2 py-1 rounded fw-bold small mb-2" data-i18n="prod_100_auth"><i
+                        class="ph-fill ph-shield-check"></i> CHÍNH HÃNG 100%</div>
+                <h1 class="product-title" data-i18n="kid_k1_title">Xe Đạp Trẻ Em Kid-Bike-K1 - An Toàn & Bền Bỉ</h1>
+                <p class="product-subtitle" data-i18n="kid_k1_sub">Khung thép hợp kim nhẹ | Bánh 16 inch phù hợp trẻ 4–8 tuổi | Có bánh phụ tập đi</p>
+
+                <div class="d-flex align-items-center mb-4 border-bottom border-secondary pb-4">
+                    <div class="text-warning fs-5 me-2">
+                        <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                            class="ph-fill ph-star"></i><i class="ph-fill ph-star-half"></i>
+                    </div>
+                    <span class="text-muted" data-i18n="prod_reviews">(45 đánh giá)</span>
+                    <span class="mx-3 text-muted">|</span>
+                    <span class="text-success" data-i18n="prod_in_stock"><i class="ph-fill ph-check-circle"></i> Còn hàng</span>
+                </div>
+
+                <div class="price-box">
+                    <span class="price-current">4.300.000₫</span>
+                    <span class="price-old">5.100.000₫</span>
+                </div>
+
+                <div class="mb-4">
+                    <label class="d-block fw-bold mb-2 text-uppercase text-muted label-spaced"><span data-i18n="prod_color">Màu Sắc: </span><span
+                            class="text-body" id="colorName" data-i18n="color_pink">Hồng Phấn</span></label>
+                    <div class="d-flex gap-2">
+                        <button class="color-option active" title="Hồng Phấn"
+                            onclick="document.getElementById('colorName').setAttribute('data-i18n', 'color_pink'); applyLang(); updateColors(this)">
+                            <div class="color-inner" style="background:#ff80b3"></div>
+                        </button>
+                        <button class="color-option" title="Xanh Dương"
+                            onclick="document.getElementById('colorName').setAttribute('data-i18n', 'color_blue'); applyLang(); updateColors(this)">
+                            <div class="color-inner swatch-navy"></div>
+                        </button>
+                        <button class="color-option" title="Vàng Tươi"
+                            onclick="document.getElementById('colorName').setAttribute('data-i18n', 'color_yellow'); applyLang(); updateColors(this)">
+                            <div class="color-inner" style="background:#ffd600"></div>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <label class="fw-bold text-uppercase text-muted label-size" data-i18n="prod_size">Kích Thước</label>
+                        <a href="#" class="text-cyan text-decoration-none small" data-i18n="prod_size_guide"><i class="ph ph-ruler"></i> Hướng dẫn
+                            chọn size</a>
+                    </div>
+                    <div class="d-flex flex-wrap gap-2">
+                        <button class="size-btn active">14"</button>
+                        <button class="size-btn">16"</button>
+                        <button class="size-btn">18"</button>
+                        <button class="size-btn">20"</button>
+                    </div>
+                </div>
+
+                <button class="btn-add-to-cart-lg w-100" id="addToCartAction" data-i18n="prod_add_cart">
+                    <i class="ph-bold ph-shopping-cart"></i> THÊM VÀO GIỎ HÀNG
+                </button>
+
+                <div class="mt-4 p-3 rounded info-box">
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="ph-fill ph-truck text-cyan fs-4 me-3"></i>
+                        <div>
+                            <div class="fw-bold text-body" data-i18n="prod_free_ship">Giao hàng miễn phí toàn quốc</div>
+                            <small class="text-muted" data-i18n="prod_ship_time">Nhận hàng trong 3-5 ngày làm việc</small>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center mt-3">
+                        <i class="ph-fill ph-seal-check text-cyan fs-4 me-3"></i>
+                        <div>
+                            <div class="fw-bold text-body" data-i18n="prod_warranty">Bảo hành 3 năm trọn vẹn</div>
+                            <small class="text-muted" data-i18n="prod_warranty_desc">Bảo dưỡng định kỳ miễn phí tại hệ thống SD'bike</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lower Details Section -->
+        <div class="row mt-5 pt-5 g-5 reveal-on-scroll hide-before-scroll lower-details">
+            <div class="col-lg-8">
+                <ul class="nav nav-tabs nav-tabs-custom mb-4 d-flex tabs-border">
+                    <li class="nav-item flex-grow-1 text-center"><a class="nav-link active" href="#" data-i18n="prod_tab_overview">TỔNG QUAN</a></li>
+                    <li class="nav-item flex-grow-1 text-center"><a class="nav-link" href="#" data-i18n="prod_tab_spec">THÔNG SỐ KỸ THUẬT</a></li>
+                    <li class="nav-item flex-grow-1 text-center"><a class="nav-link" href="#" data-i18n="prod_tab_policy">CHÍNH SÁCH</a></li>
+                </ul>
+
+                <div class="text-body-secondary lh-lg mb-5 tab-content-text">
+                    <p class="mb-4" data-i18n="kid_overview_desc">Chiếc xe đạp <strong>Kid-Bike-K1</strong> là người bạn đồng hành lý tưởng cho các bé từ 4–8 tuổi. Với thiết kế an toàn, màu sắc tươi sáng và khung thép hợp kim nhẹ, bé yêu sẽ tự tin khám phá thế giới trên từng vòng bánh.</p>
+
+                    <div class="feature-img-block row g-0 mb-4 align-items-center">
+                        <div class="col-md-6 order-md-2"><img src="../../assets/images/ảnh kid bike/Kid-Bike-K2.webp" alt="An toàn tuyệt đối"></div>
+                        <div class="col-md-6 order-md-1 feature-text">
+                            <h3 data-i18n="kid_feat1_title">AN TOÀN TUYỆT ĐỐI</h3>
+                            <p data-i18n="kid_feat1_desc">Trang bị bánh phụ hỗ trợ tập đi, tay lái bọc nhựa êm ái và phanh tay nhạy bén, đảm bảo an toàn tối đa cho bé.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-img-block row g-0 mb-4 align-items-center bg-transparent">
+                        <div class="col-md-6"><img src="../../assets/images/ảnh kid bike/Kid-Bike-K3.webp" alt="Thiết kế đáng yêu"></div>
+                        <div class="col-md-6 feature-text">
+                            <h3 class="text-cyan" data-i18n="kid_feat2_title">THIẾT KẾ ĐÁNG YÊU</h3>
+                            <p data-i18n="kid_feat2_desc">Màu sắc rực rỡ, hình dán hoạt hình ngộ nghĩnh giúp bé thêm yêu thích việc đạp xe và vận động ngoài trời.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-img-block row g-0 mb-4 align-items-center">
+                        <div class="col-md-6 order-md-2"><img src="../../assets/images/ảnh kid bike/Kid-Bike-K4.webp" alt="Khung xe bền bỉ"></div>
+                        <div class="col-md-6 order-md-1 feature-text">
+                            <h3 data-i18n="kid_feat3_title">KHUNG XE BỀN BỈ</h3>
+                            <p data-i18n="kid_feat3_desc">Khung thép hợp kim chịu lực tốt, sơn tĩnh điện chống gỉ, bền màu dù đi trong mọi điều kiện thời tiết.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar / Related -->
+            <div class="col-lg-4">
+                <h4 class="fw-bold mb-4 text-body text-uppercase sidebar-heading" data-i18n="prod_related">Khách Hàng Cũng Xem</h4>
+
+                <a href="chi-tiet-kid-bike.html" class="related-product-item">
+                    <img src="../../assets/images/ảnh kid bike/Kid-Bike-K1.webp" class="related-img" alt="Kid-Bike-K2">
+                    <div>
+                        <div class="text-body fw-bold mb-1" data-i18n="related_kid_k2">Xe đạp trẻ em Kid-Bike-K2</div>
+                        <div class="text-cyan fw-bold">3.000.000₫</div>
+                        <div class="text-warning small"><i class="ph-fill ph-star"></i> 4.7</div>
+                    </div>
+                </a>
+
+                <a href="chi-tiet-kid-bike.html" class="related-product-item">
+                    <img src="../../assets/images/ảnh kid bike/Kid-Bike-K2.webp" class="related-img" alt="Princess">
+                    <div>
+                        <div class="text-body fw-bold mb-1" data-i18n="related_princess">Xe đạp Princess - Bé Gái</div>
+                        <div class="text-cyan fw-bold">4.100.000₫</div>
+                        <div class="text-warning small"><i class="ph-fill ph-star"></i> 4.9</div>
+                    </div>
+                </a>
+
+                <a href="chi-tiet-kid-bike.html" class="related-product-item">
+                    <img src="../../assets/images/ảnh kid bike/Kid-Bike-K3.webp" class="related-img" alt="Balance-Bike">
+                    <div>
+                        <div class="text-body fw-bold mb-1" data-i18n="related_balance">Xe thăng bằng Balance-Bike</div>
+                        <div class="text-cyan fw-bold">5.300.000₫</div>
+                        <div class="text-warning small"><i class="ph-fill ph-star"></i> 4.8</div>
+                    </div>
+                </a>
+
+                <div class="contact-banner-gradient mt-5 p-4 text-center">
+                    <i class="ph-duotone ph-headset text-cyan mb-3" style="font-size: 3rem;"></i>
+                    <h5 class="text-body fw-bold" data-i18n="prod_consult">BẠN CẦN TƯ VẤN THÊM?</h5>
+                    <p class="text-body-secondary small mb-4" data-i18n="prod_consult_desc">Đội ngũ kỹ thuật viên của SD'bike luôn sẵn sàng giải đáp kỹ
+                        thuật.</p>
+                    <button class="btn btn-primary w-100 fw-bold border-0 contact-banner-btn" data-i18n="prod_book_call">NHẮN TIN NGAY / BOOK A
+                        CALL</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand-col">
+                    <a class="logo mb-3" href="javascript:void(0)" onclick="window.scrollTo(0,0)">
+                        <i class="ph-fill ph-bicycle logo-icon"></i>
+                        <div class="logo-text-wrap">
+                            <div class="logo-name">SD'bike</div>
+                            <div class="logo-sub">BICYCLE SHOP</div>
+                        </div>
+                    </a>
+                    <p class="footer-desc" data-i18n="f_desc">Hệ thống bán lẻ xe đạp chính hãng toàn quốc. Chất lượng –
+                        Uy tín – Giá tốt nhất.</p>
+                    <div class="footer-contact-new">
+                        <div class="footer-contact-row"><i class="ph-fill ph-phone footer-contact-icon"></i><span
+                                class="footer-contact-text">1900 xxxx</span> (Miễn phí)</div>
+                        <div class="footer-contact-row"><i class="ph-fill ph-envelope footer-contact-icon"></i><span
+                                class="footer-contact-text">support@sdbike.vn</span></div>
+                        <div class="footer-contact-row"><i class="ph-fill ph-map-pin footer-contact-icon"></i><span
+                                class="footer-contact-text">Hồ Chí Minh, Việt Nam</span></div>
+                    </div>
+                    <div class="footer-social">
+                        <a href="#" title="Facebook"><i class="ph-fill ph-facebook-logo"></i></a>
+                        <a href="#" title="Zalo"><i class="ph-fill ph-chats"></i></a>
+                        <a href="#" title="YouTube"><i class="ph-fill ph-youtube-logo"></i></a>
+                        <a href="#" title="TikTok"><i class="ph-fill ph-tiktok-logo"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="footer-col-title" data-i18n="f_col3_title">HỖ TRỢ KHÁCH HÀNG</h5>
+                    <ul class="footer-col-list">
+                        <li><a href="#" data-i18n="fc3_1">Hướng dẫn mua hàng</a></li>
+                        <li><a href="#" data-i18n="fc3_2">Hướng dẫn giao nhận</a></li>
+                        <li><a href="#" data-i18n="fc3_3">Chính sách đổi trả</a></li>
+                        <li><a href="#" data-i18n="fc3_4">Chính sách bảo hành</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="footer-col-title footer-col-title--border" data-i18n="f_col2_title">DANH MỤC SẢN PHẨM
+                    </h5>
+                    <ul class="footer-col-list">
+                        <li><a href="#" data-i18n="fc2_1">Xe đạp thể thao</a></li>
+                        <li><a href="#" data-i18n="fc2_2">Xe đạp trẻ em</a></li>
+                        <li><a href="#" data-i18n="fc2_3">Xe đạp địa hình MTB</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="footer-col-title" data-i18n="f_col4_title">THANH TOÁN</h5>
+                    <div class="footer-payments">
+                        <div class="fpay-tag" title="Thẻ ATM"><i class="ph-fill ph-credit-card"></i></div>
+                        <div class="fpay-tag" title="Visa / MasterCard"><i
+                                class="ph-fill ph-currency-circle-dollar"></i></div>
+                        <div class="fpay-tag" title="Chuyển khoản"><i class="ph-fill ph-bank"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright" data-i18n="copy_right">© 2026 SD'bike. <span class="copyright-highlight">Đại lý
+                        chính hãng toàn quốc!</span></div>
+                <div class="footer-legal">
+                    <a href="#">Chính Sách Bảo Mật</a>
+                    <a href="#">Điều Khoản</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CART SIDEBAR -->
+    <div class="cart-overlay" id="cartOverlay">
+        <div class="cart-sidebar">
+            <div class="cart-header">
+                <h3><span data-i18n="cart_title">Giỏ Hàng</span> (<span id="cartSidebarCount">0</span>)</h3>
+                <button id="cartCloseBtn"><i class="ph ph-x"></i></button>
+            </div>
+            <div class="cart-items" id="cartItemsContainer"></div>
+            <div class="cart-footer">
+                <div class="cart-total"><span data-i18n="cart_total">Tổng tiền</span><strong id="cartTotalPrice">0
+                        ₫</strong></div>
+                <button class="btn-primary w-full" id="checkoutBtn" data-i18n="cart_checkout">Thanh Toán</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- CHAT WIDGET -->
+    <button class="floating-help-btn" aria-label="Chat hỗ trợ"
+        onclick="var cw=document.getElementById('chatWidget'); cw.classList.toggle('active'); if(cw.classList.contains('active')) document.getElementById('chatInput').focus();">
+        <i class="ph-fill ph-chat-circle-dots"></i>
+    </button>
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-header">
+            <div data-i18n="chat_title"><i class="ph-fill ph-headset"></i> Hỗ trợ khách hàng</div>
+            <button id="chatCloseBtn" onclick="document.getElementById('chatWidget').classList.remove('active');"><i
+                    class="ph ph-x"></i></button>
+        </div>
+        <div class="chat-body" id="chatBody"></div>
+        <div class="chat-footer">
+            <div class="chat-footer-inner">
+                <input type="text" id="chatInput" class="chat-input" placeholder="Nhập nội dung cần hỗ trợ..."
+                    data-i18n-ph="chat_ph">
+                <button id="chatSendBtn" class="chat-send"><i class="ph-fill ph-paper-plane-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/script.js?v=1779697700068" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove('hide-before-scroll');
+                        entry.target.classList.add('scale-down-entrance');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+            document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+        });
+
+        function updateThumbs(element) {
+            document.querySelectorAll('.thumb-item').forEach(el => el.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        function updateColors(element) {
+            document.querySelectorAll('.color-option').forEach(el => el.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        document.querySelectorAll('.size-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        document.getElementById('addToCartAction').addEventListener('click', function () {
+            const productItem = {
+                id: 'kid_bike_k1',
+                name: 'Xe Đạp Trẻ Em Kid-Bike-K1',
+                price: 4300000,
+                image: new URL('../../assets/images/ảnh kid bike/Kid-Bike-K1.webp', window.location.href).href
+            };
+            if (typeof window.addSdbCartItem === 'function') {
+                window.addSdbCartItem(productItem);
+                const originalText = this.innerHTML;
+                const originalBg = this.style.backgroundColor;
+                this.innerHTML = '<i class="ph-bold ph-check"></i> ĐÃ THÊM VÀO GIỎ!';
+                this.style.backgroundColor = '#28a745';
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                    this.style.backgroundColor = originalBg;
+                }, 1500);
+            } else {
+                alert("Đang tải dữ liệu, vui lòng thử lại sau!");
+            }
+        });
+    </script>
+
+    <!-- THEME TOGGLE SCRIPT -->
+    <script>
+        (function () {
+            var btn  = document.getElementById('theme-toggle');
+            var icon = document.getElementById('theme-icon');
+
+            function getSaved() {
+                return localStorage.getItem('sdbike-theme') || 'dark';
+            }
+
+            function applyTheme(theme) {
+                const nav = document.querySelector('.navbar');
+                if (theme === 'light') {
+                    document.body.classList.add('light-mode');
+                    document.documentElement.setAttribute('data-bs-theme', 'light');
+                    if (nav) nav.setAttribute('data-bs-theme', 'light');
+                    if (icon) icon.className = 'ph ph-moon';
+                } else {
+                    document.body.classList.remove('light-mode');
+                    document.documentElement.setAttribute('data-bs-theme', 'dark');
+                    if (nav) nav.setAttribute('data-bs-theme', 'dark');
+                    if (icon) icon.className = 'ph ph-sun';
+                }
+                localStorage.setItem('sdbike-theme', theme);
+            }
+
+            // Áp dụng ngay khi load (tránh flash)
+            applyTheme(getSaved());
+
+            if (btn) {
+                btn.addEventListener('click', function () {
+                    applyTheme(getSaved() === 'dark' ? 'light' : 'dark');
+                });
+            }
+        })();
+    </script>
+</body>
+
+</html>

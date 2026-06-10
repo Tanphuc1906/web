@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới Thiệu | Portfolio</title>
+    <!-- Tối ưu Load: Preconnect & Preload -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="image" href="assets/images/hero-sport.jpg">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" as="style">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts: Thêm Orbitron & Share Tech Mono cho giao diện công nghệ -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome & Animate.css (Deferred loading using print -> all) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    </noscript>
+
+    <!-- Custom CSS -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/mobile.css" rel="stylesheet">
+</head>
+
+<body>
+    
+    <!-- Background lấp lánh & Cyber Grid & Binary Rain -->
+    <div class="cyber-alert">
+        <i class="fa-solid fa-triangle-exclamation me-2"></i> SYSTEM BREACH DETECTED
+    </div>
+
+    <div class="particles"></div>
+    <div class="cyber-grid-index"></div>
+    <div class="binary-rain" id="binaryRain"></div>
+
+    <button id="theme-toggle-index" title="Đổi giao diện">
+        <i class="fa-solid fa-sun" id="theme-icon-index"></i>
+    </button>
+
+    <!-- Floating Equalizer -->
+    <div class="cyber-equalizer">
+        <div class="bar bar-1"></div>
+        <div class="bar bar-2"></div>
+        <div class="bar bar-3"></div>
+    </div>
+
+    <style>
+        body {
+            background-color: var(--bg, #0a0e14);
+            color: var(--text, #fff);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .cyber-grid-index {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(0,240,255,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,240,255,0.04) 1px, transparent 1px);
+            background-size: 40px 40px;
+            transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
+            animation: gridMove 15s linear infinite;
+        }
+        @keyframes gridMove {
+            0% { transform: perspective(500px) rotateX(60deg) translateY(0) translateZ(-200px); }
+            100% { transform: perspective(500px) rotateX(60deg) translateY(40px) translateZ(-200px); }
+        }
+        
+        .avatar-glow {
+            position: relative;
+            display: inline-block;
+        }
+        .avatar-glow::before {
+            content: '';
+            position: absolute;
+            inset: -15px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #00f0ff, #ff007f, #00f0ff, #ff007f);
+            z-index: -1;
+            filter: blur(15px);
+            animation: spinGlow 3s linear infinite;
+            background-size: 400%;
+        }
+        @keyframes spinGlow { 
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .typing-text {
+            border-right: 3px solid #00f0ff;
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            animation: typing 3s steps(40, end) alternate infinite, blinkCursor 0.5s step-end infinite;
+        }
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blinkCursor { 50% { border-color: transparent } }
+
+        .cyber-card {
+            background: rgba(15, 20, 30, 0.7);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(0, 240, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s;
+        }
+        .cyber-card:hover {
+            transform: translateY(-10px);
+            border-color: #00f0ff;
+            box-shadow: 0 10px 40px rgba(0, 240, 255, 0.2), inset 0 0 20px rgba(0, 240, 255, 0.2);
+        }
+        .cyber-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 50%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.15), transparent);
+            transform: skewX(-20deg);
+            animation: cyberSweep 6s infinite;
+        }
+        @keyframes cyberSweep { 
+            0% { left: -100%; } 
+            20%, 100% { left: 200%; } 
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #00f0ff, #0055ff);
+            box-shadow: 0 0 10px #00f0ff;
+            border-radius: 4px;
+        }
+
+        .btn-mega {
+            background: linear-gradient(135deg, #00f0ff, #0055ff);
+            color: #fff;
+            font-size: 1.3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            border: 2px solid #00f0ff;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+            transition: all 0.3s;
+            letter-spacing: 2px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        .btn-mega:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(0, 240, 255, 0.8);
+            color: #fff;
+        }
+
+        .term-block {
+            background: rgba(10, 15, 20, 0.6) !important;
+            border: none !important;
+            position: relative;
+            clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+            transition: all 0.3s;
+            border-radius: 0 !important;
+            padding: 1.2rem !important;
+            animation: floatBlock 6s ease-in-out infinite;
+            overflow: hidden;
+        }
+        .term-block:nth-child(2n) { animation-delay: 1.5s; }
+        .term-block:nth-child(3n) { animation-delay: 3s; }
+        
+        @keyframes floatBlock {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .term-block::before {
+            content: '';
+            position: absolute;
+            top: 1px; left: 1px; right: 1px; bottom: 1px;
+            background: transparent;
+            border: 1px solid rgba(0, 240, 255, 0.4);
+            clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+            pointer-events: none;
+            transition: all 0.3s;
+            animation: pulseBorder 2s infinite alternate;
+        }
+        @keyframes pulseBorder {
+            0% { box-shadow: inset 0 0 5px rgba(0,240,255,0.1); }
+            100% { box-shadow: inset 0 0 20px rgba(0,240,255,0.4); }
+        }
+
+        .term-block::after {
+            content: '';
+            position: absolute;
+            top: -100%; left: 0; right: 0; height: 50%;
+            background: linear-gradient(to bottom, rgba(0, 240, 255, 0), rgba(0, 240, 255, 0.3), rgba(0, 240, 255, 0));
+            animation: termScan 4s linear infinite;
+            pointer-events: none;
+        }
+        @keyframes termScan {
+            0% { top: -100%; opacity: 1; }
+            50%, 100% { top: 200%; opacity: 0; }
+        }
+
+        .term-block:hover {
+            background: rgba(0, 240, 255, 0.15) !important;
+            transform: translateX(10px) scale(1.02) !important;
+            animation-play-state: paused;
+        }
+        .term-block:hover::before {
+            border: 2px solid #ff007f;
+            box-shadow: inset 0 0 25px rgba(255, 0, 127, 0.5);
+            animation: none;
+        }
+        
+        .fw-black { font-family: 'Orbitron', sans-serif; font-weight: 900; }
+        .tech-font { font-family: 'Share Tech Mono', monospace; letter-spacing: 1px; }
+        
+        .glitch-wrapper {
+            position: relative;
+        }
+        .glitch-text {
+            position: relative;
+            display: inline-block;
+        }
+        .glitch-text::before, .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: transparent;
+            opacity: 0.8;
+        }
+        .glitch-text::before {
+            left: 3px;
+            text-shadow: -2px 0 #ff007f;
+            clip: rect(24px, 550px, 90px, 0);
+            animation: glitch-anim 3s infinite linear alternate-reverse;
+        }
+        .glitch-text::after {
+            left: -3px;
+            text-shadow: -2px 0 #00f0ff;
+            clip: rect(85px, 550px, 140px, 0);
+            animation: glitch-anim 2.5s infinite linear alternate-reverse;
+        }
+        @keyframes glitch-anim {
+            0% { clip: rect(10px, 9999px, 30px, 0); }
+            20% { clip: rect(50px, 9999px, 80px, 0); }
+            40% { clip: rect(20px, 9999px, 50px, 0); }
+            60% { clip: rect(80px, 9999px, 110px, 0); }
+            80% { clip: rect(30px, 9999px, 60px, 0); }
+            100% { clip: rect(70px, 9999px, 90px, 0); }
+        }
+
+        .binary-rain {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.05;
+            color: #00f0ff;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1.2rem;
+            overflow: hidden;
+        }
+        .binary-column { float: left; text-align: center; }
+
+        .cyber-equalizer {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            display: flex;
+            gap: 6px;
+            align-items: flex-end;
+            z-index: 10;
+        }
+        .cyber-equalizer .bar {
+            width: 10px;
+            background: #00f0ff;
+            box-shadow: 0 0 10px #00f0ff;
+            border-radius: 5px 5px 0 0;
+            animation: eq-anim 1s ease-in-out infinite alternate;
+        }
+        .cyber-equalizer .bar-1 { height: 20px; animation-duration: 0.7s; }
+        .cyber-equalizer .bar-2 { height: 40px; animation-duration: 0.5s; background: #ff007f; box-shadow: 0 0 10px #ff007f; }
+        .cyber-equalizer .bar-3 { height: 30px; animation-duration: 0.9s; }
+
+        @keyframes eq-anim {
+            0% { height: 10px; }
+            100% { height: 60px; }
+        }
+        
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 50% { opacity: 0; } }
+    
+        /* CYBERSECURITY THEME ENHANCEMENTS */
+        .cyber-card {
+            background: rgba(10, 15, 20, 0.85) !important;
+            border: none !important;
+            box-shadow: 0 0 20px rgba(0,240,255,0.1) !important;
+            position: relative;
+            clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 30px 100%, 0 calc(100% - 30px));
+            padding: 40px !important;
+        }
+        .cyber-card::before {
+            content: '';
+            position: absolute;
+            top: 1px; left: 1px; right: 1px; bottom: 1px;
+            background: transparent;
+            border: 1px solid #00f0ff;
+            clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 30px 100%, 0 calc(100% - 30px));
+            pointer-events: none;
+            z-index: 10;
+        }
+        
+        .avatar-glow img {
+            clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
+            border-radius: 0 !important;
+            border: 2px solid #00f0ff !important;
+        }
+        
+        .cyber-radar {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px dashed rgba(0,240,255,0.3);
+            border-radius: 50%;
+            z-index: -1;
+            pointer-events: none;
+            box-shadow: inset 0 0 40px rgba(0,240,255,0.2);
+        }
+        .cyber-radar::before {
+            content: '';
+            position: absolute;
+            width: 50%; height: 50%;
+            bottom: 50%; left: 50%;
+            transform-origin: 0% 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.4));
+            animation: radarSpin 3s linear infinite;
+        }
+        .cyber-radar::after {
+            content: '';
+            position: absolute;
+            width: 70%; height: 70%;
+            top: 15%; left: 15%;
+            border: 1px solid rgba(255,0,127,0.3);
+            border-radius: 50%;
+            animation: radarSpinReverse 8s linear infinite;
+        }
+        @keyframes radarSpin { 100% { transform: rotate(360deg); } }
+        @keyframes radarSpinReverse { 100% { transform: rotate(-360deg); } }
+        
+        .cyber-alert {
+            position: fixed;
+            top: 20px; right: 20px;
+            background: rgba(255, 0, 127, 0.1);
+            border-left: 4px solid #ff007f;
+            color: #ff007f;
+            padding: 10px 20px;
+            font-family: 'Share Tech Mono', monospace;
+            font-weight: bold;
+            z-index: 9999;
+            box-shadow: 0 0 15px rgba(255,0,127,0.4);
+            animation: flashAlert 2s infinite;
+            backdrop-filter: blur(5px);
+        }
+        @keyframes flashAlert {
+            0%, 49% { opacity: 1; border-color: #ff007f; }
+            50%, 100% { opacity: 0.5; border-color: transparent; }
+        }
+        
+        /* Add moving data blocks */
+        .data-block {
+            position: absolute;
+            background: rgba(0, 240, 255, 0.1);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            color: #00f0ff;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.7rem;
+            padding: 5px;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+            opacity: 0.5;
+        }
+
+    
+        /* SKILL ITEM EFFECTS */
+        .skill-item {
+            padding: 10px;
+            border-left: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        .skill-item:hover {
+            background: rgba(0, 240, 255, 0.05);
+            border-left: 2px solid #00f0ff;
+            transform: translateX(10px);
+        }
+        .skill-item:hover .skill-progress {
+            box-shadow: 0 0 20px #00f0ff, 0 0 30px #ff007f;
+            background: linear-gradient(90deg, #ff007f, #00f0ff);
+        }
+        
+        /* AVATAR ORBIT BOXES */
+        .avatar-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 3rem;
+        }
+        .avatar-orbit {
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 400px; height: 400px;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+            pointer-events: none;
+        }
+        .orbit-box {
+            position: absolute;
+            background: rgba(10, 15, 20, 0.85);
+            border: 1px solid #00f0ff;
+            color: #00f0ff;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.8rem;
+            padding: 6px 12px;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+            backdrop-filter: blur(5px);
+            clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+            animation: orbitPulse 3s infinite alternate, orbitFloat 6s infinite ease-in-out;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .orbit-box::before {
+            content: '';
+            display: block;
+            width: 8px; height: 8px;
+            background: #00f0ff;
+            border-radius: 50%;
+            animation: blink 1s infinite;
+        }
+        .box-1 { top: 15%; left: 0%; animation-delay: 0s, 0s; }
+        .box-2 { top: 60%; right: -5%; animation-delay: 1s, 2s; border-color: #ff007f; color: #ff007f; }
+        .box-2::before { background: #ff007f; }
+        .box-3 { bottom: 0%; left: 15%; animation-delay: 2s, 4s; border-color: #00ffaa; color: #00ffaa; }
+        .box-3::before { background: #00ffaa; }
+        
+        @keyframes orbitPulse {
+            0% { box-shadow: 0 0 5px currentColor; }
+            100% { box-shadow: 0 0 25px currentColor; filter: brightness(1.2); }
+        }
+        @keyframes orbitFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+
+    
+        /* PROJECT CAROUSEL */
+        .project-carousel-wrapper {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: visible;
+        }
+        .project-item {
+            position: absolute;
+            width: 75%;
+            height: 100%;
+            top: 0;
+            transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+        }
+        .project-item.active {
+            left: 50%;
+            transform: translateX(-50%) scale(1);
+            z-index: 3;
+            opacity: 1;
+            filter: blur(0);
+        }
+        .project-item.left-item {
+            left: 10%;
+            transform: translateX(-50%) scale(0.8) perspective(500px) rotateY(15deg);
+            z-index: 1;
+            opacity: 0.3;
+            filter: blur(3px);
+            pointer-events: none;
+        }
+        .project-item.right-item {
+            left: 90%;
+            transform: translateX(-50%) scale(0.8) perspective(500px) rotateY(-15deg);
+            z-index: 1;
+            opacity: 0.3;
+            filter: blur(3px);
+            pointer-events: none;
+        }
+        
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(10, 15, 20, 0.8);
+            border: 1px solid #00f0ff;
+            color: #00f0ff;
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            z-index: 10;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 10px rgba(0,240,255,0.3);
+        }
+        .carousel-arrow:hover {
+            background: #00f0ff;
+            color: #000;
+            box-shadow: 0 0 20px #00f0ff;
+        }
+        .carousel-arrow.arrow-left { left: -15px; }
+        .carousel-arrow.arrow-right { right: -15px; }
+        
+        .project-item .term-block {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            animation: none !important; /* disable floating inside carousel */
+        }
+
+        /* --- LIGHT MODE OVERRIDES --- */
+        body.light-mode {
+            --bg: #f0f4f8;
+            --text: #1a1e2e;
+        }
+        body.light-mode .cyber-grid-index {
+            background-image:
+                linear-gradient(rgba(0, 151, 167, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 151, 167, 0.1) 1px, transparent 1px);
+        }
+        body.light-mode .cyber-card {
+            background: rgba(255, 255, 255, 0.85) !important;
+            border: 1px solid rgba(0, 151, 167, 0.3) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+        }
+        body.light-mode .cyber-card::before { border-color: #0097a7; }
+        body.light-mode .text-white { color: #1a1e2e !important; }
+        body.light-mode .text-info { color: #0097a7 !important; }
+        body.light-mode .text-white-50 { color: #5a6375 !important; }
+        body.light-mode .term-block {
+            background: rgba(255, 255, 255, 0.9) !important;
+            border: 1px solid rgba(0, 151, 167, 0.2) !important;
+        }
+        body.light-mode .term-block::before { border-color: rgba(0, 151, 167, 0.4); }
+        body.light-mode .glitch-text { text-shadow: none !important; }
+        body.light-mode .glitch-text::before { text-shadow: -2px 0 #d81b60; opacity: 0.5; }
+        body.light-mode .glitch-text::after { text-shadow: -2px 0 #0097a7; opacity: 0.5; }
+        body.light-mode .orbit-box { background: rgba(255, 255, 255, 0.9); box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        body.light-mode .avatar-glow::before { filter: blur(20px); opacity: 0.5; }
+        body.light-mode .binary-rain { color: #0097a7; opacity: 0.1; }
+        body.light-mode .cyber-radar { border-color: rgba(0, 151, 167, 0.3); box-shadow: inset 0 0 20px rgba(0, 151, 167, 0.1); }
+        
+        /* Theme Toggle Button */
+        #theme-toggle-index {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 10000;
+            background: rgba(10, 15, 20, 0.8);
+            border: 1px solid #00f0ff;
+            color: #00f0ff;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+        }
+        body.light-mode #theme-toggle-index {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: #0097a7;
+            color: #0097a7;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #theme-toggle-index:hover {
+            transform: scale(1.1) rotate(15deg);
+        }
+
+
+    </style>
+
+    <!-- Hero Section -->
+    <header class="min-vh-100 d-flex flex-column justify-content-center align-items-center text-center position-relative pt-5">
+        <div class="hero-z z-3 w-100">
+            
+            <div class="avatar-container">
+                <div class="cyber-radar"></div>
+                
+                <!-- Floating Orbit Boxes -->
+                <div class="avatar-orbit">
+                    <div class="orbit-box box-1">SYS.AI_ACTIVE</div>
+                    <div class="orbit-box box-2">NETWORK_SECURE</div>
+                    <div class="orbit-box box-3">DATA_SYNC [100%]</div>
+                </div>
+
+                <div class="avatar-glow animate__animated animate__zoomIn">
+                    <img src="assets/images/hero-sport.jpg" alt="Avatar" class="rounded-circle shadow-lg profile-avatar border border-3 border-info" style="width: 200px; height: 200px; object-fit: cover; position: relative; z-index: 2;">
+                    <div class="position-absolute bottom-0 end-0 bg-success rounded-circle shadow status-dot border border-3 border-dark" style="width: 30px; height: 30px; z-index: 3;" title="Trực tuyến"></div>
+                </div>
+            </div>
+
+            <div class="glitch-wrapper">
+                <h1 class="display-3 fw-black text-white mt-4 mb-3 animate__animated animate__fadeInUp glitch-text" data-text="Trần Nguyễn Tấn Phúc" style="text-shadow: 0 0 20px rgba(0,240,255,0.8); letter-spacing: 2px;">
+                    Trần Nguyễn Tấn Phúc</h1>
+            </div>
+            <div class="lead text-info fs-3 mb-4 tech-font" style="height: 40px; text-shadow: 0 0 10px rgba(0,240,255,0.5);">
+                <span class="typing-text">> Frontend Developer | Hacker Mindset | Explorer_</span>
+            </div>
+
+            <!-- Terminal Typewriter -->
+            <div class="tech-font text-start p-3 rounded mx-auto mb-4 animate__animated animate__fadeInUp animate__delay-1s" style="max-width: 600px; width: 100%; background: rgba(0,0,0,0.7); border: 1px solid #00f0ff; box-shadow: 0 0 15px rgba(0,240,255,0.2); backdrop-filter: blur(5px);">
+                <div class="d-flex gap-2 mb-2 pb-2 border-bottom border-secondary border-opacity-50">
+                    <span style="width: 12px; height: 12px; background: #ff5f56; border-radius: 50%;"></span>
+                    <span style="width: 12px; height: 12px; background: #ffbd2e; border-radius: 50%;"></span>
+                    <span style="width: 12px; height: 12px; background: #27c93f; border-radius: 50%;"></span>
+                </div>
+                <div class="fs-5 text-break">
+                    <span class="text-success fw-bold">root@cyber-core:~# </span>
+                    <span id="typewriter-code" class="text-info fw-bold"></span><span class="cursor-blink text-white fw-bold">_</span>
+                </div>
+            </div>
+
+            <a href="#about" class="scroll-down-icon text-cyan text-decoration-none animate__animated animate__bounce animate__infinite animate__slower mt-2 d-inline-block">
+                <i class="fa-solid fa-angles-down fs-1" style="filter: drop-shadow(0 0 10px #00f0ff);"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Content Sections -->
+    <main id="about" class="position-relative z-3 pb-5">
+        <div class="container py-5">
+            <!-- Giới thiệu Overview -->
+            <section class="row mb-5 py-4">
+                <div class="col-lg-12 mx-auto cyber-card p-5 rounded-4 reveal-on-scroll">
+                    <h2 class="text-white fw-bold mb-5 text-center text-uppercase" style="letter-spacing: 3px; text-shadow: 0 0 15px #ff007f;">
+                        <i class="fa-solid fa-user-ninja text-pink me-3"></i>Hồ Sơ Năng Lực
+                    </h2>
+
+                    <div class="row text-start mt-5 g-5">
+                        <div class="col-md-6 border-end border-info border-opacity-25 pe-md-5">
+                            <h4 class="text-info fw-bold mb-4 fs-3"><i class="fa-solid fa-microchip me-2"></i> Kỹ Năng Cốt Lõi</h4>
+                            
+                            <div class="skill-item mb-3">
+                                <div class="d-flex justify-content-between text-white fs-6 fw-bold mb-1">
+                                    <span><i class="fa-brands fa-html5 text-orange me-2"></i>HTML / CSS / JS</span><span class="text-info">90%</span>
+                                </div>
+                                <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+                            </div>
+                            <div class="skill-item mb-3">
+                                <div class="d-flex justify-content-between text-white fs-6 fw-bold mb-1">
+                                    <span><i class="fa-solid fa-server text-success me-2"></i>Backend (NodeJS / Python)</span><span class="text-info">85%</span>
+                                </div>
+                                <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+                            </div>
+                            <div class="skill-item mb-3">
+                                <div class="d-flex justify-content-between text-white fs-6 fw-bold mb-1">
+                                    <span><i class="fa-solid fa-layer-group text-warning me-2"></i>Full Stack Development</span><span class="text-info">88%</span>
+                                </div>
+                                <div class="skill-bar"><div class="skill-progress" style="width: 88%;"></div></div>
+                            </div>
+                            <div class="skill-item mb-3">
+                                <div class="d-flex justify-content-between text-white fs-6 fw-bold mb-1">
+                                    <span><i class="fa-solid fa-brain text-pink me-2"></i>Artificial Intelligence (AI)</span><span class="text-info">80%</span>
+                                </div>
+                                <div class="skill-bar"><div class="skill-progress" style="width: 80%;"></div></div>
+                            </div>
+                            <div class="skill-item mb-3">
+                                <div class="d-flex justify-content-between text-white fs-6 fw-bold mb-1">
+                                    <span><i class="fa-solid fa-shield-halved text-cyan me-2"></i>UI/UX & Cyber Security</span><span class="text-info">95%</span>
+                                </div>
+                                <div class="skill-bar"><div class="skill-progress" style="width: 95%;"></div></div>
+                            </div>
+                            
+                            <p class="text-white-50 fs-5 lh-lg mt-5 border-start border-4 border-pink ps-3" style="font-style: italic;">
+                                "Là sinh viên tại <strong>Đại học Công nghệ Đồng Nai (DNTU)</strong> 🎓, mình không chỉ viết code mà còn tạo ra nghệ thuật số. Mình biến những ý tưởng điên rồ nhất thành hiện thực qua các giao diện Web tương tác mượt mà."
+                            </p>
+                        </div>
+
+                        <div class="col-md-6 ps-md-5">
+                            <h4 class="text-info fw-bold mb-4 fs-3"><i class="fa-solid fa-dna me-2"></i> DNA Của Tôi</h4>
+                            <div class="d-flex flex-column gap-4">
+                                <div class="d-flex align-items-center p-3 rounded-3 term-block">
+                                    <i class="fa-solid fa-ghost text-pink fs-1 me-4"></i>
+                                    <div>
+                                        <h5 class="text-white mb-1 fw-bold fs-5">Gamer Đích Thực</h5>
+                                        <div class="text-white-50 fs-6">Đam mê game không chỉ để giải trí, mà để phân tích logic và nghệ thuật thiết kế hệ thống đằng sau mỗi tựa game.</div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center p-3 rounded-3 term-block">
+                                    <i class="fa-solid fa-user-secret text-cyan fs-1 me-4"></i>
+                                    <div>
+                                        <h5 class="text-white mb-1 fw-bold fs-5">Hacker Mindset</h5>
+                                        <div class="text-white-50 fs-6">Thích tìm tòi dịch ngược, khám phá "backdoor" và bẻ khóa các cơ chế bí ẩn của game offline.</div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center p-3 rounded-3 term-block">
+                                    <i class="fa-solid fa-motorcycle text-warning fs-1 me-4"></i>
+                                    <div>
+                                        <h5 class="text-white mb-1 fw-bold fs-5">Kẻ Mộng Mơ Lữ Hành</h5>
+                                        <div class="text-white-50 fs-6">Yêu thích phượt bụi, xách balo và laptop đi chinh phục mọi nẻo đường hoang dã của đất nước.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2 Cột Dự án -->
+            <section class="row g-5 py-3 mb-5">
+                <div class="col-md-6 reveal-on-scroll">
+                    <div class="cyber-card p-5 h-100 rounded-4">
+                        <h3 class="text-pink fw-bold mb-4 text-uppercase text-center"><i class="fa-solid fa-code-branch me-2"></i> Đóng Góp Dự Án</h3>
+                        <div class="project-carousel-wrapper mt-4">
+                            <button class="carousel-arrow arrow-left" onclick="rotateProj(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+                            
+                            <div class="project-item active" data-index="0" onclick="setProj(0)">
+                                <div class="p-3 rounded term-block">
+                                    <div class="text-info fw-bold mb-3 fs-5"><i class="fa-solid fa-layer-group me-2"></i>> init Frontend_UI()</div>
+                                    <div class="text-white-50 small">Thiết kế hệ thống giao diện Dark-Theme Cyberpunk / Glassmorphism. Tối ưu hóa UI/UX, tích hợp CSS Animation mượt mà và Responsive.</div>
+                                </div>
+                            </div>
+                            <div class="project-item right-item" data-index="1" onclick="setProj(1)">
+                                <div class="p-3 rounded term-block">
+                                    <div class="text-info fw-bold mb-3 fs-5"><i class="fa-solid fa-server me-2"></i>> compile Backend()</div>
+                                    <div class="text-white-50 small">Phát triển hạ tầng Server bảo mật. Quản lý cơ sở dữ liệu, xử lý API giỏ hàng, xác thực người dùng và mã hóa mật khẩu an toàn.</div>
+                                </div>
+                            </div>
+                            <div class="project-item left-item" data-index="2" onclick="setProj(2)">
+                                <div class="p-3 rounded term-block">
+                                    <div class="text-info fw-bold mb-3 fs-5"><i class="fa-solid fa-cart-shopping me-2"></i>> execute Cart_Logic()</div>
+                                    <div class="text-white-50 small">Thiết kế thuật toán Giỏ hàng ảo cực chuẩn. Tích hợp thanh toán cùng với hệ thống đa ngôn ngữ (i18n) động toàn diện.</div>
+                                </div>
+                            </div>
+
+                            <button class="carousel-arrow arrow-right" onclick="rotateProj(1)"><i class="fa-solid fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 reveal-on-scroll">
+                    <div class="cyber-card p-5 h-100 rounded-4 d-flex flex-column text-center justify-content-center align-items-center">
+                        <div class="mb-4">
+                            <i class="fa-solid fa-bicycle text-cyan animate__animated animate__tada animate__infinite" style="font-size: 5rem; filter: drop-shadow(0 0 20px #00f0ff);"></i>
+                        </div>
+                        <h3 class="text-white fw-bold mb-4 text-uppercase" style="letter-spacing: 2px;"><span class="text-info">SD'bike</span> Project</h3>
+                        <p class="text-white-50 mb-5 fs-5 lh-lg px-3">
+                            Không chỉ là nơi mua bán xe đạp, đây là một không gian nghệ thuật số với tốc độ xử lý "bàn thờ" và giao diện Cyberpunk làm say đắm lòng người.
+                        </p>
+                        <a href="pages/trang-chu.html" class="btn-mega py-3 px-5 rounded-pill w-100">
+                            TRUY CẬP CỬA HÀNG <i class="fa-solid fa-rocket ms-3 animate__animated animate__shakeX animate__infinite"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer class="py-5 mt-5 border-top border-info border-opacity-25 position-relative z-3">
+            <div class="container text-center">
+                <div class="d-flex gap-4 justify-content-center mb-4">
+                    <a href="https://facebook.com/" target="_blank" class="text-cyan hover-bounce text-decoration-none" style="transition: 0.3s;" onmouseover="this.style.color='#fff'; this.style.textShadow='0 0 15px #00f0ff'" onmouseout="this.style.color='var(--cyan)'; this.style.textShadow='none'"><i class="fa-brands fa-facebook fs-1"></i></a>
+                    <a href="https://github.com/" target="_blank" class="text-cyan hover-bounce text-decoration-none" style="transition: 0.3s;" onmouseover="this.style.color='#fff'; this.style.textShadow='0 0 15px #00f0ff'" onmouseout="this.style.color='var(--cyan)'; this.style.textShadow='none'"><i class="fa-brands fa-github fs-1"></i></a>
+                    <a href="https://linkedin.com/" target="_blank" class="text-cyan hover-bounce text-decoration-none" style="transition: 0.3s;" onmouseover="this.style.color='#fff'; this.style.textShadow='0 0 15px #00f0ff'" onmouseout="this.style.color='var(--cyan)'; this.style.textShadow='none'"><i class="fa-brands fa-linkedin fs-1"></i></a>
+                </div>
+                <p class="text-white-50 mb-0 tech-font fs-5" style="letter-spacing: 2px;">&copy; 2026 TRẦN NGUYỄN TẤN PHÚC_</p>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Bootstrap JS Bundle (Deferred) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+
+    <!-- Scripts (Tối ưu Load) -->
+    <script defer>
+        
+        
+        // JS Project Carousel
+        let currentProjIndex = 0;
+        const totalProj = 3;
+        
+        function updateProjCarousel() {
+            const items = document.querySelectorAll('.project-item');
+            if(items.length === 0) return;
+            
+            items.forEach(item => {
+                item.classList.remove('active', 'left-item', 'right-item');
+                const idx = parseInt(item.getAttribute('data-index'));
+                
+                if (idx === currentProjIndex) {
+                    item.classList.add('active');
+                } else if (idx === (currentProjIndex - 1 + totalProj) % totalProj) {
+                    item.classList.add('left-item');
+                } else if (idx === (currentProjIndex + 1) % totalProj) {
+                    item.classList.add('right-item');
+                }
+            });
+        }
+        
+        window.rotateProj = function(direction) {
+            currentProjIndex = (currentProjIndex + direction + totalProj) % totalProj;
+            updateProjCarousel();
+        }
+        window.setProj = function(index) {
+            if(currentProjIndex === index) return;
+            currentProjIndex = index;
+            updateProjCarousel();
+        }
+
+        // Khởi tạo các khối data nổi
+        function createDataBlocks() {
+            for(let i=0; i<5; i++) {
+                const block = document.createElement('div');
+                block.className = 'data-block';
+                block.style.width = (Math.random() * 100 + 100) + 'px';
+                block.style.height = (Math.random() * 50 + 50) + 'px';
+                block.style.top = (Math.random() * 80 + 10) + '%';
+                block.style.left = (Math.random() * 80 + 10) + '%';
+                
+                setInterval(() => {
+                    block.innerHTML = Array(3).fill(0).map(() => Math.random().toString(16).substr(2, 8).toUpperCase()).join('<br>');
+                    block.style.top = (parseFloat(block.style.top) + (Math.random() - 0.5) * 2) + '%';
+                }, 500);
+                
+                document.body.appendChild(block);
+            }
+        }
+        setTimeout(createDataBlocks, 1000);
+
+        // Khởi tạo hiệu ứng ma trận (Binary Rain) nhẹ nhàng bằng JS
+        function createBinaryRain() {
+            const container = document.getElementById('binaryRain');
+            if(!container) return;
+            const columns = Math.floor(window.innerWidth / 30);
+            for(let i = 0; i < columns; i++) {
+                const col = document.createElement('div');
+                col.className = 'binary-column';
+                col.style.width = '30px';
+                col.innerHTML = Array(20).fill(0).map(() => Math.random() > 0.5 ? '1' : '0').join('<br>');
+                col.style.marginTop = Math.random() * -1000 + 'px';
+                
+                setInterval(() => {
+                    const top = parseFloat(col.style.marginTop);
+                    col.style.marginTop = (top + 2) + 'px';
+                    if(top > window.innerHeight) col.style.marginTop = '-500px';
+                    
+                    // Thỉnh thoảng đổi số
+                    if(Math.random() > 0.8) {
+                        let text = col.innerHTML.split('<br>');
+                        text[Math.floor(Math.random() * text.length)] = Math.random() > 0.5 ? '1' : '0';
+                        col.innerHTML = text.join('<br>');
+                    }
+                }, 50);
+                container.appendChild(col);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            // Hiệu ứng gõ code (Typewriter effect)
+            const codeLines = [
+                "Initializing CYBER_NINJA protocol...",
+                "Bypassing mainframe security [OK]",
+                "Decrypting Neural Network...",
+                "Injecting Malicious Payloads...",
+                "System Online. Welcome, Master Hacker."
+            ];
+            let lineIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            
+            function typeCode() {
+                const typeTarget = document.getElementById('typewriter-code');
+                if(!typeTarget) return;
+
+                const currentLine = codeLines[lineIndex];
+                
+                if (isDeleting) {
+                    charIndex--;
+                } else {
+                    charIndex++;
+                }
+
+                typeTarget.textContent = currentLine.substring(0, charIndex);
+
+                let typeSpeed = 50;
+                if (isDeleting) typeSpeed /= 2;
+
+                if (!isDeleting && charIndex === currentLine.length) {
+                    typeSpeed = 1500; // Dừng lại ở cuối câu
+                    isDeleting = true;
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    lineIndex = (lineIndex + 1) % codeLines.length;
+                    typeSpeed = 500; // Dừng một chút trước khi gõ câu mới
+                }
+
+                setTimeout(typeCode, typeSpeed);
+            }
+            // Bắt đầu hiệu ứng gõ code
+            setTimeout(typeCode, 1000);
+
+            // Chạy matrix effect sau khi trang đã load để không block render
+            setTimeout(createBinaryRain, 500);
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove('hide-before-scroll');
+                        entry.target.classList.add('scale-down-entrance', 'visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+            
+            // Theme Toggle Logic
+            const themeBtn = document.getElementById('theme-toggle-index');
+            const themeIcon = document.getElementById('theme-icon-index');
+            
+            function getSavedTheme() {
+                return localStorage.getItem('sdbike-theme') || 'dark';
+            }
+            
+            function applyTheme(theme) {
+                if (theme === 'light') {
+                    document.body.classList.add('light-mode');
+                    if (themeIcon) { themeIcon.classList.remove('fa-sun'); themeIcon.classList.add('fa-moon'); }
+                } else {
+                    document.body.classList.remove('light-mode');
+                    if (themeIcon) { themeIcon.classList.remove('fa-moon'); themeIcon.classList.add('fa-sun'); }
+                }
+                localStorage.setItem('sdbike-theme', theme);
+            }
+            
+            applyTheme(getSavedTheme());
+            
+            if (themeBtn) {
+                themeBtn.addEventListener('click', () => {
+                    applyTheme(getSavedTheme() === 'dark' ? 'light' : 'dark');
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
